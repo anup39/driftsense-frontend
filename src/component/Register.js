@@ -11,7 +11,7 @@ export default function Register() {
             Register
           </div>
           <div className="justify-self-center sm:text-xs md:text-sm sm:text-[#A6A7B0] ">
-            <span>Needs an account?</span>
+            <span>Register New Account?</span>
             <span className="text-[#F2994A] font-bold">
               <a href="#"> Sign Up</a>
             </span>
@@ -29,49 +29,6 @@ export default function Register() {
                 type="text"
                 className="outline-2 outline-[#F2994A] p-2 sm:p-1 md:p-2 bg-[#384063] text-white w-full  rounded-md"
               />
-            </div>
-            <div className="">
-              <label className="sm:text-[#DEDEDF]">
-                Password <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <input
-                type="text"
-                className="outline-none p-2 sm:p-1 md:p-2 w-full bg-[#384063] text-white rounded-md"
-              ></input>
-            </div>
-
-            <div className="">
-              <label className="sm:text-[#DEDEDF]">
-                Password <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <input
-                type="text"
-                className="outline-none p-2 sm:p-1 md:p-2 w-full bg-[#384063] text-white rounded-md"
-              ></input>
-            </div>
-
-            <div className="">
-              <label className="sm:text-[#DEDEDF]">
-                Password <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <input
-                type="text"
-                className="outline-none p-2 sm:p-1 md:p-2 w-full bg-[#384063] text-white rounded-md"
-              ></input>
-            </div>
-
-            <div className="">
-              <label className="sm:text-[#DEDEDF]">
-                Password <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <input
-                type="text"
-                className="outline-none p-2 sm:p-1 md:p-2 w-full bg-[#384063] text-white rounded-md"
-              ></input>
             </div>
           </form>
         </div>
