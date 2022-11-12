@@ -8,12 +8,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '770px',
-      'lmd': '1000px',
-      'lg': '1200px',
-      'xl': '1380px',
-      '2xl': '1536px',
+      'fdc': '320px',
+      'sdc': '420px',
+      'tdc': '620px',
+      'ftdc': '820px',
+      'fvdc': '920px',
     },
   },
   plugins: [],
