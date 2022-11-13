@@ -48,24 +48,30 @@ export default function Header() {
           "
           >
             Together we will schedule the times for the most
-            <br className="hidden tdc:block" /> efficient spraying. Reduce drift and grow
-            with us.
+            <br className="hidden tdc:block" /> efficient spraying. Reduce drift
+            and grow with us.
           </p>
         </div>
       </div>
 
-      <img src={BG} alt="BackGround" className="
+      <img
+        src={BG}
+        alt="BackGround"
+        className="
       tdc:h-screen tdc:w-auto
-      "></img>
+      "
+      ></img>
 
-      <div className="
+      <div
+        className="
        flex
        absolute  
        text-xs fdc:text-sm tdc:text-xs fvdc:text-sm
-       px-2 fdc:p-5 tdc:px-2 fdc:p-0 fvdc:px-5
+       px-2 fdc:px-5 tdc:px-2 fdc:p-0 fvdc:px-5
        -mt-5   
        space-x-2 
-       ">
+       "
+      >
         <button className="text-[#F2994A]">
           <a>Privacy Policy</a>
         </button>
