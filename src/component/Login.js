@@ -3,7 +3,7 @@ import "../App.css";
 
 import Google from "../assets/google.png";
 import Show from "../assets/show.svg";
-import Header from "./include/Header";
+import HeaderLogin from "./include/HeaderLogin";
 
 export default function Login() {
   return (
@@ -17,7 +17,7 @@ export default function Login() {
         space-y-2  fdc:space-y-5 tdc:space-y-2
       "
       >
-        <Header />
+        <HeaderLogin />
 
         <div
           className="
@@ -115,7 +115,8 @@ export default function Login() {
                 block"
                 ></input>
 
-                <div className="
+                <div
+                  className="
                 absolute 
                 inset-y-0 
                 right-0 
@@ -124,7 +125,8 @@ export default function Login() {
                 items-center 
                 text-sm 
                 leading-5
-                ">
+                "
+                >
                   <img
                     src={Show}
                     className="
@@ -136,31 +138,38 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="
+            <div
+              className="
             grid 
             justify-items-end 
             text-[#F2994A] 
             font-semibold
             text-sm
-            ">
+            "
+            >
               <a href=""> Forgot your Password? </a>
             </div>
           </form>
 
-          <div className="
+          <div
+            className="
           space-y-2
-          ">
-            <button className="
+          "
+          >
+            <button
+              className="
             w-full 
             p-1  fdc:p-2 tdc:p-1 fvdc:p-2
             bg-[#F2994A] 
             text-white 
             rounded-md 
             text-center
-            ">
+            "
+            >
               Login
             </button>
-            <button className="
+            <button
+              className="
             w-full  
             p-1 fdc:p-2 tdc:p-1 fvdc:p-2
             flex 
@@ -172,13 +181,13 @@ export default function Login() {
             sm:border-none 
             rounded-md 
             justify-center
-            ">
+            "
+            >
               <img src={Google}></img> <span>Sign-in with Google</span>
             </button>
           </div>
         </div>
       </div>
-   
     </>
   );
 }
