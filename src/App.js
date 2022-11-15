@@ -1,9 +1,12 @@
 import React from "react";
 import "./App.css";
+import Login from "./component/Login";
 
 // Files
 // import Header from "./component/include/HeaderLogin";
-import Register from "./component/Register";
+// import Forgot from "./component/Forgot";
+// import AlertSuccess from "./component/include/AlertSuccess";
+// import Register from "./component/Register";
 // import Loader from "./component/include/Loader";
 // import Toast from "./component/include/Toast";
 // import RegisterSuccess from "./component/RegisterSuccess";
@@ -11,7 +14,7 @@ import Register from "./component/Register";
 function App() {
   return (
     <>
-      <Register />
+      <Login />
     </>
   );
 }

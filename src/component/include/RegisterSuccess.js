@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
-import HeaderRegister from "./include/HeaderRegister";
+import HeaderRegister from "./HeaderRegister";
 // import Show from "../assets/show.svg";
 // import IconDown from "../assets/IconDown.svg";
 import CircleInsideCircle from "../assets/circleinsidecircle.svg";
 import Line from "../assets/line.svg";
 import tickCircle from "../assets/tickcircle.svg";
-import Toast from "./include/Toast";
+import Toast from "./Toast";
 // import Google from "../assets/google.png";
 export default function Register() {
   return (

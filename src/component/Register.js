@@ -256,10 +256,11 @@ export default function Register() {
               <a href="" className="text-[#F2994A] font-bold">
                 terms of service
               </a>
+              {/* On Check bg-[#F2994A] this color on Class and on not check bg-[#929292] this Class */}
             </div>
           </form>
 
-          {/* <div
+          <div
             className="
           space-y-2
           "
@@ -269,7 +270,7 @@ export default function Register() {
             w-full 
             p-1  fdc:p-2 tdc:p-1 fvdc:p-2
             bg-[#929292]
-            focus:bg-[#F2994A] 
+             
             text-white 
             rounded-md 
             text-center
@@ -295,8 +296,8 @@ export default function Register() {
             >
               <img src={Google}></img> <span>Signup with Google</span>
             </button>
-          </div> */}
-          <Loader />
+          </div>
+          {/* <Loader /> */}
         </div>
       </div>
     </>
