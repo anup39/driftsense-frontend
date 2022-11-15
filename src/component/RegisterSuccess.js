@@ -5,7 +5,7 @@ import HeaderRegister from "./include/HeaderRegister";
 // import IconDown from "../assets/IconDown.svg";
 import CircleInsideCircle from "../assets/circleinsidecircle.svg";
 import Line from "../assets/line.svg";
-import Circle from "../assets/circle.svg";
+import tickCircle from "../assets/tickcircle.svg";
 import Toast from "./include/Toast";
 // import Google from "../assets/google.png";
 export default function Register() {
@@ -25,8 +25,8 @@ export default function Register() {
         <div
           className="
         p-2
-        space-y-2
-        fdc:place-self-center
+        space-y-44
+        fdc:justify-self-center
         fdc:min-w-[320px]
         tdc:min-w-[300px]
         ftdc:min-w-[330px]
@@ -42,7 +42,7 @@ export default function Register() {
             <div className="tdc:flex hidden justify-center">
               <img src={CircleInsideCircle}></img>
               <img src={Line} className="tdc:w-1/2 ftdc:w-full"></img>
-              <img src={Circle}></img>
+              <img src={tickCircle}></img>
             </div>
 
             <div

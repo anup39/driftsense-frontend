@@ -10,8 +10,7 @@ export default function Loader() {
       className=" 
     grid
       border
-       border-black
-        rounded-md 
+bg-white        rounded-md 
         h-[80px]
         max-w-[420px]
         min-w-[420px]  "

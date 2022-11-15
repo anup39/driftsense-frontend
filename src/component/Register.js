@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import Loader from "./include/Loader";
 import HeaderRegister from "./include/HeaderRegister";
 import Show from "../assets/show.svg";
 import IconDown from "../assets/IconDown.svg";
@@ -7,6 +8,7 @@ import CircleInsideCircle from "../assets/circleinsidecircle.svg";
 import Line from "../assets/line.svg";
 import Circle from "../assets/circle.svg";
 import Google from "../assets/google.png";
+import Nep from "../assets/nep.png";
 export default function Register() {
   return (
     <>
@@ -175,48 +177,24 @@ export default function Register() {
                 Consultant <span className="text-[#D44453]">*</span>
               </label>
               <br />
-              <div className="relative">
-                <select
-                  name="cars"
-                  id="cars"
-                  className="
-                  outline-2
+              <select
+                name="car"
+                id="car"
+                className="
+                  outline-2 
                   outline-[#F2994A]
                   bg-[#384063] 
                   text-white 
                   w-full
                    mr-10
                   py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
-                  rounded-md
-                  appearance-none
-                  block"
-                >
-                  <option value="Consultant 1">Consultant 1</option>
-                  <option value="Consultant 2">Consultant 2</option>
-                  <option value="Consultant 3">Consultant 3</option>
-                  <option value="Consultant 4">Consultant 4</option>
-                </select>
-                <div
-                  className="
-                absolute 
-                inset-y-0 
-                right-0 
-                pr-3 
-                flex 
-                items-center 
-                text-sm 
-                leading-5
-                "
-                >
-                  <img
-                    src={IconDown}
-                    className="
-                    h-5 w-6
-                   text-gray-700 
-                   cursor-pointer"
-                  ></img>
-                </div>
-              </div>
+                  rounded-md  "
+              >
+                <option value="Consultant 1">Consultant 1</option>
+                <option value="Consultant 2">Consultant 2</option>
+                <option value="Consultant 3">Consultant 3</option>
+                <option value="Consultant 4">Consultant 4</option>
+              </select>
             </div>
             <div className="">
               <label
@@ -230,19 +208,34 @@ export default function Register() {
                 </div>
                 <span className="justify-self-end text-xs">(Optional)</span>
               </label>
-
-              <input
-                type="text"
-                className="
-                  outline-2
+              <div className="flex">
+                <select
+                  name="cars"
+                  id="cars"
+                  className="
+                  outline-2 rounded-l-md
                   outline-[#F2994A]
-                  bg-[#384063] t
+                  bg-[#384063] 
+                  text-white 
+                   py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+                   "
+                >
+                  <option value="Nepal">+ 977</option>
+                  <option value="India">+ 91 </option>
+                </select>
+                <input
+                  type="text"
+                  className="
+                  outline-2 rounded-r-md
+                  outline-[#F2994A]
+                  bg-[#384063] 
                   text-white 
                   w-full
                   py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
-                  rounded-md
-                "
-              />
+                   
+                  "
+                />
+              </div>
             </div>
             <div
               className="
@@ -266,7 +259,7 @@ export default function Register() {
             </div>
           </form>
 
-          <div
+          {/* <div
             className="
           space-y-2
           "
@@ -302,7 +295,8 @@ export default function Register() {
             >
               <img src={Google}></img> <span>Signup with Google</span>
             </button>
-          </div>
+          </div> */}
+          <Loader />
         </div>
       </div>
     </>
