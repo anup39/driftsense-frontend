@@ -16,8 +16,8 @@ export default function Register() {
         className="
         tdc:bg-[#161C24]
         bg-transparent
-        grid  
-        tdc:grid-cols-2      
+        grid
+        tdc:grid-cols-2
         space-y-2  fdc:space-y-5 tdc:space-y-2
       "
       >
@@ -64,11 +64,11 @@ export default function Register() {
               <span>Already have an Account ?</span>
               <span
                 className="
-              text-[#F2994A] 
+              text-[#F2994A]
               font-bold
               "
               >
-                <a href="#"> Sign In</a>
+                <a href="/"> Sign In</a>
               </span>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function Register() {
           <form
             className="
           space-y-2
-  
+
           "
           >
             <div className="">
@@ -94,9 +94,9 @@ export default function Register() {
                   outline-2
                   outline-[#F2994A]
                   bg-[#384063] t
-                  text-white 
+                  text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                   rounded-md
                 "
               />
@@ -116,9 +116,9 @@ export default function Register() {
                   outline-2
                   outline-[#F2994A]
                   bg-[#384063] t
-                  text-white 
+                  text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                   rounded-md
                 "
               />
@@ -139,7 +139,7 @@ export default function Register() {
                 outline-2
                 outline-[#F2994A]
                 bg-[#384063] t
-                text-white 
+                text-white
                 w-full
                 py-1 fdc:p-2  tdc:py-1 fvdc:p-2
                 rounded-md
@@ -148,13 +148,13 @@ export default function Register() {
 
                 <div
                   className="
-                absolute 
-                inset-y-0 
-                right-0 
-                pr-3 
-                flex 
-                items-center 
-                text-sm 
+                absolute
+                inset-y-0
+                right-0
+                pr-3
+                flex
+                items-center
+                text-sm
                 leading-5
                 "
                 >
@@ -162,7 +162,7 @@ export default function Register() {
                     src={Show}
                     className="
                     h-4
-                   text-gray-700 
+                   text-gray-700
                    cursor-pointer"
                   ></img>
                 </div>
@@ -181,13 +181,13 @@ export default function Register() {
                 name="car"
                 id="car"
                 className="
-                  outline-2 
+                  outline-2
                   outline-[#F2994A]
-                  bg-[#384063] 
-                  text-white 
+                  bg-[#384063]
+                  text-white
                   w-full
                    mr-10
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                   rounded-md  "
               >
                 <option value="Consultant 1">Consultant 1</option>
@@ -215,8 +215,8 @@ export default function Register() {
                   className="
                   outline-2 rounded-l-md
                   outline-[#F2994A]
-                  bg-[#384063] 
-                  text-white 
+                  bg-[#384063]
+                  text-white
                    py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                    "
                 >
@@ -228,11 +228,11 @@ export default function Register() {
                   className="
                   outline-2 rounded-r-md
                   outline-[#F2994A]
-                  bg-[#384063] 
-                  text-white 
+                  bg-[#384063]
+                  text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
-                   
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+
                   "
                 />
               </div>
@@ -240,17 +240,17 @@ export default function Register() {
             <div
               className="
              flex
-             space-x-2 
-           
+             space-x-2
+
             font-semibold
-             
+
             "
             >
               <input
                 id="orange-checkbox"
                 type="checkbox"
                 value=""
-                class="w-6 accent-[#F2994A] "
+                className="w-6 accent-[#F2994A] "
               ></input>
               <span className="text-[#B4B5BF]">I accept</span>
               <a href="" className="text-[#F2994A] font-bold">
@@ -267,12 +267,12 @@ export default function Register() {
           >
             <button
               className="
-            w-full 
+            w-full
             p-1  fdc:p-2 tdc:p-1 fvdc:p-2
             bg-[#929292]
-             
-            text-white 
-            rounded-md 
+
+            text-white
+            rounded-md
             text-center
             "
             >
@@ -280,17 +280,17 @@ export default function Register() {
             </button>
             <button
               className="
-            w-full  
+            w-full
             p-1 fdc:p-2 tdc:p-1 fvdc:p-2
-            flex 
-            space-x-2  
-            bg-white 
-            text-[#F2994A] 
-            border 
+            flex
+            space-x-2
+            bg-white
+            text-[#F2994A]
+            border
             tdc:border-none
-            border-[#F2994A] 
-            sm:border-none 
-            rounded-md 
+            border-[#F2994A]
+            sm:border-none
+            rounded-md
             justify-center
             "
             >

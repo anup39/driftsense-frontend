@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
 import Google from "../assets/google.png";
@@ -6,14 +6,30 @@ import Show from "../assets/show.svg";
 import HeaderLogin from "./include/HeaderLogin";
 
 export default function Login() {
+  const [show, setShow] = useState("password");
+
+  const handleShowPassword = (event) => {
+    const value = event.target.title;
+    if (value === "1") {
+      event.target.src = Show;
+      event.target.title = "0";
+      setShow("text");
+    } else {
+      console.log("opened");
+      event.target.src = Google;
+      event.target.title = "1";
+      setShow("password");
+    }
+  };
+
   return (
     <>
       <div
         className="
         tdc:bg-[#161C24]
         bg-transparent
-        grid  
-        tdc:grid-cols-2      
+        grid
+        tdc:grid-cols-2
         space-y-2  fdc:space-y-5 tdc:space-y-2
       "
       >
@@ -55,11 +71,11 @@ export default function Login() {
               <span>Needs an account?</span>
               <span
                 className="
-              text-[#F2994A] 
+              text-[#F2994A]
               font-bold
               "
               >
-                <a href="#"> Sign Up</a>
+                <a href="/"> Sign Up</a>
               </span>
             </div>
           </div>
@@ -67,7 +83,7 @@ export default function Login() {
           <form
             className="
           space-y-2
-  
+
           "
           >
             <div className="">
@@ -85,9 +101,9 @@ export default function Login() {
                   outline-2
                   outline-[#F2994A]
                   bg-[#384063] t
-                  text-white 
+                  text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                   rounded-md
                 "
               />
@@ -103,12 +119,12 @@ export default function Login() {
               <br />
               <div className="relative">
                 <input
-                  type="text"
+                  type={show}
                   className="
                 outline-2
                 outline-[#F2994A]
                 bg-[#384063] t
-                text-white 
+                text-white
                 w-full
                 py-1 fdc:p-2  tdc:py-1 fvdc:p-2
                 rounded-md
@@ -117,21 +133,24 @@ export default function Login() {
 
                 <div
                   className="
-                absolute 
-                inset-y-0 
-                right-0 
-                pr-3 
-                flex 
-                items-center 
-                text-sm 
+                absolute
+                inset-y-0
+                right-0
+                pr-3
+                flex
+                items-center
+                text-sm
                 leading-5
                 "
                 >
                   <img
+                    title="1"
+                    onClick={handleShowPassword}
+                    alt=""
                     src={Show}
                     className="
                     h-4
-                   text-gray-700 
+                   text-gray-700
                    cursor-pointer"
                   ></img>
                 </div>
@@ -140,14 +159,14 @@ export default function Login() {
 
             <div
               className="
-            grid 
-            justify-items-end 
-            text-[#F2994A] 
+            grid
+            justify-items-end
+            text-[#F2994A]
             font-semibold
             text-sm
             "
             >
-              <a href=""> Forgot your Password? </a>
+              <a href="/"> Forgot your Password? </a>
             </div>
           </form>
 
@@ -158,11 +177,11 @@ export default function Login() {
           >
             <button
               className="
-            w-full 
+            w-full
             p-1  fdc:p-2 tdc:p-1 fvdc:p-2
-            bg-[#F2994A] 
-            text-white 
-            rounded-md 
+            bg-[#F2994A]
+            text-white
+            rounded-md
             text-center
             "
             >
@@ -170,20 +189,20 @@ export default function Login() {
             </button>
             <button
               className="
-            w-full  
+            w-full
             p-1 fdc:p-2 tdc:p-1 fvdc:p-2
-            flex 
-            space-x-2  
-            bg-white 
-            text-[#F2994A] 
-            border 
-            border-[#F2994A] 
-            sm:border-none 
-            rounded-md 
+            flex
+            space-x-2
+            bg-white
+            text-[#F2994A]
+            border
+            border-[#F2994A]
+            sm:border-none
+            rounded-md
             justify-center
             "
             >
-              <img src={Google}></img> <span>Sign-in with Google</span>
+              <img src={Google} alt=""></img> <span>Sign-in with Google</span>
             </button>
           </div>
         </div>
