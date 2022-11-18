@@ -10,6 +10,7 @@ import Change from "../component/ChangePassword"
 import GuidePassword from "../component/form/text/passwordguide/GuidePassword"
 import RegisterWithGoogleHead from "../component/form/title/RegisterWithGoogleHead"
 import RegisterWithGoogle  from "../component/RegisterWithGoogle"
+import FormConsultant from "../component/form/Consultant";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -31,6 +32,8 @@ export default function RoutesDriftSense() {
         
         <Route exact path="/passwordguide" element={<GuidePassword />} />
         <Route exact path="/registerwithgoogle" element={<RegisterWithGoogle />} />
+
+        <Route exact path="/consultant" element={<FormConsultant />} />
          
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,35 +1,34 @@
 import React from "react";
- export default function FormConsultant() {
-   
-    return (
-        <>
-               <div className="">
-              <label
-                className="
+import Down from "./assets/down.svg";
+
+export default function FormConsultant() {
+
+  return (
+    <>
+      <div className="">
+        <label
+          className="
               text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
               "
-              >
-                Consultant <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <select
-                name="car"
-                id="select"
-                className="
-                  outline-2
-                  outline-[#F2994A]
-                  bg-[#384063]
-                  text-white
-                  w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
-                  rounded-md  "
-              >
-                <option value="Consultant 1">Consultant 1</option>
-                <option value="Consultant 2">Consultant 2</option>
-                <option value="Consultant 3">Consultant 3</option>
-                <option value="Consultant 4">Consultant 4</option>
-              </select>
+        >
+          Consultant <span className="text-[#D44453]">*</span>
+        </label>
+        <br />
+          <ul className="  outline-2 text-white w-full  z-[9999]  relative ">
+            <div className="relative">
+                <li className=" bg-[#384063] block py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md">Consultant </li>
+                <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                  <img alt="" src={Down} className="h-4 text-gray-700 cursor-pointer hover:"></img>
+                </div>
             </div>
-        </>
-    );
+            <li className=" rounded-md  absolute text-center w-full hidden">
+              <li className="bg-[#1F2937] hover:bg-[#161C24] py-1 fdc:p-2 tdc:py-1  fvdc:p-2">Jon Doe</li>
+              <li className="bg-[#1F2937] hover:bg-[#161C24] py-1 fdc:p-2 tdc:py-1  fvdc:p-2">Im the Agronomist / Pest Control Advisor</li>
+              <li className="bg-[#1F2937] hover:bg-[#161C24] py-1 fdc:p-2 tdc:py-1  fvdc:p-2">Others</li>
+            </li>
+            
+          </ul>
+      </div>
+    </>
+  );
 }
