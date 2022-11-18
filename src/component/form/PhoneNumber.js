@@ -12,14 +12,14 @@ export default function FormNumber() {
         </label>
        
         <div className="flex">
-          <ul className="basis-2/5  outline-2 text-white w-full  z-[9999] rounded-r-md relative ">
+          <ul className="basis-2/5 justify- outline-2 text-white w-full  z-[9999] rounded-r-md relative ">
             <div className="relative">
               <li className=" bg-[#384063]  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-l-md flex space-x-2">
-                <img alt="" src={Nep} className="h-6 text-gray-700 cursor-pointer rounded-full"></img>
+                <img alt="" src={Nep} className="sdc:h-6 h-5 text-gray-700 cursor-pointer rounded-full"></img>
                 <span>+ 977 </span>
               </li>
 
-              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm justi">
                 <img alt="" src={Down} className="h-4 text-gray-700 cursor-pointer hover:"></img>
               </div>
             </div>

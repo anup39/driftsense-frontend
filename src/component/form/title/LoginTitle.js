@@ -9,7 +9,7 @@ export default function LoginTitle() {
             <div className="justify-self-center  tdc:text-[#E4E6F2] text-xs fdc:text-sm tdc:text-xs">
                 <span>Needs an account?</span>
                 <span className="text-[#F2994A] font-bold">
-                    <a href="/"> Sign Up</a>
+                    <a href="/register"> Sign Up</a>
                 </span>
             </div>
         </>
