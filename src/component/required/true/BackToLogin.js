@@ -1,8 +1,7 @@
 import React from "react";
 
-import "./Header.css";
-import Tick from "./assets/tick.svg";
-export default function AlertSuccess() {
+ import Tick from "../assets/tick.svg";
+export default function BackToLogin() {
   return (
     <div
       className="
@@ -16,8 +15,7 @@ export default function AlertSuccess() {
         className=" outline-2
                   outline-[#F2994A]
                   bg-[#219653]
-                  text-white  
-                  w-full
+                   w-full
                   py-1 fdc:p-2 tdc:py-1  fvdc:p-2 
                   rounded-md"
       >
@@ -25,7 +23,7 @@ export default function AlertSuccess() {
           <div>
             <img src={Tick}></img>
           </div>
-          <div>Password reset link has been sent successfully</div>
+          <div className="flex space-x-2"><span className="text-white">Password Changed Successfully</span><span><a src="/" className="cursor-pointer">back to login</a></span></div>
         </div>
       </div>
     </div>
