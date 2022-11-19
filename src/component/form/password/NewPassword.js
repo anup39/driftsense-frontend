@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Show from "../assets/show.svg";
-import Hide from "../assets/hide.svg";
+import Show from "../images/show.svg";
+import Hide from "../images/hide.svg";
      
 
 export default function FormNewPassword() {

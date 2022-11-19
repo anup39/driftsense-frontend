@@ -1,43 +1,37 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginHeader from "../component/include/HeaderLogin";
-import RegisterHeader from "../component/include/HeaderRegister";
-import Login from "../component/Login"
-import Loader from "../component/required/Loader"
-import Register from "../component/Register"
-import Forgot from "../component/ForgotPassword"
-import Change from "../component/ChangePassword"
-import GuidePassword from "../component/form/text/passwordguide/GuidePassword"
-import RegisterWithGoogleHead from "../component/form/title/RegisterWithGoogleHead"
-import RegisterWithGoogle  from "../component/RegisterWithGoogle"
-import FormConsultant from "../component/form/Consultant";
-import PlotSelectionStepOne from "../component/PlotSelectionStepOne";
-import PlotsForSpray from "../component/PlotsForSpray";
+import ForgotPassword from "../component/main/forgotPasswords/ForgotPassword";
+import ChangePassword from "../component/main/forgotPasswords/ChangePassword";
+
+import Login from "../component/main/Login";
+import Register from "../component/main/Register";
+import RegisterWithGoogle from "../component/main/RegisterWithGoogle";
+import PlotSelectionStepOne  from "../component/main/sessionStarted/PlotSelectionStepOne";
+import PlotsForSpray from "../component/main/sessionStarted/PlotsForSpray";
+
+import OnbordingFirstStart from "../component/container/OnbordingStart";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
+ 
+
 
 export default function RoutesDriftSense() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/loader" element={<Loader />} />
-        <Route exact path="/forgot" element={<Forgot />} />
-        <Route exact path="/change" element={<Change />} />
-        <Route exact path="/loginhead" element={<LoginHeader />} />
-        <Route exact path="/registerhead" element={<RegisterHeader />} />
-        <Route exact path="/registerwithgooglehead" element={<RegisterWithGoogleHead />} />
+        <Route exact path="/" element={<Login/>} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/registerwithgoogle" element={<RegisterWithGoogle/>} />
+        <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
+        <Route exact path="/passwordchange" element={<ChangePassword/>} />
+        <Route exact path="/afterregistration" element={<OnbordingFirstStart/>} />
+        <Route exact path="/plotselectionstepone" element={<PlotSelectionStepOne/>} />
+        <Route exact path="/plotforspray" element={<PlotsForSpray/>} />
         
-        
-        <Route exact path="/passwordguide" element={<GuidePassword />} />
-        <Route exact path="/registerwithgoogle" element={<RegisterWithGoogle />} />
-
-        <Route exact path="/consultant" element={<FormConsultant />} />
-        <Route exact path="/plots" element={<PlotsForSpray />} />
-        <Route exact path="/onbording" element={<PlotSelectionStepOne />} />
+        {/*   */}
+         
          
         <Route path="*" element={<NotFound />} />
       </Routes>
