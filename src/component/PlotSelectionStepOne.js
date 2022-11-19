@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderLogoDark from "./include/header/OnbordingHeader"
+import HeaderLogoDark from "./include/header/onbording/OnbordingLogo";
 import OnbordingBackground from "./include/background/OnbordingBackground"
 import StepOne from "./onbording/onbordingText/step/StepOne";
 import StepOneText from "./onbording/onbordingText/StepOneText";
