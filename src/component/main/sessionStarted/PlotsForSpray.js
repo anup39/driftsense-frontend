@@ -11,9 +11,9 @@ export default function OnboardingProcess() {
             <div className="space-y-3">
                 <OnbordingHeader />
                 <PrayForSprayBody />
-                <div className="relative">
+                <div className="  sticky bottom-0">
                     <OnbordingSecondFooter />
-                    <div className="w-[480px] absolute -mt-[10px]">
+                    <div className="w-[480px]  -mt-[10px]">
                         <OnbordingFooterLoader />
                     </div>
                 </div>

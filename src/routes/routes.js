@@ -8,6 +8,7 @@ import Register from "../component/main/Register";
 import RegisterWithGoogle from "../component/main/RegisterWithGoogle";
 import PlotSelectionStepOne  from "../component/main/sessionStarted/PlotSelectionStepOne";
 import PlotsForSpray from "../component/main/sessionStarted/PlotsForSpray";
+import LoaderCircle from "../component/loader/LoaderCircle";
 
 import OnbordingFirstStart from "../component/container/OnbordingStart";
 const NotFound = () => {
@@ -29,6 +30,7 @@ export default function RoutesDriftSense() {
         <Route exact path="/afterregistration" element={<OnbordingFirstStart/>} />
         <Route exact path="/plotselectionstepone" element={<PlotSelectionStepOne/>} />
         <Route exact path="/plotforspray" element={<PlotsForSpray/>} />
+        <Route exact path="/footer" element={<LoaderCircle/>} />
         
         {/*   */}
          
