@@ -7,7 +7,7 @@ export default function PlotsForSprayBackground() {
     return (
         <>
               
-              <img src={BG} alt="" className="w-full" />
+              <img src={BG} alt="" className="w-full h-[350px]" />
              
         </>
     );

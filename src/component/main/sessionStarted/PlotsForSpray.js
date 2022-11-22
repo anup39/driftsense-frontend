@@ -11,11 +11,11 @@ export default function OnboardingProcess() {
             <div className="space-y-3">
                 <OnbordingHeader />
                 <PrayForSprayBody />
-                <div className="  sticky bottom-0">
+                <div className="  fixed w-full bottom-0">
                     <OnbordingSecondFooter />
-                    <div className="w-[480px]  -mt-[10px]">
+                 
                         <OnbordingFooterLoader />
-                    </div>
+                   
                 </div>
             </div>
         </>

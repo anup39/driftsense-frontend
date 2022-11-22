@@ -11,6 +11,8 @@ import PlotsForSpray from "../component/main/sessionStarted/PlotsForSpray";
 import LoaderCircle from "../component/loader/LoaderCircle";
 
 import OnbordingFirstStart from "../component/container/OnbordingStart";
+
+import ModelConfirm from "../component/popUps/ModelConfirm";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -32,7 +34,8 @@ export default function RoutesDriftSense() {
         <Route exact path="/plotforspray" element={<PlotsForSpray/>} />
         <Route exact path="/footer" element={<LoaderCircle/>} />
         
-        {/*   */}
+        <Route exact path="/confirm" element={<ModelConfirm />} />
+         {/*   */}
          
          
         <Route path="*" element={<NotFound />} />
