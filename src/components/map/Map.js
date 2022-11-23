@@ -19,7 +19,7 @@ const Map = ({ zoom, center, ext, onMap }) => {
         projection: "EPSG:3857",
       }),
       layers: [],
-      controls: [],
+      //   controls: [],
       overlays: [],
     };
 
