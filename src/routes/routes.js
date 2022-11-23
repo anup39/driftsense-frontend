@@ -15,6 +15,7 @@ import OnbordingFirstStart from "../component/container/OnbordingStart";
 import ModelConfirm from "../component/popUps/ModelConfirm";
 import AreaDetailHeader from "../component/header/popUpModel/AreaDetailHeader";
 import AreaDetail from "../component/popUps/AreaDetail";
+import WaitingForApproval from "../component/loader/WaitingForApproval";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -41,6 +42,7 @@ export default function RoutesDriftSense() {
          {/*   */}
          
         <Route exact path="/2" element={<AreaDetailHeader />} />
+        <Route exact path="/3" element={<WaitingForApproval />} />
          
         <Route path="*" element={<NotFound />} />
       </Routes>
