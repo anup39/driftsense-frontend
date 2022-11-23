@@ -13,7 +13,8 @@ import OnbordingFirstStart from "../component/container/OnbordingStart";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
- 
+
+
 
 
 export default function RoutesDriftSense() {
@@ -29,10 +30,7 @@ export default function RoutesDriftSense() {
         <Route exact path="/afterregistration" element={<OnbordingFirstStart/>} />
         <Route exact path="/plotselectionstepone" element={<PlotSelectionStepOne/>} />
         <Route exact path="/plotforspray" element={<PlotsForSpray/>} />
-        
         {/*   */}
-         
-         
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
