@@ -13,6 +13,8 @@ import LoaderCircle from "../component/loader/LoaderCircle";
 import OnbordingFirstStart from "../component/container/OnbordingStart";
 
 import ModelConfirm from "../component/popUps/ModelConfirm";
+import AreaDetailHeader from "../component/header/popUpModel/AreaDetailHeader";
+import AreaDetail from "../component/popUps/AreaDetail";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -35,8 +37,10 @@ export default function RoutesDriftSense() {
         <Route exact path="/footer" element={<LoaderCircle/>} />
         
         <Route exact path="/confirm" element={<ModelConfirm />} />
+        <Route exact path="/area" element={<AreaDetail />} />
          {/*   */}
          
+        <Route exact path="/2" element={<AreaDetailHeader />} />
          
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
     return (    
         <>  
                 <div className="relative">
-                    <input type="text" className="p-2 bg-[#212B36] w-[20%] text-[#F2994A] rounded-md" placeholder="Search Location"/>
+                    <input type="text" className="p-2 bg-[#212B36] w-[200px] tdc:w-[329px] text-[#F2994A] rounded-md" placeholder="Search Location"/>
                    <button  className="relative -ml-7 text-white cursor-pointer" ><FontAwesomeIcon icon={faSearch}/></button> 
                 </div>
         </>
