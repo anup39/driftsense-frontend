@@ -12,12 +12,12 @@ export default function OnboardingProcess() {
                 <div className="">
                     <OnbordingHeader />
                 </div>
-                <div className="grid h-">
+                <div className="grid">
                     <div className="space-y-2">
                         <PrayForSprayBody />
                     </div>
                 </div>
-                <div className="sticky bottom-0 w-full">
+                <div className="fixed bottom-0 w-full">
                     <OnbordingSecondFooter />
                     <OnbordingFooterLoader />
                 </div>

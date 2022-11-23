@@ -5,12 +5,13 @@ export default function CropType() {
 
   return (
     <>
+    {/* tdc:w-[200px] fvdc:w-[230px] */}
       <div className="space-y-1">
         <label className="block text-xs text-orange-400">
           Crop Type
         </label>
            <ul className="text-white   z-[9999]  relative space-y-1">
-            <div className="relative tdc:w-[200px] fvdc:w-[230px] h-[48px]">
+            <div className="relative w-full h-[48px]">
                 <li className=" bg-white block  p-2 rounded-md">Crop Type </li>
                 <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                   <FontAwesomeIcon icon={faAngleDown} className="-mt-2 text-black text-2xl cursor-pointer"></FontAwesomeIcon>

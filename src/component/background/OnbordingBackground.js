@@ -7,7 +7,7 @@ export default function HeaderLogoDark() {
     return (
         <>
            
-                <img src={Bgfarm} alt="" className="  "></img>
+                <img src={Bgfarm} alt="" className="h-[300px]  "></img>
 
         </>
     );

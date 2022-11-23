@@ -26,7 +26,7 @@ export default function AreaDetail() {
                             <PlotDetailTitle />
                             <AddPlotsName />
                             <AreaDetailTitle />
-                            <div className="grid tdc:grid-cols-2">
+                            <div className="grid tdc:grid-cols-2 gap-3">
                                 <div>
                                     <CropType />
                                 </div>
