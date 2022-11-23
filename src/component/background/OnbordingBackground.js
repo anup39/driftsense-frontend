@@ -6,9 +6,9 @@ import Bgfarm from "./images/backgroundFarm.png";
 export default function HeaderLogoDark() {
     return (
         <>
-            <div className="grid place-items-center">
-                <img src={Bgfarm} alt="" className=" "></img>
-            </div>
+           
+                <img src={Bgfarm} alt="" className="  "></img>
+
         </>
     );
 }
