@@ -8,8 +8,14 @@ import Register from "../component/main/Register";
 import RegisterWithGoogle from "../component/main/RegisterWithGoogle";
 import PlotSelectionStepOne  from "../component/main/sessionStarted/PlotSelectionStepOne";
 import PlotsForSpray from "../component/main/sessionStarted/PlotsForSpray";
+import LoaderCircle from "../component/loader/LoaderCircle";
 
 import OnbordingFirstStart from "../component/container/OnbordingStart";
+
+import ModelConfirm from "../component/popUps/ModelConfirm";
+import AreaDetailHeader from "../component/header/popUpModel/AreaDetailHeader";
+import AreaDetail from "../component/popUps/AreaDetail";
+import WaitingForApproval from "../component/loader/WaitingForApproval";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -29,9 +35,14 @@ export default function RoutesDriftSense() {
         <Route exact path="/afterregistration" element={<OnbordingFirstStart/>} />
         <Route exact path="/plotselectionstepone" element={<PlotSelectionStepOne/>} />
         <Route exact path="/plotforspray" element={<PlotsForSpray/>} />
+        <Route exact path="/footer" element={<LoaderCircle/>} />
         
-        {/*   */}
+        <Route exact path="/confirm" element={<ModelConfirm />} />
+        <Route exact path="/area" element={<AreaDetail />} />
+         {/*   */}
          
+        <Route exact path="/2" element={<AreaDetailHeader />} />
+        <Route exact path="/3" element={<WaitingForApproval />} />
          
         <Route path="*" element={<NotFound />} />
       </Routes>

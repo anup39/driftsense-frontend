@@ -11,20 +11,22 @@ import OnboardingFooter from "../../footer/afterLogin/FooterEmpty";
 export default function OnboardingProcess() {
     return (
         <>
-            <div className="space-y-5">
-                <div className="space-y-7">
+            <div className="bg-[#E9E9E9] grid space-y-3">
+                <div className="">
                     <HeaderLogoDark />
-                    <OnbordingBackground />
                 </div>
-                <div className="grid justify-items-center space-y-4">
-                    <div className="space-y-2 grid justify-items-center">
-                        <StepOne />
-                        <StepOneText />
+                <div className="grid h-screen">
+                    <div className="place-self-center space-y-2 h-3/4">
+                        <OnbordingBackground />
+                        <div className="grid justify-items-center space-y-2">
+                            <StepOne />
+                            <StepOneText />
+                            <GetStarted />
+                        </div>
                     </div>
-                    <GetStarted />
                 </div>
-                <OnboardingFooter />
-            </div>
+                     <OnboardingFooter />
+             </div>
         </>
     );
 }
