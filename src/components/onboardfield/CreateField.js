@@ -8,6 +8,7 @@ import Map from "../map/Map";
 import BlackRight from "../../common/button/images/Iconrightblack.svg";
 import LeftBlack from "../../common/button/images/leftblack.svg";
 import ModelConfirm from "../../common/popUps/ModelConfirm";
+import AreaDetail from "../../common/popUps/AreaDetail";
 
 export default function OnboardingProcess() {
   const [center, setCenter] = useState([-99.14, 43.661025]);
@@ -52,7 +53,7 @@ export default function OnboardingProcess() {
             </div>
           </div>
         </div>
-        {openFieldSelection ? <ModelConfirm /> : null}
+        {openFieldSelection ? <AreaDetail /> : null}
         <div className="fixed bottom-0 w-full">
           <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
             <button

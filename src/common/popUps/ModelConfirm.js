@@ -1,20 +1,6 @@
-import React, { useState } from "react";
-import PopUpCancel from "../button/popUpModel/PopUpCancel";
-import PopUpConfirm from "../button/popUpModel/PopUpConfirm";
 import ConfirmModelHeader from "../header/popUpModel/ConfirmModelHeader";
-import AreaDetail from "./AreaDetail";
+
 export default function ModelConfirm() {
-  const [openFieldForm, setOpenFieldFrom] = useState(false);
-
-  console.log(openFieldForm);
-
-  const handleFieldFromPopup = () => {
-    if (openFieldForm) {
-      setOpenFieldFrom(false);
-    } else {
-      setOpenFieldFrom(true);
-    }
-  };
   return (
     <>
       <div className="w-full absolute   h-screen grid place-content-center ">
@@ -25,16 +11,14 @@ export default function ModelConfirm() {
               Cancel
             </a>
             <a
-              onClick={handleFieldFromPopup}
               className="p-3 rounded-md  cursor-pointer bg-[#219653] text-white"
-              // href="/"
+              href="/"
             >
               Confirm
             </a>
           </div>
         </div>
       </div>
-      {openFieldForm ? <AreaDetail /> : null}
     </>
   );
 }
