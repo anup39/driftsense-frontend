@@ -63,7 +63,7 @@ const Map = ({ zoom, center, ext, onMap }) => {
     }
   }, [map]);
 
-  return <div ref={mapRef} className="ol-map"></div>;
+  return <div  className="w-full h-screen"><div ref={mapRef} className="h-3/4"></div></div>;
 };
 
 export default Map;
