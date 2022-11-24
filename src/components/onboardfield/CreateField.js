@@ -52,7 +52,7 @@ export default function OnboardingProcess() {
             </div>
           </div>
         </div>
-        {openFieldSelection ? <ModelConfirm /> : null}
+         {openFieldSelection ? <ModelConfirm /> : null}
         <div className="fixed bottom-0 w-full">
           <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
             <button
