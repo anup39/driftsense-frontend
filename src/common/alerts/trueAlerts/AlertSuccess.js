@@ -1,7 +1,9 @@
 import React from "react";
 
 import Tick from "../images/tick.svg";
-export default function AlertSuccess() {
+export default function AlertSuccess(props) {
+  const { bg_color, text } = props;
+
   return (
     <div
       className="
@@ -11,19 +13,16 @@ export default function AlertSuccess() {
     fvdc:min-w-[420px] space-y-2"
     >
       <div
-        className=" outline-2
-                  outline-[#F2994A]
-                  bg-[#219653]
-                  text-white
-                  w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
-                  rounded-md"
+        className={`outline-2 outline-[#F2994A] bg-[${bg_color}] text-white w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md`}
       >
         <div className="flex space-x-10 justify-center">
           <img src={Tick} alt="" className="h-4 mt-1"></img>
-          <div>Password reset link has been sent successfully</div>
+          <div>{text}</div>
         </div>
       </div>
     </div>
   );
 }
+// bg-[#219653] -- For sucess
+// bg-[#d60909] -- For Error
+// Password reset link has been sent successfully

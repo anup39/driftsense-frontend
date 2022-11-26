@@ -52,7 +52,10 @@ export default function ForgotPassword() {
               <a href="/change-password"> Send Password Link </a>
             </button>
           </form>
-          <AlertSuccess />
+          <AlertSuccess
+            bg_color="#219653"
+            text="Password reset link has been sent successfully"
+          />
           <ResendLink />
           <ForgotPasswordText />
         </div>
