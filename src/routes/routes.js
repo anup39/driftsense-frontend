@@ -11,8 +11,6 @@ import RegistrationComplete from "../components/auth/RegistrationComplete";
 import LoaderCircle from "../common/loader/LoaderCircle";
 import ModelConfirm from "../common/popUps/ModelConfirm";
 import AreaDetail from "../common/popUps/AreaDetail";
-import WaitingForApproval from "../common/loader/WaitingForApproval";
-import SavedSuccessfully from "../common/loader/SavedSuccessfully";
 
 const NotFound = () => {
   return <div>Page Not found</div>;
