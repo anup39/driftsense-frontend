@@ -17,7 +17,6 @@ export default function PrayForSprayHeader() {
         <PlotSelectionActive />
         <GearInactive />
         <PaymentInactive />
-
         <Profile />
       </div>
     </>

@@ -63,7 +63,7 @@ const Map = ({ zoom, center, ext, onMap }) => {
     }
   }, [map]);
 
-  return <div  className="w-full h-[80vh]"><div ref={mapRef} className="h-[70vh] tdc:h-[75vh]"></div></div>;
+  return <div  className="w-full h-[80vh]"><div ref={mapRef} className="h-[75vh]"></div></div>;
 };
 
 export default Map;

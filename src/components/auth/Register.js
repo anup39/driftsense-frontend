@@ -139,20 +139,31 @@ export default function Register() {
                 Consultant <span className="text-[#D44453]">*</span>
               </label>
               <br />
-              <ul className="  outline-2 text-white w-full  z-[9999]  relative ">
-                <div className="relative">
-                  <li className=" bg-[#384063] block  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md">
-                    Consultant{" "}
+              <form className="  outline-2 text-white w-full     ">
+                <ul className="relative ">
+                  <li className="relative">
+                    <input className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md" />
+                    <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                      <img
+                        alt=""
+                        src={Down}
+                        className="h-4 text-gray-700 cursor-pointer hover:"
+                      ></img>
+                    </div>
                   </li>
-                  <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
-                    <img
-                      alt=""
-                      src={Down}
-                      className="h-4 text-gray-700 cursor-pointer hover:"
-                    ></img>
-                  </div>
-                </div>
-              </ul>
+                  <li className="z-50  rounded-md  absolute text-center w-full  ">
+                    <div className="bg-[#1F2937] hover:bg-[#161C24]  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Jon Doe
+                    </div>
+                    <div className="bg-[#1F2937] hover:bg-[#161C24]  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Im the Agronomist / Pest Control Advisor
+                    </div>
+                    <div className="bg-[#1F2937] hover:bg-[#161C24]  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Others
+                    </div>
+                  </li>
+                </ul>
+              </form>
             </div>
             <div className="">
               <label className="text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2] grid grid-cols-2">
@@ -166,7 +177,7 @@ export default function Register() {
               <div className="flex  focus:outline-none focus:border-2 focus:border-[#F2994A] border-2  border-transparent rounded-md">
                 <ul className="basis-2/5 justify- outline-2 text-white w-full text-xs ftdc:text-lg  z-[9999] rounded-r-md relative ">
                   <div className="relative">
-                    <li className=" bg-[#384063]  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-l-md flex space-x-2">
+                    <li className=" bg-[#384063] -z-50 py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-l-md flex space-x-2">
                       <img
                         alt=""
                         src={Nep}
@@ -182,6 +193,7 @@ export default function Register() {
                         className="h-4   text-gray-700 cursor-pointer hover:"
                       ></img>
                     </div>
+
                   </div>
                 </ul>
                 <input
@@ -197,6 +209,7 @@ export default function Register() {
                 />
               </div>
             </div>
+
             <div className="flex  space-x-2 font-semibold">
               <div className="">
                 <label
