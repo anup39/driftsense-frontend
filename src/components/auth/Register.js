@@ -68,8 +68,9 @@ export default function Register() {
                 type="text"
                 placeholder="Enter Your Name Here"
                 className="
-                  outline-2
-                  outline-[#F2994A]
+                  outline-none
+                  border-2
+                  border-[#F2994A]
                   bg-[#384063] t
                   text-white
                   w-full
@@ -93,9 +94,10 @@ export default function Register() {
                 required
                 type="text"
                 placeholder="Enter Email Address"
-                className="
-                  outline-2
-                  outline-[#F2994A]
+                className="    
+                  outline-none
+                  border-2
+                  border-[#F2994A]
                   bg-[#384063] t
                   text-white
                   w-full
@@ -121,8 +123,9 @@ export default function Register() {
                   type={show}
                   placeholder="Enter Password"
                   className="
-                outline-2
-                outline-[#F2994A]
+                  outline-none
+                  border-2
+                  border-[#F2994A]
                 bg-[#384063] t
                 text-white
                 w-full
@@ -164,10 +167,38 @@ export default function Register() {
               >
                 Consultant <span className="text-[#D44453]">*</span>
               </label>
-              <br />
-              <ConsultantDropDown />
+              {/* <br /> */}
+              <div className="  outline-2 text-white w-full     ">
+                <div className="relative ">
+                  <div className="relative">
+                    <input className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none
+                  border-2
+                  border-[#F2994A]" />
+                    <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                      <img
+                        alt=""
+                        src={Down}
+                        className="h-4 text-gray-700 cursor-pointer hover:"
+                      ></img>
+                    </div>
+                  </div>
+                  <ul className="z-50  mt-[0.5px] hidden absolute text-center w-full   border-2 border-orange-400 rounded-md">
+                    <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Jon Doe
+                    </li>
+                    <li className="bg-[#1F2937] hover:bg-[#161C24]  cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Im the Agronomist / Pest Control Advisor
+                    </li>
+                    <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+                      Others
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="">
+
+
+            <div className=" ">
               <label className="text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2] grid grid-cols-2">
                 <span>
                   {" "}
@@ -176,7 +207,7 @@ export default function Register() {
                 <span className="justify-self-end">(Optional)</span>
               </label>
 
-              <div className="flex  focus:outline-none focus:border-2 focus:border-[#F2994A] border-2  border-transparent rounded-md">
+              <div className="flex   focus:outline-none focus:border-2 focus:border-[#F2994A] border-2  border-transparent rounded-md">
                 <PhoneInput
                   country={"us"}
                   value={phone}
@@ -184,6 +215,7 @@ export default function Register() {
                 />
               </div>
             </div>
+
             <div className="flex  space-x-2 font-semibold">
               <div className="">
                 <label

@@ -12,9 +12,9 @@ import PlotDetailTitle from "../title/popUpModel/PlotDetailTitle";
 export default function AreaDetail() {
   return (
     <>
-      <div className="w-full absolute z-50 h-screen">
-        <div className="flex justify-center items-center tdc:h-screen ">
-          <div className="ftdc:w-3/4 w-full mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
+      <div className="w-full absolute z-50 h-[90vh]">
+        <div className="flex justify-center items-center h-screen">
+          <div className="ftdc:w-3/4 mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
             <div className="border-b border-[#71C1C7] p-4">
               <AreaDetailHeader />
             </div>
