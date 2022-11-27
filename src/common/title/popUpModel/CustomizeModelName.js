@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import Location from "../../../assets/location.png"
 export default function CustomizeModelName() {
   return (
     <>
@@ -17,10 +16,11 @@ export default function CustomizeModelName() {
           <p className="block text-xs text-white ">Selected Location</p>
 
           <p className="flex space-x-2 text-slate-200  font-medium">
-            <FontAwesomeIcon
-              icon={faMapMarker}
+            <img
+            alt=""
+              src={Location}
               className="text-2xl bock align-baseline"
-            ></FontAwesomeIcon>
+            ></img>
             <span>Red Bluff, CA 96080, USA</span>
           </p>
         </div>
