@@ -11,7 +11,6 @@ import NormalLoginButton from "../auth/common/NormalLoginButton";
 export default function Login() {
   const [show, setShow] = useState("password");
   const [errorText, setErrorText] = useState("invisible");
-  // const [inputFocus, setInputFocus] = useState("");
 
   const handleShowPassword = (event) => {
     const value = event.target.title;

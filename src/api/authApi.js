@@ -14,9 +14,16 @@ export const authApi = createApi({
         };
       },
     }),
+    getConsultant: builder.query({
+      query: () => {
+        return {
+          url: "/consultant/",
+        };
+      },
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useLoginUserMutation } = authApi;
+export const { useLoginUserMutation, useGetConsultantQuery } = authApi;

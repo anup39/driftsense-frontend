@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Down from "../../common/form/images/down.svg";
 import HeaderRegister from "../../common/header/register/HeaderRegister";
 import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
 import RegisterTitle from "../../common/title/register/TitleRegister";
 import GoogleRegister from "../../common/button/register/RegisterGoogle";
-// import LoaderCircle from "../../common/loader/LoaderCircle";
 import "../../common/form/checkbox/Checkbox.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Hide from "../../common/form/images/hide.svg";
 import Show from "../../common/form/images/show.svg";
-import ConsultantDropDown from "./common/ConsultantDropDown";
 import PhoneInput from "new-ph-phone-input-react";
 import "new-ph-phone-input-react/lib/style.css";
 import "./register.css";
+import { useGetConsultantQuery } from "../../api/authApi";
 
 export default function Register() {
   const [show, setShow] = useState("password");
@@ -21,9 +20,15 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
+  const [consultant, setConsultant] = useState("");
+  const [consultantID, setConsultantID] = useState(null);
   const [termsCondition, setTermsCondition] = useState(false);
   const [hideConsultant, setHideConsultant] = useState(true);
   const [disabled, setDisabled] = useState(false);
+  const [registerDisabled, setRegisterDisabled] = useState(true);
+  const [registerColor, setRegisterColor] = useState("#929292");
+
+  const { data, isLoading, error, isSuccess } = useGetConsultantQuery();
 
   const handleShowPassword = (event) => {
     const value = event.target.title;
@@ -38,10 +43,6 @@ export default function Register() {
     }
   };
 
-  const handleRegisterSubmit = (event) => {
-    event.preventDefault();
-    console.log("Submit button is Clicked");
-  };
   const handleConsultantDivClicked = (event) => {
     if (disabled) {
       setHideConsultant(true);
@@ -50,6 +51,29 @@ export default function Register() {
       setHideConsultant(false);
       setDisabled(true);
     }
+  };
+
+  const handleConsultantClicked = (event) => {
+    setConsultant(event.target.title);
+    setConsultantID(event.target.value);
+    setHideConsultant(true);
+    setDisabled(false);
+  };
+
+  const handleTermsAndConditionTicked = (event) => {
+    setTermsCondition(event.target.checked);
+    if (event.target.checked) {
+      setRegisterDisabled(false);
+      setRegisterColor("#F2994A");
+    } else {
+      setRegisterDisabled(true);
+      setRegisterColor("#929292");
+    }
+  };
+
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
+    console.log("Submit button is Clicked");
   };
 
   return (
@@ -188,8 +212,10 @@ export default function Register() {
                       disabled={disabled}
                       required
                       type="select"
+                      value={consultant}
+                      onChange={(consultant) => setConsultant(consultant)}
                       placeholder="Select Consultant"
-                      className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
+                      className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A] pointer-events-none"
                     />
                     <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                       <img
@@ -199,7 +225,29 @@ export default function Register() {
                       ></img>
                     </div>
                   </div>
-                  <ConsultantDropDown is_hidden={hideConsultant} />
+                  <ul
+                    className={
+                      hideConsultant
+                        ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange-400 rounded-md"
+                        : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange-400 rounded-md"
+                    }
+                  >
+                    {data
+                      ? data.map((consultant_) => {
+                          return (
+                            <li
+                              key={consultant_.id}
+                              onClick={handleConsultantClicked}
+                              value={consultant_.id}
+                              title={consultant_.full_name}
+                              className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2"
+                            >
+                              {consultant_.full_name}
+                            </li>
+                          );
+                        })
+                      : null}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -228,9 +276,7 @@ export default function Register() {
                 >
                   <input
                     checked={termsCondition}
-                    onChange={(event) =>
-                      setTermsCondition(event.target.checked)
-                    }
+                    onChange={handleTermsAndConditionTicked}
                     type="checkbox"
                     id="check-box-1"
                     className=" appearance-none	h-6 w-6 border border-[#F2994A] rounded-lg"
@@ -247,7 +293,10 @@ export default function Register() {
               </a>
             </div>
             <div className="space-y-2 ">
-              <button className="w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[#929292] text-white rounded-md text-center">
+              <button
+                disabled={registerDisabled}
+                className={`w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`}
+              >
                 Register
               </button>
             </div>
