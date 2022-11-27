@@ -14,7 +14,7 @@ import Show from "../../common/form/images/show.svg";
 import ConsultantDropDown from "./common/ConsultantDropDown";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import "./register.css";
+// import "./register.css";
 
 export default function Register() {
   const [show, setShow] = useState("password");
@@ -126,7 +126,7 @@ export default function Register() {
                   outline-none
                   border-2
                   border-[#F2994A]
-                bg-[#384063] t
+                bg-[#384063] 
                 text-white
                 w-full
                 py-1 fdc:p-2  tdc:py-1 fvdc:p-2
@@ -207,14 +207,12 @@ export default function Register() {
                 <span className="justify-self-end">(Optional)</span>
               </label>
 
-              <div className="flex   focus:outline-none focus:border-2 focus:border-[#F2994A] border-2  border-transparent rounded-md">
-                <PhoneInput
+                 <PhoneInput
                   country={"us"}
                   value={phone}
                   onChange={(phone) => setPhone(phone)}
                 />
-              </div>
-            </div>
+             </div>
 
             <div className="flex  space-x-2 font-semibold">
               <div className="">
