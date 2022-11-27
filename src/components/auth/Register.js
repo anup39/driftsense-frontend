@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import Down from "../../common/form/images/down.svg";
 import HeaderRegister from "../../common/header/register/HeaderRegister";
 import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
@@ -12,9 +12,13 @@ import Show from "../../common/form/images/show.svg";
 import PhoneInput from "new-ph-phone-input-react";
 import "new-ph-phone-input-react/lib/style.css";
 import "./register.css";
-import { useGetConsultantQuery } from "../../api/authApi";
+import {
+  useGetConsultantQuery,
+  useSignUpFarmerMutation,
+} from "../../api/authApi";
 
 export default function Register() {
+  const dropDownRef = useRef();
   const [show, setShow] = useState("password");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +33,10 @@ export default function Register() {
   const [registerColor, setRegisterColor] = useState("#929292");
 
   const { data, isLoading, error, isSuccess } = useGetConsultantQuery();
+  const [
+    signUpFarmer,
+    { signup_data, signup_isLoading, signup_error, signup_isSuccess },
+  ] = useSignUpFarmerMutation();
 
   const handleShowPassword = (event) => {
     const value = event.target.title;
@@ -73,7 +81,10 @@ export default function Register() {
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
-    console.log("Submit button is Clicked");
+    const full_name = fullName;
+    const consultant = consultantID;
+    const register_data = { full_name, email, password, consultant, phone };
+    console.log(register_data);
   };
 
   return (
@@ -160,7 +171,7 @@ export default function Register() {
                   outline-none
                   border-2
                   border-[#F2994A]
-                bg-[#384063] 
+                bg-[#384063]
                 text-white
                 w-full
                 py-1 fdc:p-2  tdc:py-1 fvdc:p-2
@@ -226,6 +237,7 @@ export default function Register() {
                     </div>
                   </div>
                   <ul
+                    ref={dropDownRef}
                     className={
                       hideConsultant
                         ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange-400 rounded-md"
@@ -260,12 +272,12 @@ export default function Register() {
                 <span className="justify-self-end">(Optional)</span>
               </label>
 
-                 <PhoneInput
-                  country={"us"}
-                  value={phone}
-                  onChange={(phone) => setPhone(phone)}
-                />
-             </div>
+              <PhoneInput
+                country={"us"}
+                value={phone}
+                onChange={(phone) => setPhone(phone)}
+              />
+            </div>
             <div className="flex  space-x-2 font-semibold">
               <div className="">
                 <label
@@ -302,8 +314,8 @@ export default function Register() {
           <div className="space-y-2 ">
             <GoogleRegister />
           </div>
+        </div>
       </div>
-    </div>  
-  </>
+    </>
   );
 }

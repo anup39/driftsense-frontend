@@ -14,6 +14,15 @@ export const authApi = createApi({
         };
       },
     }),
+    signUpFarmer: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/farmers/",
+          method: "post",
+          body: body,
+        };
+      },
+    }),
     getConsultant: builder.query({
       query: () => {
         return {
@@ -26,4 +35,8 @@ export const authApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useLoginUserMutation, useGetConsultantQuery } = authApi;
+export const {
+  useLoginUserMutation,
+  useSignUpFarmerMutation,
+  useGetConsultantQuery,
+} = authApi;

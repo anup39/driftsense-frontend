@@ -1,22 +1,21 @@
- .react-tel-input  .form-control{
+.react-tel-input .form-control {
   @apply w-full;
-   @apply py-3 !important;
+  @apply py-3 !important;
   @apply pl-24;
   border: none;
   background-color: #384063;
-
 }
- .special-label{
+.special-label {
   display: none;
- }
- .react-tel-input .selected-flag:hover{
+}
+.react-tel-input .selected-flag:hover {
   background-color: transparent;
- }
- .react-tel-input .selected-flag:focus{
+}
+.react-tel-input .selected-flag:focus {
   background-color: transparent;
   border: none;
- }
- .react-tel-input .selected-flag {
+}
+.react-tel-input .selected-flag {
   outline: none;
   position: relative;
   width: 65px;
@@ -24,37 +23,35 @@
   padding: 0 0 0 24px;
   border-radius: 3px 0 0 3px;
 }
- .flag-dropdown{
-  background-color:#384063 ;
+.flag-dropdown {
+  background-color: #384063;
   border: none;
   @apply w-10;
- }
- .react-tel-input .flag-dropdown{
+}
+.react-tel-input .flag-dropdown {
   border: none;
   background-color: transparent;
- }
- .react-tel-input .flag-dropdown.open .selected-flag{
-   @apply bg-[#384063];
-  }
-  /* .react-tel-input .flag-dropdown.open .selected-flag:hover,
+}
+.react-tel-input .flag-dropdown.open .selected-flag {
+  @apply bg-[#384063];
+}
+/* .react-tel-input .flag-dropdown.open .selected-flag:hover,
   .react-tel-input .flag-dropdown.open .selected-flag:focus{
     @apply bg-[#161C24];
   } */
- div .country-list {
+div .country-list {
   @apply h-28;
   @apply w-full !important;
   @apply absolute !important;
   background-color: #384063 !important;
   color: white;
- }
- div .country-list li:hover{
+}
+div .country-list li:hover {
   color: white;
-  background-color: #161C24 !important;
- 
-} 
- div .country-list:hover{
-
- }
- div .country-list .active{
+  background-color: #161c24 !important;
+}
+div .country-list:hover {
+}
+div .country-list .active {
   color: black;
- }
+}
