@@ -1,6 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import Soy from "../../../../assets/Soy.png";
+import Crop from "../../../../assets/crop.svg";
+
 export default function CropType() {
   return (
     <>
@@ -10,17 +13,76 @@ export default function CropType() {
         <ul className="text-white   z-[9999]  relative space-y-1">
           <div className="relative w-full h-[48px]">
             <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm">
-              <FontAwesomeIcon
-                icon={faHome}
+              <img
+                src={Crop}
                 className="-mt-2 text-black text-2xl cursor-pointer"
-              ></FontAwesomeIcon>
+              ></img>
             </div>
-            <li className=" bg-white text-[#7C7C7C] block  pl-14 p-2 rounded-md">Crop Type </li>
+            <input className="w-full outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r" placeholder="Crop Type" />
             <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
               <FontAwesomeIcon
                 icon={faAngleDown}
                 className="-mt-2 text-black text-2xl cursor-pointer"
               ></FontAwesomeIcon>
+            </div>
+
+            <center><hr className="mx-3 -mt-[1px]" /></center>
+            <div className="z-50">
+              <ul className="px-2 rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r h-[161px] overflow-y-scroll">
+                <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                </li>
+                <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+
+                </li>
+                <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                </li>
+                <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+
+                </li>
+                <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+                  <div className="flex space-x-2">
+                    <img src={Soy} alt="" className="h-6 w-auto rounded-full" />
+                    <h1 className="text-gray-400">Rectangle</h1>
+                  </div>
+
+                </li>
+              </ul>
             </div>
           </div>
         </ul>
