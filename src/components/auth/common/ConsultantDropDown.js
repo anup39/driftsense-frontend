@@ -1,27 +1,24 @@
 import React from "react";
 
-export default function ConsultantDropDown() {
+export default function ConsultantDropDown(props) {
+  const { is_hidden } = props;
   return (
-    <select
-      required
-      placeholder="Select Consultant"
-      className="outline-2 outline-[#F2994A] bg-[#384063] t text-white w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md"
+    <ul
+      className={
+        is_hidden
+          ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange-400 rounded-md"
+          : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange-400 rounded-md"
+      }
     >
-      <option style={{ backgroundColor: "#212b36" }} value="">
-        Select Consultant
-      </option>
-      <option style={{ backgroundColor: "#212b36" }} value="US">
-        United States
-      </option>
-      <option style={{ backgroundColor: "#212b36" }} value="CA">
-        Canada
-      </option>
-      <option style={{ backgroundColor: "#212b36" }} value="FR">
-        France
-      </option>
-      <option style={{ backgroundColor: "#212b36" }} value="DE">
-        Germany
-      </option>
-    </select>
+      <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+        Jon Doe
+      </li>
+      <li className="bg-[#1F2937] hover:bg-[#161C24]  cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+        Im the Agronomist / Pest Control Advisor
+      </li>
+      <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
+        Others
+      </li>
+    </ul>
   );
 }
