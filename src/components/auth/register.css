@@ -1,10 +1,13 @@
  .react-tel-input  .form-control{
   @apply w-full;
-   @apply py-3 !important;
-  @apply pl-24;
-  border: none;
+  height: 44px !important;
+  @apply pl-20;
+  border: 2px solid #F2994A;
   background-color: #384063;
 
+}
+.react-tel-input input{
+  color:  white;
 }
  .special-label{
   display: none;
@@ -23,7 +26,9 @@
   height: 100%;
   padding: 0 0 0 24px;
   border-radius: 3px 0 0 3px;
+  @apply text-white;
 }
+ 
  .flag-dropdown{
   background-color:#384063 ;
   border: none;
@@ -46,15 +51,17 @@
   @apply absolute !important;
   background-color: #384063 !important;
   color: white;
+  text-align: center;
  }
+ div .country-list li{
+  @apply py-3 !important; 
+   }
  div .country-list li:hover{
   color: white;
   background-color: #161C24 !important;
  
 } 
- div .country-list:hover{
-
- }
- div .country-list .active{
-  color: black;
- }
+ 
+ div .country-list  .active{
+  color: black !important;
+  }

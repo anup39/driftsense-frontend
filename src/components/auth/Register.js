@@ -84,7 +84,7 @@ export default function Register() {
                   bg-[#384063] t
                   text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+                  py-1 fdc:p-2    fvdc:p-2
                   rounded-md
                 "
               />
@@ -111,7 +111,7 @@ export default function Register() {
                   bg-[#384063] t
                   text-white
                   w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+                  py-1 fdc:p-2   fvdc:p-2
                   rounded-md
                 "
               />
@@ -139,7 +139,7 @@ export default function Register() {
                 bg-[#384063] 
                 text-white
                 w-full
-                py-1 fdc:p-2  tdc:py-1 fvdc:p-2
+                py-1 fdc:p-2    fvdc:p-2
                 rounded-md
                 block"
                 ></input>
@@ -189,7 +189,7 @@ export default function Register() {
                       required
                       type="select"
                       placeholder="Select Consultant"
-                      className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
+                      className=" bg-[#384063] block  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
                     />
                     <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                       <img
@@ -211,12 +211,13 @@ export default function Register() {
                 </span>
                 <span className="justify-self-end">(Optional)</span>
               </label>
-
+              <div className="-p-2">
                  <PhoneInput
                   country={"us"}
                   value={phone}
                   onChange={(phone) => setPhone(phone)}
-                />
+                 />
+             </div>
              </div>
             <div className="flex  space-x-2 font-semibold">
               <div className="">
