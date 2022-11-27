@@ -55,12 +55,13 @@ border-bottom-left-radius: 5px;
     background-color: transparent;
   }
  div .country-list {
+  top: 35px;
   height: 7rem;
   width: 100% !important;
   position:  absolute !important;
   background-color: #1F2937 !important;
   border: 2px solid #F2994A;
-  border-radius: 5px;
+  border-radius: px;
   color: white;
   text-align: center;
  }
