@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Down from "../../common/form/images/down.svg";
 import HeaderRegister from "../../common/header/register/HeaderRegister";
 import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
@@ -16,6 +16,7 @@ import {
   useGetConsultantQuery,
   useSignUpFarmerMutation,
 } from "../../api/authApi";
+import LoaderPng from "../../common/loader/images/loader.png";
 
 export default function Register() {
   const dropDownRef = useRef();
@@ -31,13 +32,16 @@ export default function Register() {
   const [disabled, setDisabled] = useState(false);
   const [registerDisabled, setRegisterDisabled] = useState(true);
   const [registerColor, setRegisterColor] = useState("#929292");
+  const [errorText, setErrorText] = useState("invisible");
 
-  const { data, isLoading, error, isSuccess } = useGetConsultantQuery();
-  const [
-    signUpFarmer,
-    { signup_data, signup_isLoading, signup_error, signup_isSuccess },
-  ] = useSignUpFarmerMutation();
+  const { data } = useGetConsultantQuery();
+  const [signUpFarmer, { signup_data, isLoading, error, isSuccess }] =
+    useSignUpFarmerMutation();
 
+  console.log(signup_data);
+  console.log(isLoading);
+  console.log(error);
+  console.log(isSuccess);
   const handleShowPassword = (event) => {
     const value = event.target.title;
     if (value === "1") {
@@ -85,7 +89,16 @@ export default function Register() {
     const consultant = consultantID;
     const register_data = { full_name, email, password, consultant, phone };
     console.log(register_data);
+    signUpFarmer(register_data);
   };
+
+  useEffect(() => {
+    if (error) {
+      setErrorText("visible");
+    } else {
+      setErrorText("invisible");
+    }
+  }, [error]);
 
   return (
     <>
@@ -97,6 +110,11 @@ export default function Register() {
             <RegisterTitle />
           </div>
           <form onSubmit={handleRegisterSubmit} className=" space-y-2 ">
+            <p
+              className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
+            >
+              Farmer with that Email Already Exists.
+            </p>
             <div className="">
               <label
                 className="
@@ -226,7 +244,7 @@ export default function Register() {
                       value={consultant}
                       onChange={(consultant) => setConsultant(consultant)}
                       placeholder="Select Consultant"
-                      className=" bg-[#384063] block  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
+                      className="pointer-events-none bg-[#384063] block  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
                     />
                     <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                       <img
@@ -308,7 +326,15 @@ export default function Register() {
                 disabled={registerDisabled}
                 className={`w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`}
               >
-                Register
+                {isLoading ? (
+                  <img
+                    src={LoaderPng}
+                    className="h-fit place-self-center animate-spin"
+                    alt=""
+                  ></img>
+                ) : (
+                  "Login"
+                )}
               </button>
             </div>
           </form>
