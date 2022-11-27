@@ -1,9 +1,10 @@
 .react-tel-input .form-control {
-  @apply w-full;
-  height: 44px !important;
-  @apply pl-20;
+  width: 100%;
+  height: 45px !important;
+  padding-left: 5rem;
   border: 2px solid #f2994a;
   background-color: #384063;
+  font-size: 18px;
 }
 .react-tel-input input {
   color: white;
@@ -25,41 +26,62 @@
   height: 100%;
   padding: 0 0 0 24px;
   border-radius: 3px 0 0 3px;
-  @apply text-white;
+  color: white;
 }
 
 .flag-dropdown {
-  background-color: #384063;
+  border: 2px solid #f2994a;
+  background-color: #1f2937;
   border: none;
-  @apply w-10;
+  width: 40px;
 }
 .react-tel-input .flag-dropdown {
   border: none;
   background-color: transparent;
 }
 .react-tel-input .flag-dropdown.open .selected-flag {
-  @apply bg-[#384063];
+  background-color: #384063;
+  border-bottom: 2px solid #f2994a;
+  border-left: 2px solid #f2994a;
+  border-top: 2px solid #f2994a;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 /* .react-tel-input .flag-dropdown.open .selected-flag:hover,
   .react-tel-input .flag-dropdown.open .selected-flag:focus{
     @apply bg-[#161C24];
   } */
+.hilight {
+  background-color: transparent;
+}
 div .country-list {
-  @apply h-28;
-  @apply w-full !important;
-  @apply absolute !important;
-  background-color: #384063 !important;
+  top: 35px;
+  height: 7rem;
+  width: 100% !important;
+  position: absolute !important;
+  background-color: #1f2937 !important;
+  border: 2px solid #f2994a;
+  border-radius: px;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 div .country-list li {
-  @apply py-3 !important;
+  padding-top: 0.75rem !important/* 12px */;
+  padding-bottom: 0.75rem !important/* 12px */;
 }
 div .country-list li:hover {
   color: white;
   background-color: #161c24 !important;
 }
-
+.react-tel-input .flag-dropdown.open .selected-flag {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 div .country-list .active {
   color: black !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+  background-color: #161c24;
 }

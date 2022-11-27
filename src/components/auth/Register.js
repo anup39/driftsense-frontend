@@ -289,7 +289,7 @@ export default function Register() {
                 </span>
                 <span className="justify-self-end">(Optional)</span>
               </label>
-              <div className="-p-2">
+              <div className="rounded-md">
                 <PhoneInput
                   country={"us"}
                   value={phone}
@@ -333,7 +333,7 @@ export default function Register() {
                     alt=""
                   ></img>
                 ) : (
-                  "Login"
+                  "Register"
                 )}
               </button>
             </div>
