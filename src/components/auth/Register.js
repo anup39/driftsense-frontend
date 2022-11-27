@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import Down from "../../common/form/images/down.svg";
-import Nep from "../../common/form/images/Nepal.png";
 import HeaderRegister from "../../common/header/register/HeaderRegister";
 import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
 import RegisterTitle from "../../common/title/register/TitleRegister";
 import GoogleRegister from "../../common/button/register/RegisterGoogle";
-import LoaderCircle from "../../common/loader/LoaderCircle";
+// import LoaderCircle from "../../common/loader/LoaderCircle";
 import "../../common/form/checkbox/Checkbox.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Hide from "../../common/form/images/hide.svg";
 import Show from "../../common/form/images/show.svg";
 import ConsultantDropDown from "./common/ConsultantDropDown";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-// import "./register.css";
+import PhoneInput from "new-ph-phone-input-react";
+import "new-ph-phone-input-react/lib/style.css";
+import "./register.css";
 
 export default function Register() {
   const [show, setShow] = useState("password");
@@ -23,6 +22,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [termsCondition, setTermsCondition] = useState(false);
+  const [hideConsultant, setHideConsultant] = useState(true);
+  const [disabled, setDisabled] = useState(false);
 
   const handleShowPassword = (event) => {
     const value = event.target.title;
@@ -39,7 +40,16 @@ export default function Register() {
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
-    console.log("Submit buttoned is Clicked");
+    console.log("Submit button is Clicked");
+  };
+  const handleConsultantDivClicked = (event) => {
+    if (disabled) {
+      setHideConsultant(true);
+      setDisabled(false);
+    } else {
+      setHideConsultant(false);
+      setDisabled(true);
+    }
   };
 
   return (
@@ -94,7 +104,7 @@ export default function Register() {
                 required
                 type="text"
                 placeholder="Enter Email Address"
-                className="    
+                className="
                   outline-none
                   border-2
                   border-[#F2994A]
@@ -170,10 +180,17 @@ export default function Register() {
               {/* <br /> */}
               <div className="  outline-2 text-white w-full     ">
                 <div className="relative ">
-                  <div className="relative">
-                    <input className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none
-                  border-2
-                  border-[#F2994A]" />
+                  <div
+                    className="relative"
+                    onClick={handleConsultantDivClicked}
+                  >
+                    <input
+                      disabled={disabled}
+                      required
+                      type="select"
+                      placeholder="Select Consultant"
+                      className=" bg-[#384063] block  w-full py-1 fdc:p-2 tdc:py-1  fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
+                    />
                     <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                       <img
                         alt=""
@@ -182,22 +199,10 @@ export default function Register() {
                       ></img>
                     </div>
                   </div>
-                  <ul className="z-50  mt-[0.5px] hidden absolute text-center w-full   border-2 border-orange-400 rounded-md">
-                    <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
-                      Jon Doe
-                    </li>
-                    <li className="bg-[#1F2937] hover:bg-[#161C24]  cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
-                      Im the Agronomist / Pest Control Advisor
-                    </li>
-                    <li className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer py-1 fdc:p-2 tdc:py-1  fvdc:p-2">
-                      Others
-                    </li>
-                  </ul>
+                  <ConsultantDropDown is_hidden={hideConsultant} />
                 </div>
               </div>
             </div>
-
-
             <div className=" ">
               <label className="text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2] grid grid-cols-2">
                 <span>
@@ -213,7 +218,6 @@ export default function Register() {
                   onChange={(phone) => setPhone(phone)}
                 />
              </div>
-
             <div className="flex  space-x-2 font-semibold">
               <div className="">
                 <label
@@ -249,8 +253,8 @@ export default function Register() {
           <div className="space-y-2 ">
             <GoogleRegister />
           </div>
-        </div>
       </div>
-    </>
+    </div>  
+  </>
   );
 }
