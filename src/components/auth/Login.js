@@ -8,9 +8,10 @@ import Show from "../../common/form/images/show.svg";
 import { useLoginUserMutation } from "../../api/authApi";
 import NormalLoginButton from "../auth/common/NormalLoginButton";
 
-export default function Login() {
+export default function Login(props) {
   const [show, setShow] = useState("password");
   const [errorText, setErrorText] = useState("invisible");
+  const [verifiedText, setVerifiedText] = useState(props.verifiedText);
 
   const handleShowPassword = (event) => {
     const value = event.target.title;
@@ -34,6 +35,7 @@ export default function Login() {
     const password = event.target.loginPasswordInput.value;
     const login_data = { username: email, password: password };
     loginUser(login_data);
+    setVerifiedText("invisible");
     event.target.reset();
   };
 
@@ -60,6 +62,11 @@ export default function Login() {
               className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
             >
               Invalid email address or password.
+            </p>
+            <p
+              className={`mt-2 ${verifiedText} peer-invalid:visible text-${props.color}-600 text-sm`}
+            >
+              {props.textVerify}
             </p>
             <div className="">
               <label

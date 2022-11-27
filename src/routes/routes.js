@@ -11,6 +11,7 @@ import RegistrationComplete from "../components/auth/RegistrationComplete";
 import LoaderCircle from "../common/loader/LoaderCircle";
 import ModelConfirm from "../common/popUps/ModelConfirm";
 import AreaDetail from "../common/popUps/AreaDetail";
+import VerifyEmail from "../components/auth/VerifyEmail";
 
 const NotFound = () => {
   return <div>Page Not found</div>;
@@ -23,6 +24,7 @@ export default function RoutesDriftSense() {
         <Route exact path="/" element={<Login />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/verify/:token" element={<VerifyEmail />} />
         <Route
           exact
           path="/register-with-google"

@@ -33,6 +33,7 @@ export default function Register() {
   const [registerDisabled, setRegisterDisabled] = useState(true);
   const [registerColor, setRegisterColor] = useState("#929292");
   const [errorText, setErrorText] = useState("invisible");
+  const [successText, setSuccessText] = useState("invisible");
 
   const { data } = useGetConsultantQuery();
   const [signUpFarmer, { signup_data, isLoading, error, isSuccess }] =
@@ -100,6 +101,14 @@ export default function Register() {
     }
   }, [error]);
 
+  useEffect(() => {
+    if (isSuccess) {
+      setSuccessText("visible");
+    } else {
+      setSuccessText("invisible");
+    }
+  }, [isSuccess]);
+
   return (
     <>
       <div className="tdc:bg-[#161C24] bg-transparent grid tdc:grid-cols-2 space-y-2  fdc:space-y-5 tdc:space-y-2">
@@ -114,6 +123,11 @@ export default function Register() {
               className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
             >
               Farmer with that Email Already Exists.
+            </p>
+            <p
+              className={`mt-2 ${successText} peer-invalid:visible text-green-600 text-sm`}
+            >
+              Sucessfully Created Account.Check Your Email.
             </p>
             <div className="">
               <label
@@ -324,7 +338,11 @@ export default function Register() {
             <div className="space-y-2 ">
               <button
                 disabled={registerDisabled}
-                className={`w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`}
+                className={
+                  isLoading
+                    ? `border border-[#F2994A] grid w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-[""] text-white rounded-md text-center`
+                    : `w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`
+                }
               >
                 {isLoading ? (
                   <img
