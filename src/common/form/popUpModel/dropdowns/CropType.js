@@ -27,7 +27,7 @@ export default function CropType() {
             </div>
 
             <center><hr className="mx-3 -mt-[1px]" /></center>
-            <div className="z-50">
+            <div className="z-50 hidden">
               <ul className="px-2 rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r h-[161px] overflow-y-scroll">
                 <li className=" text-black  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 ftdc:flex ftdc:justify-between space-y-3 ftdc:space-y-0 ">
                   <div className="flex space-x-2">

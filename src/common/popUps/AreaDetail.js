@@ -1,5 +1,7 @@
 import React from "react";
 import PopUpApprove from "../button/popUpModel/PopUpApprove";
+import PopUpDelete from "../button/popUpModel/PopUpDelete";
+import PopUpSave from "../button/popUpModel/PopUpSave";
 import AddPlotsName from "../form/popUpModel/AddPlotsName";
 import CropGeometry from "../form/popUpModel/dropdowns/CropGeometry";
 import CropType from "../form/popUpModel/dropdowns/CropType";
@@ -18,7 +20,7 @@ export default function AreaDetail() {
             <div className="border-b border-[#71C1C7] p-4">
               <AreaDetailHeader />
             </div>
-            <div className="tdc:flex grid p-4 space-y-5 tdc:space-y-0">
+            <div className="tdc:flex p-4  grid space-y-5 tdc:space-y-0">
               <div className="basis-4/12">
                 <CustomizeModelName />
               </div>
@@ -44,8 +46,10 @@ export default function AreaDetail() {
                 </div>
               </div>
             </div>
-            <div className="pb-5 grid justify-items-center">
-              <PopUpApprove />
+            <div className="pb-5 grid tdc:grid-cols-2 p-4 ">
+              <div className="justify-self-start"><PopUpDelete /></div>
+              {/* <div className="justify-self-end"><PopUpApprove /></div> */}
+              <div className="justify-self-end"><PopUpSave /></div>
             </div>
           </div>
         </div>
