@@ -3,7 +3,8 @@ import Down from "../../common/form/images/down.svg";
 import HeaderRegister from "../../common/header/register/HeaderRegister";
 import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
 import RegisterTitle from "../../common/title/register/TitleRegister";
-import GoogleRegister from "../../common/button/register/RegisterGoogle";
+import GoogleRegisterButton from "../../common/button/register/RegisterGoogle";
+import GoogleLogin from "react-google-login";
 import "../../common/form/checkbox/Checkbox.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -15,10 +16,16 @@ import "./register.css";
 import {
   useGetConsultantQuery,
   useSignUpFarmerMutation,
+  useGoogleLoginMutation,
 } from "../../api/authApi";
 import LoaderPng from "../../common/loader/images/loader.png";
+import { addToken } from "../../reducers/authSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export default function Register() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const dropDownRef = useRef();
   const [show, setShow] = useState("password");
   const [fullName, setFullName] = useState("");
@@ -36,13 +43,20 @@ export default function Register() {
   const [successText, setSuccessText] = useState("invisible");
 
   const { data } = useGetConsultantQuery();
-  const [signUpFarmer, { signup_data, isLoading, error, isSuccess }] =
+  const [signUpFarmer, { isLoading, error, isSuccess }] =
     useSignUpFarmerMutation();
+  const [
+    googleLogin,
+    { data: data_google_login, isSuccess: isSuccess_register },
+  ] = useGoogleLoginMutation();
 
-  console.log(signup_data);
-  console.log(isLoading);
-  console.log(error);
-  console.log(isSuccess);
+  if (data_google_login) {
+    if (data_google_login.key) {
+      console.log(data_google_login.key);
+      dispatch(addToken(data_google_login.key));
+    }
+  }
+
   const handleShowPassword = (event) => {
     const value = event.target.title;
     if (value === "1") {
@@ -89,8 +103,19 @@ export default function Register() {
     const full_name = fullName;
     const consultant = consultantID;
     const register_data = { full_name, email, password, consultant, phone };
-    console.log(register_data);
     signUpFarmer(register_data);
+  };
+
+  const handleLoginGoogleSuccess = (result) => {
+    const access_token = result.accessToken;
+    const code = result.Ca;
+    const id_token = result.tokenId;
+    const login_data_google = { access_token, code, id_token };
+    googleLogin(login_data_google);
+  };
+
+  const handleLoginGoogleFailure = (result) => {
+    console.log(result);
   };
 
   useEffect(() => {
@@ -108,6 +133,14 @@ export default function Register() {
       setSuccessText("invisible");
     }
   }, [isSuccess]);
+
+  if (isSuccess_register) {
+    return navigate("/register-with-google");
+  }
+
+  if (isSuccess) {
+    return navigate("/registration-complete");
+  }
 
   return (
     <>
@@ -356,8 +389,19 @@ export default function Register() {
               </button>
             </div>
           </form>
-          <div className="space-y-2 ">
-            <GoogleRegister />
+          <div className="space-y-2">
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              render={(renderProps) => (
+                <GoogleRegisterButton
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                />
+              )}
+              onSuccess={handleLoginGoogleSuccess}
+              onFailure={handleLoginGoogleFailure}
+              cookiePolicy={"single_host_origin"}
+            ></GoogleLogin>
           </div>
         </div>
       </div>

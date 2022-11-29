@@ -4,12 +4,25 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  prepareHeaders: (headers) => {
+    headers.set("Access-Control-Allow-Origin", "*");
+    return headers;
+  },
   endpoints: (builder) => ({
     loginUser: builder.mutation({
       query: (body) => {
         return {
           url: "/auth-token/",
           method: "post",
+          body: body,
+        };
+      },
+    }),
+    updateFarmer: builder.mutation({
+      query: ({ id, body }) => {
+        return {
+          url: `/farmers/${id}/`,
+          method: "PATCH",
           body: body,
         };
       },
@@ -37,6 +50,33 @@ export const authApi = createApi({
         };
       },
     }),
+    forgotPasswordEmail: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/forgot-password-email-check/",
+          method: "post",
+          body: body,
+        };
+      },
+    }),
+    changePassword: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/password-reset/",
+          method: "post",
+          body: body,
+        };
+      },
+    }),
+    googleLogin: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/google/",
+          method: "post",
+          body: body,
+        };
+      },
+    }),
   }),
 });
 
@@ -45,6 +85,10 @@ export const authApi = createApi({
 export const {
   useLoginUserMutation,
   useSignUpFarmerMutation,
+  useUpdateFarmerMutation,
   useGetConsultantQuery,
   useVerifyEmailQuery,
+  useForgotPasswordEmailMutation,
+  useChangePasswordMutation,
+  useGoogleLoginMutation,
 } = authApi;

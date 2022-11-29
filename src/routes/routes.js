@@ -31,7 +31,11 @@ export default function RoutesDriftSense() {
           element={<RegisterWithGoogle />}
         />
         <Route exact path="/forgot-password" element={<ForgotPassword />} />
-        <Route exact path="/change-password" element={<ChangePassword />} />
+        <Route
+          exact
+          path="/change-password/:token"
+          element={<ChangePassword />}
+        />
         <Route
           exact
           path="/registration-complete"

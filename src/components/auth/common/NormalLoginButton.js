@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoaderPng from "../../../common/loader/images/loader.png";
 
 const NormalLoginButton = (props) => {
-  const { type } = props;
+  const { type, text } = props;
   const [bg, setBg] = useState("#F2994A");
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const NormalLoginButton = (props) => {
             alt=""
           ></img>
         ) : (
-          "Login"
+          text
         )}
       </button>
     </div>

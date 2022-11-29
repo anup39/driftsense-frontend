@@ -47,10 +47,7 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-/* .react-tel-input .flag-dropdown.open .selected-flag:hover,
-  .react-tel-input .flag-dropdown.open .selected-flag:focus{
-    @apply bg-[#161C24];
-  } */
+
 .hilight {
   background-color: transparent;
 }

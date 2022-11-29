@@ -12,7 +12,6 @@ export default function FormNewPassword() {
       event.target.title = "0";
       setShow("text");
     } else {
-      console.log("opened");
       event.target.src = Hide;
       event.target.title = "1";
       setShow("password");
