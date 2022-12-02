@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import { fromLonLat } from "ol/proj";
 import OnbordingHeader from "../../common/header/headerOnbording/OnbordingHeader";
 import DrawPlotBoundaries from "../../common/button/buttonActions/DrawPlotBoundaries";
 import Search from "../../common/form/search/Search";
 import OnbordingFooterLoader from "../../common/loader/LoaderFooter";
-import Map from "../map/Map";
 import BlackRight from "../../common/button/images/Iconrightblack.svg";
 import LeftBlack from "../../common/button/images/leftblack.svg";
 import ModelConfirm from "../../common/popUps/ModelConfirm";
 import AreaDetail from "../../common/popUps/AreaDetail";
+import MapSection from "./MapSection";
 
 export default function OnboardingProcess() {
-  const [center, setCenter] = useState([-99.14, 43.661025]);
-  const [zoom, setZoom] = useState(13);
-  const [map, setMap] = useState();
   const [openFieldSelection, setOpenFieldSelection] = useState(false);
-
-  const onMap = (evMap) => {
-    if (evMap) {
-      setMap(evMap);
-    }
-  };
 
   const handleFieldSelectionPopup = () => {
     if (openFieldSelection) {
@@ -49,7 +39,7 @@ export default function OnboardingProcess() {
                   </div>
                 </div>
               </div>
-              <Map center={fromLonLat(center)} zoom={zoom} onMap={onMap}></Map>
+              <MapSection />
             </div>
           </div>
         </div>

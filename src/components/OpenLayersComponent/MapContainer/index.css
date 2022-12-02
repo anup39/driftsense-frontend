@@ -1,0 +1,32 @@
+#ol-map .ol-zoom {
+  width: 38px;
+  z-index: 1;
+  background-color: #212b36;
+  color: antiquewhite;
+  border: 1px solid orange;
+  display: grid;
+  position: absolute;
+  top: 20px;
+  left: 1px;
+  border-radius: 5px;
+}
+
+#ol-map .ol-full-screen {
+  width: 38px;
+  z-index: 1;
+  background-color: #212b36;
+  color: antiquewhite;
+  border: 1px solid orange;
+  display: grid;
+  position: absolute;
+  top: 85px;
+  left: 1px;
+  border-radius: 5px;
+}
+
+#ol-map .ol-compass {
+  display: none;
+}
+#ol-map .ol-attribution {
+  display: none;
+}
