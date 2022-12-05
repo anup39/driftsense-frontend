@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import HeaderLogin from "../../common/header/login/HeaderLogin";
-import ForgotTitle from "../../common/title/forgotPassword/TitleForgotPassword";
-import ForgotPasswordText from "../../common/title/forgotPassword/BackToLogin";
-import ResendLink from "../../common/title/forgotPassword/ResendLink";
-import AlertSuccess from "../../common/alerts/trueAlerts/AlertSuccess";
-import NormalLoginButton from "./common/NormalLoginButton";
+import HeaderLogin from "./LoginRegister/HeaderLogin";
+import ForgotPasswordText from "./ForgotChangePassword/BackToLogin";
+import ResendLink from "./ForgotChangePassword/ResendLink";
+import AlertSuccess from "./ForgotChangePassword/AlertSuccess";
+import NormalLoginButton from "./LoginRegister/NormalLoginButton";
 import { useForgotPasswordEmailMutation } from "../../api/authApi";
 
 export default function ForgotPassword() {
@@ -14,7 +13,7 @@ export default function ForgotPassword() {
     "Password reset link has been sent successfully"
   );
 
-  const [forgotPasswordEmail, { data, isLoading, error, isError, isSuccess }] =
+  const [forgotPasswordEmail, { isLoading, isError, isSuccess }] =
     useForgotPasswordEmailMutation();
 
   const handleForgotPassSubmit = (event) => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderLogin from "../../common/header/login/HeaderLogin";
+import HeaderLogin from "./LoginRegister/HeaderLogin";
 
 export default function StartOnBording() {
   return (

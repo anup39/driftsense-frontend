@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
-import RegisterWithGoogleHead from "../../common/title/register/TitleRegisterWithGoogle";
-import HeaderRegister from "../../common/header/register/HeaderRegister";
-import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
-import Down from "../../common/form/images/down.svg";
+import RegisterWithGoogleHead from "./LoginRegister/TitleRegisterWithGoogle";
+import HeaderRegister from "./LoginRegister/HeaderRegister";
+import FirstHeading from "./LoginRegister/FirstHeading";
+import Down from "./LoginRegister/images/down.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import {
   useGetConsultantQuery,
   useUpdateFarmerMutation,
 } from "../../api/authApi";
-import LoaderPng from "../../common/loader/images/loader.png";
+import LoaderPng from "./common/loader.png";
 import PhoneInput from "new-ph-phone-input-react";
 import "new-ph-phone-input-react/lib/style.css";
 import "./register.css";

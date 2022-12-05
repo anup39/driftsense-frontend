@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderLogoDark from "../../common/header/logo/LogoBlackAlone";
-import OnbordingBackground from "../../common/background/OnbordingBackground";
-import StepOne from "../../common/title/stepsOnbording/stepOne/StepOne";
-import StepOneText from "../../common/title/stepsOnbording/stepOne/StepOneText";
-import GetStarted from "../../common/button/buttonActions/GetStarted";
-import OnboardingFooter from "../../common/footer/afterLogin/FooterEmpty";
+import HeaderLogoDark from "./GetStart/LogoBlackAlone";
+import OnbordingBackground from "./GetStart/OnbordingBackground";
+import StepOne from "./GetStart/StepOne";
+import StepOneText from "./GetStart/StepOneText";
+import GetStarted from "./GetStart/GetStarted";
+import OnboardingFooter from "./GetStart/FooterEmpty";
 
 export default function OnboardingProcess() {
   return (

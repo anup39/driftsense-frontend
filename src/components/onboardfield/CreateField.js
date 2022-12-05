@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import OnbordingHeader from "../../common/header/headerOnbording/OnbordingHeader";
-import DrawPlotBoundaries from "../../common/button/buttonActions/DrawPlotBoundaries";
-import Search from "../../common/form/search/Search";
-import OnbordingFooterLoader from "../../common/loader/LoaderFooter";
-import BlackRight from "../../common/button/images/Iconrightblack.svg";
-import LeftBlack from "../../common/button/images/leftblack.svg";
-import ModelConfirm from "../../common/popUps/ModelConfirm";
-import AreaDetail from "../../common/popUps/AreaDetail";
-import MapSection from "./MapSection";
+import React from "react";
+import OnbordingHeader from "./headerOnbording/OnbordingHeader";
+import Search from "./CreateField/Search";
+import OnbordingFooterLoader from "./CreateField/LoaderFooter";
+import BlackRight from "./CreateField/images/Iconrightblack.svg";
+import LeftBlack from "./CreateField/images/leftblack.svg";
+import ModelConfirm from "./ModelConfirm";
+import AreaDetail from "./AreaDetail";
+import MapSection from "./CreateField/MapSection";
+import { useSelector } from "react-redux";
 
 export default function OnboardingProcess() {
-  const [openFieldSelection, setOpenFieldSelection] = useState(false);
+  const openFieldSelection = useSelector(
+    (state) => state.createFieldMap.showPopup
+  );
+  const showDetailsForm = useSelector(
+    (state) => state.createFieldMap.showDetailsForm
+  );
 
   const handleFieldSelectionPopup = () => {
-    if (openFieldSelection) {
-      setOpenFieldSelection(false);
-    } else {
-      setOpenFieldSelection(true);
-    }
+    console.log("Next Button is clicked");
   };
 
   return (
@@ -34,20 +35,19 @@ export default function OnboardingProcess() {
                   <div className="justify-self-start z-10 ">
                     <Search />
                   </div>
-                  <div className="tdc:justify-self-end z-10">
-                    <DrawPlotBoundaries />
-                  </div>
+                  <div className="tdc:justify-self-end z-10"></div>
                 </div>
               </div>
               <MapSection />
             </div>
           </div>
         </div>
-        {openFieldSelection ? <AreaDetail /> : null}
+        {openFieldSelection ? <ModelConfirm /> : null}
+        {showDetailsForm ? <AreaDetail /> : null}
         <div className="fixed bottom-0 w-full">
           <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
             <button
-              onClick={handleFieldSelectionPopup}
+              // onClick={handleFieldSelectionPopup}
               className=" flex ring-2 ring-orange-500 space-x-2 bg-white p-2 rounded-md  text-lg "
             >
               <img src={LeftBlack} alt="" className="h-3 mt-2"></img>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import HeaderLogin from "../../common/header/login/HeaderLogin";
-import ForgotTitle from "../../common/title/forgotPassword/TitleForgotPassword";
-import GuidePassword from "../../common/form/password/passwordguide/GuidePassword";
-import Hide from "../../common/form/images/hide.svg";
-import Show from "../../common/form/images/show.svg";
-import AlertSuccess from "../../common/alerts/trueAlerts/AlertSuccess";
-import ForgotPasswordText from "../../common/title/forgotPassword/BackToLogin";
-import NormalLoginButton from "./common/NormalLoginButton";
+import HeaderLogin from "./LoginRegister/HeaderLogin";
+import ForgotTitle from "./ForgotChangePassword/TitleForgotPassword";
+import GuidePassword from "./ForgotChangePassword/GuidePassword";
+import Hide from "./common/hide.svg";
+import Show from "./common/show.svg";
+import AlertSuccess from "./ForgotChangePassword/AlertSuccess";
+import ForgotPasswordText from "./ForgotChangePassword/BackToLogin";
+import NormalLoginButton from "./LoginRegister/NormalLoginButton";
 import { useChangePasswordMutation } from "../../api/authApi";
 
 export default function ForgotPassword() {
@@ -19,7 +19,7 @@ export default function ForgotPassword() {
   const [alertText, setAlertText] = useState(
     "Password change has been successful.Please Login."
   );
-  const [changePassword, { data, isLoading, error, isError, isSuccess }] =
+  const [changePassword, { isLoading, isError, isSuccess }] =
     useChangePasswordMutation();
 
   const handleShowPassword1 = (event) => {

@@ -5,7 +5,7 @@ import Login from "./Login";
 
 export default function VerifyEmail() {
   const { token } = useParams();
-  const { data, isSuccess } = useVerifyEmailQuery(token);
+  const { isSuccess } = useVerifyEmailQuery(token);
 
   if (isSuccess) {
     return (

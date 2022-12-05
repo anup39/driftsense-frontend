@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import HeaderLogin from "../../common/header/login/HeaderLogin";
-import HeaderTitle from "../../common/title/login/TitleLogin";
-import LoginForgotPass from "../../common/title/login/LoginForgotPass";
-import GoogleLoginButton from "../../common/button/login/LoginGoogle";
-import Hide from "../../common/form/images/hide.svg";
-import Show from "../../common/form/images/show.svg";
+import HeaderLogin from "./LoginRegister/HeaderLogin";
+import HeaderTitle from "./LoginRegister/TitleLogin";
+import LoginForgotPass from "./LoginRegister/LoginForgotPass";
+import GoogleLoginButton from "./LoginRegister/LoginGoogle";
+import Hide from "./common/hide.svg";
+import Show from "./common/hide.svg";
 import {
   useLoginUserMutation,
   useGoogleLoginMutation,
 } from "../../api/authApi";
-import NormalLoginButton from "../auth/common/NormalLoginButton";
+import NormalLoginButton from "./LoginRegister/NormalLoginButton";
 import GoogleLogin from "react-google-login";
 import { Navigate } from "react-router-dom";
 import { addToken } from "../../reducers/authSlice";

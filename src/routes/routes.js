@@ -8,9 +8,6 @@ import RegisterWithGoogle from "../components/auth/RegisterWithGoogle";
 import GetStarted from "../components/onboardfield/GetStartedField";
 import CreateField from "../components/onboardfield/CreateField";
 import RegistrationComplete from "../components/auth/RegistrationComplete";
-import LoaderCircle from "../common/loader/LoaderCircle";
-import ModelConfirm from "../common/popUps/ModelConfirm";
-import AreaDetail from "../common/popUps/AreaDetail";
 import VerifyEmail from "../components/auth/VerifyEmail";
 
 const NotFound = () => {
@@ -44,16 +41,6 @@ export default function RoutesDriftSense() {
         <Route exact path="/get-started-field" element={<GetStarted />} />
 
         <Route exact path="/create-field" element={<CreateField />} />
-
-        <Route exact path="/loader-submit" element={<LoaderCircle />} />
-        <Route exact path="/confirm-popup" element={<ModelConfirm />} />
-        <Route exact path="/area" element={<AreaDetail />} />
-        {/* <Route
-          exact
-          path="/saved-sucessfully"
-          element={<SavedSuccessfully />}
-        />
-        <Route exact path="/wait-approval" element={<WaitingForApproval />} /> */}
 
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import Down from "../../common/form/images/down.svg";
-import HeaderRegister from "../../common/header/register/HeaderRegister";
-import FirstHeading from "../../common/title/register/registerheader/FirstHeading";
-import RegisterTitle from "../../common/title/register/TitleRegister";
-import GoogleRegisterButton from "../../common/button/register/RegisterGoogle";
+import Down from "./LoginRegister/images/down.svg";
+import HeaderRegister from "./LoginRegister/HeaderRegister";
+import FirstHeading from "./LoginRegister/FirstHeading";
+import RegisterTitle from "./LoginRegister/TitleRegister";
+import GoogleRegisterButton from "./LoginRegister/RegisterGoogle";
 import GoogleLogin from "react-google-login";
-import "../../common/form/checkbox/Checkbox.css";
+import "./LoginRegister/Checkbox.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import Hide from "../../common/form/images/hide.svg";
-import Show from "../../common/form/images/show.svg";
+import Hide from "./common/hide.svg";
+import Show from "./common/hide.svg";
 import PhoneInput from "new-ph-phone-input-react";
 import "new-ph-phone-input-react/lib/style.css";
 import "./register.css";
@@ -18,7 +18,7 @@ import {
   useSignUpFarmerMutation,
   useGoogleLoginMutation,
 } from "../../api/authApi";
-import LoaderPng from "../../common/loader/images/loader.png";
+import LoaderPng from "./common/loader.png";
 import { addToken } from "../../reducers/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
