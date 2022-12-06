@@ -9,12 +9,12 @@ import GetStarted from "../components/onboardfield/GetStartedField";
 import CreateField from "../components/onboardfield/CreateField";
 import RegistrationComplete from "../components/auth/RegistrationComplete";
 import VerifyEmail from "../components/auth/VerifyEmail";
-
-const NotFound = () => {
-  return <div>Page Not found</div>;
-};
+import Dasboard from "../components/dasboard/Dasboard";
 
 export default function RoutesDriftSense() {
+  // const token = useSelector((state) => state.auth.token);
+  // console.log(token, "token route");
+  // const token = localStorage.getItem("token");
   return (
     <Router>
       <Routes>
@@ -38,11 +38,14 @@ export default function RoutesDriftSense() {
           path="/registration-complete"
           element={<RegistrationComplete />}
         />
+
         <Route exact path="/get-started-field" element={<GetStarted />} />
 
         <Route exact path="/create-field" element={<CreateField />} />
 
-        <Route path="*" element={<NotFound />} />
+        <Route exact path="/dashboard" element={<Dasboard />} />
+
+        <Route path="*" element={<Login />} />
       </Routes>
     </Router>
   );

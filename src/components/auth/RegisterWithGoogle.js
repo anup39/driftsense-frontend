@@ -14,9 +14,12 @@ import PhoneInput from "new-ph-phone-input-react";
 import "new-ph-phone-input-react/lib/style.css";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
-import { useGetProfileQuery } from "../../api/profileApi";
+import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
+import { useSelector, useDispatch } from "react-redux";
+import { addFullName } from "../../reducers/authSlice";
 
 export default function RegisterWithGoogle() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const dropDownRef = useRef();
   const [phone, setPhone] = useState("");
@@ -30,10 +33,15 @@ export default function RegisterWithGoogle() {
   const [errorText, setErrorText] = useState("invisible");
   const [successText, setSuccessText] = useState("invisible");
 
-  const { data } = useGetConsultantQuery();
-  const { data: data_profile } = useGetProfileQuery();
+  const auth_token = useSelector((state) => state.auth.token);
 
-  console.log(data_profile, "data profile");
+  console.log(auth_token);
+
+  const { data } = useGetConsultantQuery();
+  const { isSuccess: is_success_profile, data: data_profile } =
+    useGetProfileViaTokenQuery(auth_token);
+
+  console.log(is_success_profile, data_profile);
   const [updateFarmer, { isLoading, error, isSuccess }] =
     useUpdateFarmerMutation();
 
@@ -75,6 +83,12 @@ export default function RegisterWithGoogle() {
   };
 
   useEffect(() => {
+    if (is_success_profile && data_profile[0].full_name) {
+      dispatch(addFullName(data_profile[0].full_name));
+    }
+  }, [is_success_profile, data_profile, dispatch]);
+
+  useEffect(() => {
     if (error) {
       setErrorText("visible");
     } else {
@@ -90,9 +104,11 @@ export default function RegisterWithGoogle() {
     }
   }, [isSuccess]);
 
-  if (isSuccess) {
-    navigate("/registration-complete");
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      return navigate("/registration-complete");
+    }
+  }, [isSuccess, navigate]);
 
   return (
     <>

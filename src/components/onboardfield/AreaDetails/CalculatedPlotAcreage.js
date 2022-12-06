@@ -1,8 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCrop } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 export default function CalculatedPlotAcreage() {
+  const layers = useSelector((state) => state.createFieldMap.layers);
+  const layer = layers[0];
+  console.log(layer);
   return (
     <>
       <div className="flex flex-col justify-start items-start">
@@ -17,7 +21,9 @@ export default function CalculatedPlotAcreage() {
               icon={faCrop}
               className="text-orange-400 "
             ></FontAwesomeIcon>
-            <p className="block w-full text-orange-400 ">1,032 Acres</p>
+            <p className="block w-full text-orange-400 ">
+              {layer.acerage} Acres
+            </p>
           </div>
         </div>
       </div>

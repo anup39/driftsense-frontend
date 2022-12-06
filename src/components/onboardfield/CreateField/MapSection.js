@@ -22,6 +22,8 @@ export default function MapSection() {
   });
 
   const layers = useSelector((state) => state.createFieldMap.layers);
+
+  // console.log(layers, "layers");
   const setLayerStyle = useCallback(
     (style, feature, resolution) =>
       getStyles({

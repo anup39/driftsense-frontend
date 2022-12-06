@@ -34,6 +34,11 @@ const toggleshowDetailsFormFunc = (state, action) => ({
   showDetailsForm: action.payload,
 });
 
+const editLayerFunc = (state, action) => {
+  state.layers = [];
+  state.layers.push(action.payload);
+};
+
 export const createFieldMapslice = createSlice({
   name: "createFieldMap",
   initialState,
@@ -44,6 +49,7 @@ export const createFieldMapslice = createSlice({
     toggleLayers: toggleLayersFunc,
     clearLayers: clearLayersFunc,
     toggleshowDetailsForm: toggleshowDetailsFormFunc,
+    editLayer: editLayerFunc,
   },
 });
 
@@ -54,6 +60,7 @@ export const {
   toggleLayers,
   clearLayers,
   toggleshowDetailsForm,
+  editLayer,
 } = createFieldMapslice.actions;
 
 export default createFieldMapslice.reducer;

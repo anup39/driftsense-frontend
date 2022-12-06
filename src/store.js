@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import authReducer from "./reducers/authSlice";
 import { authApi } from "./api/authApi";
-import { profileApi } from "./api/profileApi";
+import { userInfoApi } from "./api/userInfoApi";
+import { fieldApi } from "./api/fieldApi";
 import createFieldMapSliceReducer from "./reducers/createFieldMapSlice";
 
 export const store = configureStore({
@@ -10,9 +11,14 @@ export const store = configureStore({
     auth: authReducer,
     createFieldMap: createFieldMapSliceReducer,
     [authApi.reducerPath]: authApi.reducer,
-    [profileApi.reducerPath]: profileApi.reducer,
+    [userInfoApi.reducerPath]: userInfoApi.reducer,
+    [fieldApi.reducerPath]: fieldApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware, profileApi.middleware),
+    getDefaultMiddleware().concat(
+      authApi.middleware,
+      userInfoApi.middleware,
+      fieldApi.middleware
+    ),
 });
 setupListeners(store.dispatch);

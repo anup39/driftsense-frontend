@@ -4,11 +4,23 @@ import {
   toggleDraw,
   clearLayers,
   toggleshowDetailsForm,
+  editLayer,
 } from "../../reducers/createFieldMapSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetLocationAcerageMutation } from "../../api/fieldApi";
+import { useEffect } from "react";
 
 export default function ModelConfirm() {
   const dispatch = useDispatch();
+  const layers = useSelector((state) => state.createFieldMap.layers);
+  const layer_data = { geojson: layers[0].geojson };
+  const [getLocationAcerage, { data: data_location_acerage }] =
+    useGetLocationAcerageMutation();
+
+  useEffect(() => {
+    getLocationAcerage(layer_data);
+  }, []);
+
   const handleDrawnCancel = () => {
     dispatch(togglePopup(false));
     dispatch(toggleDraw(false));
@@ -16,6 +28,17 @@ export default function ModelConfirm() {
   };
 
   const handleDrawnConfirm = () => {
+    const layer = {
+      id: 1,
+      name: "field-drawn",
+      geometryType: "POLYGON",
+      checked: true,
+      zoomToLayer: false,
+      geojson: layer_data.geojson,
+      location: data_location_acerage.address,
+      acerage: data_location_acerage.acerage,
+    };
+    dispatch(editLayer(layer));
     dispatch(togglePopup(false));
     dispatch(toggleDraw(false));
     dispatch(toggleshowDetailsForm(true));

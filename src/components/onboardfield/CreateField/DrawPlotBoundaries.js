@@ -37,8 +37,9 @@ export default function DrawPlotBoundaries({
         checked: true,
         zoomToLayer: false,
         geojson: geojson,
+        location: null,
+        acerage: null,
       };
-
       dispatch(toggleLayers(layer));
       removeInteraction(drawInstance);
       dispatch(togglePopup(true));

@@ -9,6 +9,7 @@ import AreaDetailTitle from "./AreaDetails/AreaDetailTitle";
 import CalculatedPlotAcreage from "./AreaDetails/CalculatedPlotAcreage";
 import CustomizeModelName from "./AreaDetails/CustomizeModelName";
 import PlotDetailTitle from "./AreaDetails/PlotDetailTitle";
+
 export default function AreaDetail() {
   return (
     <>

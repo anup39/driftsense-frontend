@@ -1,7 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+
 export default function CustomizeModelName() {
+  const layers = useSelector((state) => state.createFieldMap.layers);
+  const layer = layers[0];
+  console.log(layer);
   return (
     <>
       <div className="space-y-5">
@@ -21,7 +26,7 @@ export default function CustomizeModelName() {
               icon={faMapMarker}
               className="text-2xl bock align-baseline"
             ></FontAwesomeIcon>
-            <span>Red Bluff, CA 96080, USA</span>
+            <span>{layer.location}</span>
           </p>
         </div>
       </div>

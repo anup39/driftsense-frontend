@@ -18,10 +18,11 @@ import {
   useSignUpFarmerMutation,
   useGoogleLoginMutation,
 } from "../../api/authApi";
+import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
 import LoaderPng from "./common/loader.png";
-import { addToken } from "../../reducers/authSlice";
+import { addToken, addFullName } from "../../reducers/authSlice";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ export default function Register() {
   const [registerDisabled, setRegisterDisabled] = useState(true);
   const [registerColor, setRegisterColor] = useState("#929292");
   const [errorText, setErrorText] = useState("invisible");
+  const [errorTextMessage, setErrorTextMessage] = useState("");
   const [successText, setSuccessText] = useState("invisible");
 
   const { data } = useGetConsultantQuery();
@@ -49,13 +51,6 @@ export default function Register() {
     googleLogin,
     { data: data_google_login, isSuccess: isSuccess_register },
   ] = useGoogleLoginMutation();
-
-  if (data_google_login) {
-    if (data_google_login.key) {
-      console.log(data_google_login.key);
-      dispatch(addToken(data_google_login.key));
-    }
-  }
 
   const handleShowPassword = (event) => {
     const value = event.target.title;
@@ -120,6 +115,7 @@ export default function Register() {
 
   useEffect(() => {
     if (error) {
+      setErrorTextMessage(error.data.email);
       setErrorText("visible");
     } else {
       setErrorText("invisible");
@@ -134,13 +130,20 @@ export default function Register() {
     }
   }, [isSuccess]);
 
-  if (isSuccess_register) {
-    return navigate("/register-with-google");
-  }
+  useEffect(() => {
+    if (isSuccess_register && data_google_login.key) {
+      navigate("/register-with-google");
+      localStorage.setItem("token", data_google_login.key);
+      dispatch(addToken(data_google_login.key));
+      dispatch(addFullName());
+    }
+  }, [isSuccess_register, data_google_login, navigate, dispatch]);
 
-  if (isSuccess) {
-    return navigate("/registration-complete");
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/registration-complete");
+    }
+  }, [isSuccess, navigate]);
 
   return (
     <>
@@ -155,7 +158,7 @@ export default function Register() {
             <p
               className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
             >
-              Farmer with that Email Already Exists.
+              {errorTextMessage}
             </p>
             <p
               className={`mt-2 ${successText} peer-invalid:visible text-green-600 text-sm`}

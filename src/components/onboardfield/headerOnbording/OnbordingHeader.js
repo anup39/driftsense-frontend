@@ -1,11 +1,11 @@
 import React from "react";
 import LogoBlackForTabs from "./LogoBlackForTabs";
 import PlotSelectionActive from "./headertabs/plotselectiontab/PlotSelectionActive";
-import GearActive from "./headertabs/geartabs/GearActive";
+// import GearActive from "./headertabs/geartabs/GearActive";
 import PaymentInactive from "./headertabs/paymenttabs/PaymentInactive";
-import PlotSelectionInactive from "./headertabs/plotselectiontab/PlotSelectionInactive";
+// import PlotSelectionInactive from "./headertabs/plotselectiontab/PlotSelectionInactive";
 import GearInactive from "./headertabs/geartabs/GearInactive";
-import PaymentActive from "./headertabs/paymenttabs/PaymentActive";
+// import PaymentActive from "./headertabs/paymenttabs/PaymentActive";
 
 import Profile from "./headertabs/Profile";
 

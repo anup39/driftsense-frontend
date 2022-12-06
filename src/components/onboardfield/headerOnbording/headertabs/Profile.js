@@ -1,12 +1,26 @@
 import React from "react";
 import ProfileImg from "../images/profile.png";
+import { clearToken } from "../../../../reducers/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 export default function Profile() {
+  const full_name = useSelector((state) => state.auth.full_name);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(clearToken());
+    navigate("/");
+  };
+
   return (
     <>
       <div className=" justify-self-center tdc:justify-self-end flex space-x-5">
         <div className="">
           <div className=" grid mt-5 ml-1">
-            <p>John Doe</p>
+            {full_name ? <p>{full_name}</p> : null}
           </div>
         </div>
         <img
@@ -14,6 +28,12 @@ export default function Profile() {
           alt=""
           className="h-[36px] mt-3 rounded-full border border-[#F2994A]"
         ></img>
+        <button
+          onClick={handleLogout}
+          className="h-[36px] mt-3 rounded-full border border-[#F2994A]"
+        >
+          Logout
+        </button>
       </div>
     </>
   );

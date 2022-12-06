@@ -13,7 +13,7 @@ export default function LoginTitle() {
         <span>Needs an account?</span>
         <button
           onClick={() => {
-            navigate("/register");
+            return navigate("/register");
           }}
           className="text-[#F2994A] font-bold"
         >
