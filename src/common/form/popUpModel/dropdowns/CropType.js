@@ -12,14 +12,18 @@ export default function CropType() {
         <label className="block text-xs text-orange-400">Crop Type</label>
         <ul className="text-white   z-[9999]  relative space-y-1">
           <div className="relative w-full h-[48px]">
-            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm">
+            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm space-x-3">
               <img
                 src={Crop}
                 className="-mt-2 text-black text-2xl cursor-pointer"
               ></img>
+              <img
+                src={Soy}
+                className="-mt-2 h-6 rounded-full text-black text-2xl cursor-pointer"
+              ></img>
             </div>
             <input
-              className="w-full outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r"
+              className="w-full outline-none bg-white text-[#7C7C7C] block  pl-20 p-2 rounded-t-md  border-black border-t border-l border-r"
               placeholder="Crop Type"
             />
             <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">

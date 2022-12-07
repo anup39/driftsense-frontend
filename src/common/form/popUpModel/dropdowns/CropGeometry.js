@@ -15,6 +15,7 @@ export default function CropGeometry() {
                 src={Geometry}
                 className="-mt-2 text-black text-2xl cursor-pointer"
               ></img>
+              
             </div>
             <input type="text" className=" bg-white text-[#7C7C7C] block  pl-14 p-2 rounded-t-md w-full outline-none pointer-events-none  border-black border-t border-l border-r" placeholder="Crop Geometry" />
             <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
@@ -24,7 +25,7 @@ export default function CropGeometry() {
               ></FontAwesomeIcon>
             </div>
           <center><hr className="mx-3 -mt-[1px]"/></center>
-            <ul className="  rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r max-h-[161px] overflow-y-scroll">
+            <ul className="  rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r max-h-[161px] overflow-y-auto">
               <li className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1  fvdc:p-2 flex">
                    <img src={Trailing} alt="" className="pl-1 text-2xl h-6" />
                     <h1 className="text-gray-400">Rectangle</h1>
