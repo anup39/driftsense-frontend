@@ -12,6 +12,9 @@ import LoaderCircle from "../common/loader/LoaderCircle";
 import ModelConfirm from "../common/popUps/ModelConfirm";
 import AreaDetail from "../common/popUps/AreaDetail";
 
+import SavedSuccessfully from "../common/loader/SavedSuccessfully";
+import WaitingForApproval from "../common/loader/WaitingForApproval"
+import EditPlot from "../common/button/edit/EditPlot";
 const NotFound = () => {
   return <div>Page Not found</div>;
 };
@@ -42,12 +45,13 @@ export default function RoutesDriftSense() {
         <Route exact path="/loader-submit" element={<LoaderCircle />} />
         <Route exact path="/confirm-popup" element={<ModelConfirm />} />
         <Route exact path="/area" element={<AreaDetail />} />
-        {/* <Route
+        <Route exact path="/edit" element={<EditPlot />} />
+        <Route
           exact
           path="/saved-sucessfully"
           element={<SavedSuccessfully />}
         />
-        <Route exact path="/wait-approval" element={<WaitingForApproval />} /> */}
+        <Route exact path="/wait-approval" element={<WaitingForApproval />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

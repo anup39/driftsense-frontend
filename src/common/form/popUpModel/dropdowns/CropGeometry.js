@@ -24,7 +24,7 @@ export default function CropGeometry() {
               ></FontAwesomeIcon>
             </div>
           <center><hr className="mx-3 -mt-[1px]"/></center>
-            <ul className="hidden rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r h-[161px] overflow-y-scroll">
+            <ul className="  rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r max-h-[161px] overflow-y-scroll">
               <li className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1  fvdc:p-2 flex">
                    <img src={Trailing} alt="" className="pl-1 text-2xl h-6" />
                     <h1 className="text-gray-400">Rectangle</h1>
