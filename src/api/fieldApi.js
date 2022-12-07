@@ -17,9 +17,27 @@ export const fieldApi = createApi({
         };
       },
     }),
+    getCropType: builder.query({
+      query: () => {
+        return {
+          url: "/crop-names/",
+        };
+      },
+    }),
+    getCropGeometry: builder.query({
+      query: () => {
+        return {
+          url: "/crop-types/",
+        };
+      },
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetLocationAcerageMutation } = fieldApi;
+export const {
+  useGetLocationAcerageMutation,
+  useGetCropTypeQuery,
+  useGetCropGeometryQuery,
+} = fieldApi;

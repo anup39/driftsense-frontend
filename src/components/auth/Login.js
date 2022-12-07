@@ -58,6 +58,7 @@ export default function Login(props) {
     if (is_success_profile && data_profile) {
       console.log(data_profile, "data profile");
       dispatch(addFullName(data_profile[0].full_name));
+      localStorage.setItem("full_name", data_profile[0].full_name);
       navigate("/registration-complete");
     }
   }, [

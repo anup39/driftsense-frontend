@@ -84,6 +84,7 @@ export default function RegisterWithGoogle() {
 
   useEffect(() => {
     if (is_success_profile && data_profile[0].full_name) {
+      localStorage.setItem("full_name", data_profile[0].full_name);
       dispatch(addFullName(data_profile[0].full_name));
     }
   }, [is_success_profile, data_profile, dispatch]);

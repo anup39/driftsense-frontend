@@ -3,10 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCrop } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
-export default function CalculatedPlotAcreage() {
+export default function CalculatedPlotAcreage(props) {
+  const acerage_already = props.acerage;
+  const create = props.create;
+
+  // console.log(create, acerage);
   const layers = useSelector((state) => state.createFieldMap.layers);
-  const layer = layers[0];
-  console.log(layer);
+  const acerage_calculated = layers[0].acerage;
+
   return (
     <>
       <div className="flex flex-col justify-start items-start">
@@ -22,7 +26,7 @@ export default function CalculatedPlotAcreage() {
               className="text-orange-400 "
             ></FontAwesomeIcon>
             <p className="block w-full text-orange-400 ">
-              {layer.acerage} Acres
+              {create ? acerage_calculated : acerage_already} Acres
             </p>
           </div>
         </div>

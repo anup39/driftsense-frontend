@@ -135,7 +135,6 @@ export default function Register() {
       navigate("/register-with-google");
       localStorage.setItem("token", data_google_login.key);
       dispatch(addToken(data_google_login.key));
-      dispatch(addFullName());
     }
   }, [isSuccess_register, data_google_login, navigate, dispatch]);
 

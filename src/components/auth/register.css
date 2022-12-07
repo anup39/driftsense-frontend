@@ -1,7 +1,7 @@
 .react-tel-input .form-control {
   width: 100%;
   height: 45px !important;
-  padding-left: 5rem;
+  padding-left: 60px;
   border: 2px solid #f2994a;
   background-color: #384063;
   font-size: 18px;
@@ -58,7 +58,7 @@ div .country-list {
   position: absolute !important;
   background-color: #1f2937 !important;
   border: 2px solid #f2994a;
-  border-radius: px;
+  @apply rounded-xl;
   color: white;
   text-align: center;
   cursor: pointer;

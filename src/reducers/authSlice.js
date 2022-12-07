@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  token: undefined,
-  full_name: undefined,
+  token: localStorage.getItem("token"),
+  full_name: localStorage.getItem("full_name"),
 };
 
 export const authSlice = createSlice({
@@ -18,10 +18,14 @@ export const authSlice = createSlice({
     clearToken: (state) => {
       state.token = undefined;
     },
+    clearFullName: (state) => {
+      state.full_name = undefined;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToken, addFullName, clearToken } = authSlice.actions;
+export const { addToken, addFullName, clearToken, clearFullName } =
+  authSlice.actions;
 
 export default authSlice.reducer;

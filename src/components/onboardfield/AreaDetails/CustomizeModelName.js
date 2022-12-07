@@ -1,12 +1,15 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import Location from "./images/location.png";
 import { useSelector } from "react-redux";
 
-export default function CustomizeModelName() {
+export default function CustomizeModelName(props) {
+  const location_already = props.selected_location;
+  const create = props.create;
+
+  // console.log(create, acerage);
   const layers = useSelector((state) => state.createFieldMap.layers);
-  const layer = layers[0];
-  console.log(layer);
+  const location_calculated = layers[0].location;
+
   return (
     <>
       <div className="space-y-5">
@@ -22,11 +25,12 @@ export default function CustomizeModelName() {
           <p className="block text-xs text-white ">Selected Location</p>
 
           <p className="flex space-x-2 text-slate-200  font-medium">
-            <FontAwesomeIcon
-              icon={faMapMarker}
+            <img
+              alt=""
+              src={Location}
               className="text-2xl bock align-baseline"
-            ></FontAwesomeIcon>
-            <span>{layer.location}</span>
+            ></img>
+            <span>{create ? location_calculated : location_already}</span>
           </p>
         </div>
       </div>
