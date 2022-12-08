@@ -31,6 +31,15 @@ export const fieldApi = createApi({
         };
       },
     }),
+    createField: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/fields/",
+          method: "post",
+          body: body,
+        };
+      },
+    }),
   }),
 });
 
@@ -40,4 +49,5 @@ export const {
   useGetLocationAcerageMutation,
   useGetCropTypeQuery,
   useGetCropGeometryQuery,
+  useCreateFieldMutation,
 } = fieldApi;

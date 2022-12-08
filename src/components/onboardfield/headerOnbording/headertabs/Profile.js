@@ -1,6 +1,10 @@
 import React from "react";
 import ProfileImg from "../images/profile.png";
-import { clearToken, clearFullName } from "../../../../reducers/authSlice";
+import {
+  clearToken,
+  clearFullName,
+  clearFarmerId,
+} from "../../../../reducers/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +16,10 @@ export default function Profile() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("full_name");
+    localStorage.removeItem("farmer_id");
     dispatch(clearToken());
     dispatch(clearFullName());
+    dispatch(clearFarmerId());
     navigate("/");
   };
 

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   token: localStorage.getItem("token"),
   full_name: localStorage.getItem("full_name"),
+  farmer_id: localStorage.getItem("farmer_id"),
 };
 
 export const authSlice = createSlice({
@@ -21,11 +22,23 @@ export const authSlice = createSlice({
     clearFullName: (state) => {
       state.full_name = undefined;
     },
+    addFarmerId: (state, action) => {
+      state.farmer_id = action.payload;
+    },
+    clearFarmerId: (state) => {
+      state.farmer_id = undefined;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToken, addFullName, clearToken, clearFullName } =
-  authSlice.actions;
+export const {
+  addToken,
+  addFullName,
+  clearToken,
+  clearFullName,
+  addFarmerId,
+  clearFarmerId,
+} = authSlice.actions;
 
 export default authSlice.reducer;

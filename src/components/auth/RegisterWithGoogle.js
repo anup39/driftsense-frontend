@@ -16,7 +16,7 @@ import "./register.css";
 import { useNavigate } from "react-router-dom";
 import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
 import { useSelector, useDispatch } from "react-redux";
-import { addFullName } from "../../reducers/authSlice";
+import { addFullName, addFarmerId } from "../../reducers/authSlice";
 
 export default function RegisterWithGoogle() {
   const dispatch = useDispatch();
@@ -86,6 +86,8 @@ export default function RegisterWithGoogle() {
     if (is_success_profile && data_profile[0].full_name) {
       localStorage.setItem("full_name", data_profile[0].full_name);
       dispatch(addFullName(data_profile[0].full_name));
+      dispatch(addFarmerId(data_profile[0].id));
+      localStorage.setItem("farmer_id", data_profile[0].id);
     }
   }, [is_success_profile, data_profile, dispatch]);
 

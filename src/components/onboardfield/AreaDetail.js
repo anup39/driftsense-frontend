@@ -5,20 +5,27 @@ import CustomizeModelName from "./AreaDetails/CustomizeModelName";
 import PlotDetailTitle from "./AreaDetails/PlotDetailTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import Soy from "./AreaDetails/images/Soy.png";
 import Crop from "./AreaDetails/images/crop.svg";
-import Trailing from "./AreaDetails/images/Trailing.png";
 import Geometry from "./AreaDetails/images/Geometry.svg";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 import {
   useGetCropGeometryQuery,
   useGetCropTypeQuery,
+  useCreateFieldMutation,
 } from "./../../api/fieldApi";
+import GeoJSON from "ol/format/GeoJSON";
+import { Vector as VectorSource } from "ol/source";
+import OLVectorLayer from "ol/layer/Vector";
+import { get } from "ol/proj";
+import WKT from "ol/format/WKT";
 
 export default function AreaDetail(props) {
   const {
     plot_name,
+    crop_type_id,
+    crop_geometry_id,
     crop_type,
     crop_type_image,
     crop_geometry,
@@ -30,7 +37,8 @@ export default function AreaDetail(props) {
 
   const create = props.create;
 
-  console.log("rendered");
+  const layers = useSelector((state) => state.createFieldMap.layers);
+  const farmer = useSelector((state) => state.auth.farmer_id);
 
   const [plotName, setPlotName] = useState(plot_name);
   const [sprayDHour, setSprayDHour] = useState(spray_duration_hour);
@@ -38,30 +46,56 @@ export default function AreaDetail(props) {
   const [cropType, setCropType] = useState(crop_type);
   const [cropTypeImage, setCropTypeImage] = useState(crop_type_image);
   const [cropGeometry, setCropGeometry] = useState(crop_geometry);
-  const [cropGeometryID, setCropGeometryID] = useState(null);
-  const [cropTypeID, setCropTypeID] = useState(null);
+  const [cropGeometryID, setCropGeometryID] = useState(crop_geometry_id);
+  const [cropTypeID, setCropTypeID] = useState(crop_type_id);
   const [disabledCropType, setDisabledCropType] = useState(false);
   const [hideCropType, setHideCropType] = useState(true);
   const [disabledCropGeometry, setDisabledCropGeometry] = useState(false);
   const [hideCropGeometry, setHideCropGeometry] = useState(true);
-  const {
-    data: data_croptype,
-    isSuccess: issuccess_croptype,
-    isLoading: isloading_croptype,
-  } = useGetCropTypeQuery();
 
-  const {
-    data: data_cropgeometry,
-    isSuccess: issuccess_cropgeometry,
-    isLoading: isloading_cropgeometry,
-  } = useGetCropGeometryQuery();
+  const { data: data_croptype } = useGetCropTypeQuery();
 
+  const { data: data_cropgeometry } = useGetCropGeometryQuery();
+
+  const [createField, { data: data_field, isSucess: issucess_field }] =
+    useCreateFieldMutation();
+  console.log(issucess_field, "field success");
   // console.log(data_croptype, "data crop type");
-  console.log(data_cropgeometry, "data crop geometry");
 
   const handleAreaDetailSubmit = (event) => {
     event.preventDefault();
-    console.log("Area Detail is Submitted");
+
+    if (create) {
+      const vectorLyr = new OLVectorLayer({
+        source: new VectorSource({
+          features: new GeoJSON().readFeatures(layers[0].geojson, {
+            featureProjection: get("EPSG:3857"),
+          }),
+        }),
+        declutter: true,
+      });
+      const Geom = vectorLyr.getSource().getFeatures()[0].getGeometry();
+      const format = new WKT();
+      const wktRepresenation = format.writeGeometry(Geom, {
+        dataProjection: "EPSG:4326",
+        featureProjection: "EPSG:3857",
+      });
+
+      const details_data = {
+        farmers: farmer,
+        crop_name: cropTypeID,
+        crop_type: cropGeometryID,
+        field_tag: plotName,
+        duration: sprayDHour + sprayDMin / 100,
+        polygon: wktRepresenation,
+      };
+
+      createField(details_data);
+
+      console.log(details_data, "details data");
+    } else {
+      console.log("details data edited");
+    }
   };
 
   const handleCancelAreaDetail = () => {
@@ -98,14 +132,12 @@ export default function AreaDetail(props) {
   const handleCropTypeClicked = (event) => {
     const img_value = event.target.title;
     const myArray = img_value.split(",");
-    console.log(myArray, "value");
     setCropType(myArray[0]);
     setCropTypeID(event.target.value);
     setCropTypeImage(myArray[1]);
     setHideCropType(true);
     setDisabledCropType(false);
   };
-  console.log(cropTypeImage);
 
   return (
     <>
@@ -211,9 +243,9 @@ export default function AreaDetail(props) {
                                             croptype.name,
                                             croptype.image,
                                           ]}
-                                          className=" text-black    py-1 fdc:p-2 tdc:py-1  fvdc:p-2 "
+                                          className=" text-black   cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 "
                                         >
-                                          <div className="flex space-x-2   ">
+                                          <div className="flex space-x-2 ">
                                             <img
                                               src={croptype.image}
                                               alt=""
@@ -289,7 +321,7 @@ export default function AreaDetail(props) {
                                           onClick={handleCropGeomClicked}
                                           value={cropgeometry.id}
                                           title={cropgeometry.name}
-                                          className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1  fvdc:p-2 flex"
+                                          className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1 cursor-pointer fvdc:p-2 flex"
                                         >
                                           <img
                                             src={cropgeometry.image}
@@ -394,8 +426,8 @@ export default function AreaDetail(props) {
                 </div>
               </div>
               {/* Approve button here */}
-              <div className="pb-5 grid justify-items-center">
-                <button className="bg-[#1BB66E] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3 bg-neutral-400 rounded-[0.31rem]">
+              <div className="pb-5 grid justify-items-center ">
+                <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
                   Approve
                   {/* #1BB66E onactive*/}
                 </button>

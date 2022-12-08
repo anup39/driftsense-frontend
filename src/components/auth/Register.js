@@ -18,11 +18,10 @@ import {
   useSignUpFarmerMutation,
   useGoogleLoginMutation,
 } from "../../api/authApi";
-import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
 import LoaderPng from "./common/loader.png";
-import { addToken, addFullName } from "../../reducers/authSlice";
+import { addToken } from "../../reducers/authSlice";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Register() {
   const dispatch = useDispatch();

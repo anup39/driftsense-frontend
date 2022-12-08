@@ -13,7 +13,7 @@ import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
 import NormalLoginButton from "./LoginRegister/NormalLoginButton";
 import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
-import { addToken, addFullName } from "../../reducers/authSlice";
+import { addToken, addFullName, addFarmerId } from "../../reducers/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login(props) {
@@ -58,7 +58,9 @@ export default function Login(props) {
     if (is_success_profile && data_profile) {
       console.log(data_profile, "data profile");
       dispatch(addFullName(data_profile[0].full_name));
+      dispatch(addFarmerId(data_profile[0].id));
       localStorage.setItem("full_name", data_profile[0].full_name);
+      localStorage.setItem("farmer_id", data_profile[0].id);
       navigate("/registration-complete");
     }
   }, [
