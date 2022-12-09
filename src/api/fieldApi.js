@@ -40,6 +40,13 @@ export const fieldApi = createApi({
         };
       },
     }),
+    getFarmerGeojson: builder.query({
+      query: (farmer_id) => {
+        return {
+          url: `/field-geojson-farmer/?farmers=${farmer_id}`,
+        };
+      },
+    }),
   }),
 });
 
@@ -50,4 +57,5 @@ export const {
   useGetCropTypeQuery,
   useGetCropGeometryQuery,
   useCreateFieldMutation,
+  useGetFarmerGeojsonQuery,
 } = fieldApi;

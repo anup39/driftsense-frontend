@@ -21,6 +21,7 @@ export default function Profile() {
     dispatch(clearFullName());
     dispatch(clearFarmerId());
     navigate("/");
+    window.location.reload(true);
   };
 
   return (

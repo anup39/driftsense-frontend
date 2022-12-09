@@ -6,6 +6,10 @@ const initialState = {
   showCancel: "invisible",
   layers: [],
   showDetailsForm: false,
+  showDetailsSucessLoading: false,
+  completed_create_field: false,
+  farmer_layers: [],
+  area_details_edit: false,
 };
 
 const togglePopupFunc = (state, action) => ({
@@ -34,6 +38,24 @@ const toggleshowDetailsFormFunc = (state, action) => ({
   showDetailsForm: action.payload,
 });
 
+const toggleshowDetailsSucessLoadingFunc = (state, action) => ({
+  ...state,
+  showDetailsSucessLoading: action.payload,
+});
+
+const toggleSaveSucessfullyFunc = (state, action) => ({
+  ...state,
+  completed_create_field: action.payload,
+});
+
+// under review
+const toggleFarmerLayersFunc = (state, action) => {
+  return {
+    ...state,
+    farmer_layers: [...state.farmer_layers, ...action.payload],
+  };
+};
+
 const editLayerFunc = (state, action) => {
   state.layers = [];
   state.layers.push(action.payload);
@@ -49,6 +71,9 @@ export const createFieldMapslice = createSlice({
     toggleLayers: toggleLayersFunc,
     clearLayers: clearLayersFunc,
     toggleshowDetailsForm: toggleshowDetailsFormFunc,
+    toggleshowDetailsSucessLoading: toggleshowDetailsSucessLoadingFunc,
+    toggleSaveSucessfully: toggleSaveSucessfullyFunc,
+    toggleFarmerLayers: toggleFarmerLayersFunc,
     editLayer: editLayerFunc,
   },
 });
@@ -60,7 +85,11 @@ export const {
   toggleLayers,
   clearLayers,
   toggleshowDetailsForm,
+  toggleshowDetailsSucessLoading,
+  toggleSaveSucessfully,
   editLayer,
+  toggleFarmerLayers,
+  addPropertiesGeojson,
 } = createFieldMapslice.actions;
 
 export default createFieldMapslice.reducer;

@@ -13,12 +13,14 @@ import { useEffect } from "react";
 export default function ModelConfirm() {
   const dispatch = useDispatch();
   const layers = useSelector((state) => state.createFieldMap.layers);
-  const layer_data = { geojson: layers[0].geojson };
+  const layer_data = { geojson: layers[layers.length - 1].geojson };
   const [getLocationAcerage, { data: data_location_acerage }] =
     useGetLocationAcerageMutation();
 
   useEffect(() => {
-    getLocationAcerage(layer_data);
+    if (layer_data.length !== 0) {
+      getLocationAcerage(layer_data);
+    }
   }, []);
 
   const handleDrawnCancel = () => {

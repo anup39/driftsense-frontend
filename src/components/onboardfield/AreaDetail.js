@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AreaDetailTitle from "./AreaDetails/AreaDetailTitle";
 import CalculatedPlotAcreage from "./AreaDetails/CalculatedPlotAcreage";
 import CustomizeModelName from "./AreaDetails/CustomizeModelName";
@@ -9,7 +9,7 @@ import Crop from "./AreaDetails/images/crop.svg";
 import Geometry from "./AreaDetails/images/Geometry.svg";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   useGetCropGeometryQuery,
   useGetCropTypeQuery,
@@ -20,8 +20,16 @@ import { Vector as VectorSource } from "ol/source";
 import OLVectorLayer from "ol/layer/Vector";
 import { get } from "ol/proj";
 import WKT from "ol/format/WKT";
+import {
+  toggleshowDetailsSucessLoading,
+  toggleSaveSucessfully,
+  toggleshowDetailsForm,
+  clearLayers,
+  toggleDraw,
+} from "../../reducers/createFieldMapSlice";
 
 export default function AreaDetail(props) {
+  const dispatch = useDispatch();
   const {
     plot_name,
     crop_type_id,
@@ -57,10 +65,34 @@ export default function AreaDetail(props) {
 
   const { data: data_cropgeometry } = useGetCropGeometryQuery();
 
-  const [createField, { data: data_field, isSucess: issucess_field }] =
-    useCreateFieldMutation();
-  console.log(issucess_field, "field success");
-  // console.log(data_croptype, "data crop type");
+  const [
+    createField,
+    {
+      data: data_field,
+      isSuccess: issucess_field,
+      isLoading: is_loading_field,
+    },
+  ] = useCreateFieldMutation();
+
+  useEffect(() => {
+    if (is_loading_field) {
+      dispatch(toggleshowDetailsSucessLoading(true));
+    } else if (issucess_field) {
+      setTimeout(() => {
+        dispatch(toggleshowDetailsSucessLoading(false));
+      }, 2000);
+      setTimeout(() => {
+        dispatch(toggleSaveSucessfully(true));
+      }, 3000);
+      setTimeout(() => {
+        dispatch(toggleSaveSucessfully(false));
+        dispatch(toggleshowDetailsForm(false));
+        dispatch(toggleDraw(false));
+        dispatch(clearLayers());
+        window.location.reload(true);
+      }, 4000);
+    }
+  }, [is_loading_field, dispatch, issucess_field, data_field, layers]);
 
   const handleAreaDetailSubmit = (event) => {
     event.preventDefault();
@@ -91,15 +123,15 @@ export default function AreaDetail(props) {
       };
 
       createField(details_data);
-
-      console.log(details_data, "details data");
     } else {
       console.log("details data edited");
     }
   };
 
   const handleCancelAreaDetail = () => {
-    console.log("Canceled");
+    dispatch(toggleshowDetailsForm(false));
+    dispatch(toggleDraw(false));
+    dispatch(clearLayers());
   };
 
   const handleCropTypeDivClicked = (event) => {

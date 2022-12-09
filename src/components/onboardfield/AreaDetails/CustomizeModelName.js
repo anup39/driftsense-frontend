@@ -6,9 +6,7 @@ export default function CustomizeModelName(props) {
   const location_already = props.selected_location;
   const create = props.create;
 
-  // console.log(create, acerage);
   const layers = useSelector((state) => state.createFieldMap.layers);
-  const location_calculated = layers[0].location;
 
   return (
     <>
@@ -30,7 +28,12 @@ export default function CustomizeModelName(props) {
               src={Location}
               className="text-2xl bock align-baseline"
             ></img>
-            <span>{create ? location_calculated : location_already}</span>
+
+            {create ? (
+              <span>{layers.length !== 0 ? layers[0].location : null}</span>
+            ) : (
+              <span>{location_already}</span>
+            )}
           </p>
         </div>
       </div>

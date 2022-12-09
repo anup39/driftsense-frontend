@@ -7,9 +7,7 @@ export default function CalculatedPlotAcreage(props) {
   const acerage_already = props.acerage;
   const create = props.create;
 
-  // console.log(create, acerage);
   const layers = useSelector((state) => state.createFieldMap.layers);
-  const acerage_calculated = layers[0].acerage;
 
   return (
     <>
@@ -25,9 +23,15 @@ export default function CalculatedPlotAcreage(props) {
               icon={faCrop}
               className="text-orange-400 "
             ></FontAwesomeIcon>
-            <p className="block w-full text-orange-400 ">
-              {create ? acerage_calculated : acerage_already} Acres
-            </p>
+            {create ? (
+              <p className="block w-full text-orange-400 ">
+                {layers.length !== 0 ? layers[0].acerage : null} Acres
+              </p>
+            ) : (
+              <p className="block w-full text-orange-400 ">
+                {acerage_already} Acres
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import ModelConfirm from "./ModelConfirm";
 import AreaDetail from "./AreaDetail";
 import MapSection from "./CreateField/MapSection";
 import { useSelector } from "react-redux";
+import WaitingForApproval from "./WaitingForApproval";
+import SavedSuccessfully from "./SavedSucessfully";
 
 export default function OnboardingProcess() {
   const areaDetials = useSelector((state) => state.areaDetails);
@@ -17,6 +19,14 @@ export default function OnboardingProcess() {
   );
   const showDetailsForm = useSelector(
     (state) => state.createFieldMap.showDetailsForm
+  );
+
+  const showDetailsSucessLoading = useSelector(
+    (state) => state.createFieldMap.showDetailsSucessLoading
+  );
+
+  const completed_create_field = useSelector(
+    (state) => state.createFieldMap.completed_create_field
   );
 
   const handleFieldSelectionPopup = () => {
@@ -48,6 +58,8 @@ export default function OnboardingProcess() {
         {showDetailsForm ? (
           <AreaDetail areaDetails={areaDetials} create={true} />
         ) : null}
+        {showDetailsSucessLoading ? <WaitingForApproval /> : null}
+        {completed_create_field ? <SavedSuccessfully /> : null}
         <div className="fixed bottom-0 w-full">
           <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
             <button

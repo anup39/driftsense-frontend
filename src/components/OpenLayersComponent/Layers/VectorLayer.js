@@ -14,7 +14,19 @@ export function VectorLayer({
   zIndex,
   zoomToLayer,
   visibleOnMap,
+  farmer_layer,
 }) {
+  if (farmer_layer === true) {
+    style.fillColor = "#90EE90";
+    style.showLabel = true;
+    style.labelField = "plot_name";
+  }
+  if (farmer_layer === false) {
+    style.fillColor = "#435e80";
+    style.showLabel = false;
+    style.labelField = "";
+  }
+
   const [vectorLayer, setVectorLayer] = useState(null);
   const { map } = useMapInstance();
 
