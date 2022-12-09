@@ -1,7 +1,6 @@
 import React from "react";
-import EditIcon from "./edit.svg";
-
-export default function EditDetails() {
+import EditIcon from "../../../assets/map.svg";
+export default function EditMap() {
   return (
     <>
       <div

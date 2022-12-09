@@ -104,7 +104,7 @@ export default function MapSection() {
             : null}
         </Layers>
         <DrawTool popupRef={popupRef} />
-        {/* <EditPlot popupRef={popupRef} /> */}
+        <EditPlot popupRef={popupRef} />
       </MapContainer>
     </div>
   );

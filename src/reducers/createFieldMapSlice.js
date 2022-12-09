@@ -10,6 +10,7 @@ const initialState = {
   completed_create_field: false,
   farmer_layers: [],
   area_details_edit: false,
+  field_geom_edit: false,
 };
 
 const togglePopupFunc = (state, action) => ({
@@ -56,6 +57,11 @@ const toggleFarmerLayersFunc = (state, action) => {
   };
 };
 
+const toggleFieldGeomEditFunc = (state, action) => ({
+  ...state,
+  field_geom_edit: action.payload,
+});
+
 const editLayerFunc = (state, action) => {
   state.layers = [];
   state.layers.push(action.payload);
@@ -74,6 +80,7 @@ export const createFieldMapslice = createSlice({
     toggleshowDetailsSucessLoading: toggleshowDetailsSucessLoadingFunc,
     toggleSaveSucessfully: toggleSaveSucessfullyFunc,
     toggleFarmerLayers: toggleFarmerLayersFunc,
+    toggleFieldGeomEdit: toggleFieldGeomEditFunc,
     editLayer: editLayerFunc,
   },
 });
@@ -90,6 +97,7 @@ export const {
   editLayer,
   toggleFarmerLayers,
   addPropertiesGeojson,
+  toggleFieldGeomEdit,
 } = createFieldMapslice.actions;
 
 export default createFieldMapslice.reducer;

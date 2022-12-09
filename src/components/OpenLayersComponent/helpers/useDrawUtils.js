@@ -38,11 +38,8 @@ export default function useDrawUtils({ mapInstance, popupRef }) {
     [select]
   );
 
-  const popupElement = document.createElement("div");
-  popupElement.id = "popup-main-container-wrapper";
-
   const overlay = new Overlay({
-    element: popupElement,
+    element: popupRef.current,
     autoPan: {
       animation: {
         duration: 250,
