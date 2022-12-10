@@ -30,7 +30,7 @@ export default function StartOnBording() {
               <p
                 className={`text-xl fdc:text-1xl tdc:text-1xl ftdc:text-1xl  tdc:text-[red]`}
               >
-                Please Check you mail and verify your account to start the
+                Please Check your mail and verify your account to start the
                 onboarding Process
               </p>
             ) : null}

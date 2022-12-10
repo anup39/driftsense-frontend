@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "./edit.svg";
 // import MapIcon from "./map.svg";
@@ -8,11 +8,7 @@ import {
   toggleFormCreate,
 } from "../../reducers/createFieldMapSlice";
 import { changeAreaDetials } from "../../reducers/areaDetailsSlice";
-import {
-  useGetFieldByIdQuery,
-  useGetCropTypeByIDQuery,
-  useGetCropGeometryByIDQuery,
-} from "../../api/fieldApi";
+import { useGetFieldByIdQuery } from "../../api/fieldApi";
 
 export default function EditPlot(props) {
   const field_id = useSelector((state) => state.createFieldMap.field_id);
