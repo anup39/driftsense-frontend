@@ -14,6 +14,9 @@ import {
   useGetCropGeometryQuery,
   useGetCropTypeQuery,
   useCreateFieldMutation,
+  useUpdateFieldMutation,
+  useGetCropTypeByIDQuery,
+  useGetCropGeometryByIDQuery,
 } from "./../../api/fieldApi";
 import GeoJSON from "ol/format/GeoJSON";
 import { Vector as VectorSource } from "ol/source";
@@ -26,7 +29,12 @@ import {
   toggleshowDetailsForm,
   clearLayers,
   toggleDraw,
+  toggleFormCreate,
 } from "../../reducers/createFieldMapSlice";
+import {
+  changeAreaDetials,
+  changeAreaDetialsExtra,
+} from "../../reducers/areaDetailsSlice";
 
 export default function AreaDetail(props) {
   const dispatch = useDispatch();
@@ -47,6 +55,9 @@ export default function AreaDetail(props) {
 
   const layers = useSelector((state) => state.createFieldMap.layers);
   const farmer = useSelector((state) => state.auth.farmer_id);
+  const field_id = useSelector((state) => state.createFieldMap.field_id);
+
+  console.log(field_id);
 
   const [plotName, setPlotName] = useState(plot_name);
   const [sprayDHour, setSprayDHour] = useState(spray_duration_hour);
@@ -74,6 +85,42 @@ export default function AreaDetail(props) {
     },
   ] = useCreateFieldMutation();
 
+  const [
+    updateField,
+    { isSuccess: is_success_update_field, isLoading: is_loading_update_field },
+  ] = useUpdateFieldMutation();
+
+  const { data: data_crop_type_id, isSuccess: is_success_type } =
+    useGetCropTypeByIDQuery(crop_type_id);
+  const { data: data_crop_geometry_id, isSuccess: is_success_geometry } =
+    useGetCropGeometryByIDQuery(crop_geometry_id);
+
+  console.log(data_crop_type_id, data_crop_geometry_id);
+
+  useEffect(() => {
+    if (is_success_type) {
+      dispatch(
+        changeAreaDetialsExtra({
+          crop_type: data_crop_type_id.name,
+          crop_type_image: data_crop_type_id.image,
+        })
+      );
+      setCropType(data_crop_type_id.name);
+      setCropTypeImage(data_crop_type_id.image);
+    }
+  }, [is_success_type, data_crop_type_id, dispatch]);
+
+  useEffect(() => {
+    if (is_success_geometry) {
+      dispatch(
+        changeAreaDetialsExtra({
+          crop_geometry: data_crop_geometry_id.name,
+        })
+      );
+      setCropGeometry(data_crop_geometry_id.name);
+    }
+  }, [is_success_geometry, data_crop_geometry_id, dispatch]);
+
   useEffect(() => {
     if (is_loading_field) {
       dispatch(toggleshowDetailsSucessLoading(true));
@@ -93,6 +140,26 @@ export default function AreaDetail(props) {
       }, 4000);
     }
   }, [is_loading_field, dispatch, issucess_field, data_field, layers]);
+
+  useEffect(() => {
+    if (is_loading_update_field) {
+      dispatch(toggleshowDetailsSucessLoading(true));
+    } else if (is_success_update_field) {
+      setTimeout(() => {
+        dispatch(toggleshowDetailsSucessLoading(false));
+      }, 2000);
+      setTimeout(() => {
+        dispatch(toggleSaveSucessfully(true));
+      }, 3000);
+      setTimeout(() => {
+        dispatch(toggleSaveSucessfully(false));
+        dispatch(toggleshowDetailsForm(false));
+        dispatch(toggleDraw(false));
+        dispatch(clearLayers());
+        window.location.reload(true);
+      }, 4000);
+    }
+  }, [is_loading_update_field, dispatch, is_success_update_field, layers]);
 
   const handleAreaDetailSubmit = (event) => {
     event.preventDefault();
@@ -123,15 +190,53 @@ export default function AreaDetail(props) {
       };
 
       createField(details_data);
+      dispatch(toggleFormCreate(true));
     } else {
       console.log("details data edited");
+      console.log(field_id, "id");
+      const details_data_updated = {
+        farmers: farmer,
+        crop_name: cropTypeID,
+        crop_type: cropGeometryID,
+        field_tag: plotName,
+        duration: sprayDHour + sprayDMin / 100,
+      };
+
+      console.log(details_data_updated, "edited");
+      updateField({ id: field_id, body: details_data_updated });
+      dispatch(toggleFormCreate(true));
     }
   };
 
+  const handleDelete = () => {
+    const details_data_updated = {
+      is_deleted: true,
+    };
+
+    console.log(details_data_updated, "edited");
+    updateField({ id: field_id, body: details_data_updated });
+    dispatch(toggleFormCreate(true));
+  };
+
   const handleCancelAreaDetail = () => {
+    dispatch(toggleFormCreate(true));
     dispatch(toggleshowDetailsForm(false));
     dispatch(toggleDraw(false));
     dispatch(clearLayers());
+    dispatch(
+      changeAreaDetials({
+        plot_name: "",
+        crop_type_id: "",
+        crop_geometry_id: "",
+        crop_type: "",
+        crop_type_image: "",
+        crop_geometry: "",
+        spray_duration_hour: "",
+        spray_duration_minutes: "",
+        selected_location: "",
+        acerage: "",
+      })
+    );
   };
 
   const handleCropTypeDivClicked = (event) => {
@@ -463,6 +568,15 @@ export default function AreaDetail(props) {
                   Approve
                   {/* #1BB66E onactive*/}
                 </button>
+                {!create ? (
+                  <div
+                    onClick={handleDelete}
+                    className=" bg-[red] flex  cursor-pointer text-sm text-white  flex-row gap-1 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]"
+                  >
+                    Delete
+                    {/* #1BB66E onactive*/}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

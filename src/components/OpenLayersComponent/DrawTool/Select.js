@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { fromLonLat } from "ol/proj";
 import { useMapInstance } from "../MapContainer";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFieldId } from "../../../reducers/createFieldMapSlice";
 
 export default function EditFeature({
   overlay,
@@ -11,9 +12,11 @@ export default function EditFeature({
   addInteraction,
   removeInteraction,
 }) {
+  const dispatch = useDispatch();
   const field_geom_edit = useSelector(
     (state) => state.createFieldMap.field_geom_edit
   );
+
   console.log(field_geom_edit);
   useEffect(() => {
     if (enable) {
@@ -40,6 +43,7 @@ export default function EditFeature({
           const lon = parseFloat(allMatches[1]);
           const lat = parseFloat(allMatches[2]);
           const center_coords = fromLonLat([lon, lat]);
+          dispatch(toggleFieldId(id));
           map.addOverlay(overlay);
           overlay.setPosition(center_coords);
         } else {
@@ -47,7 +51,7 @@ export default function EditFeature({
         }
       });
     }
-  }, [select, overlay, map]);
+  }, [select, overlay, map, dispatch]);
 
   useEffect(() => {
     if (field_geom_edit) {

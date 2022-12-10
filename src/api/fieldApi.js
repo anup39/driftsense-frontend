@@ -24,10 +24,24 @@ export const fieldApi = createApi({
         };
       },
     }),
+    getCropTypeByID: builder.query({
+      query: (id) => {
+        return {
+          url: `/crop-names/${id}`,
+        };
+      },
+    }),
     getCropGeometry: builder.query({
       query: () => {
         return {
           url: "/crop-types/",
+        };
+      },
+    }),
+    getCropGeometryByID: builder.query({
+      query: (id) => {
+        return {
+          url: `/crop-types/${id}`,
         };
       },
     }),
@@ -37,6 +51,30 @@ export const fieldApi = createApi({
           url: "/fields/",
           method: "post",
           body: body,
+        };
+      },
+    }),
+    updateField: builder.mutation({
+      query: ({ id, body }) => {
+        return {
+          url: `/fields/${id}/`,
+          method: "PATCH",
+          body: body,
+        };
+      },
+    }),
+    deleteField: builder.mutation({
+      query: ({ id }) => {
+        return {
+          url: `/fields/${id}/`,
+          method: "DELETE",
+        };
+      },
+    }),
+    getFieldById: builder.query({
+      query: (id) => {
+        return {
+          url: `/fields/${id}`,
         };
       },
     }),
@@ -55,7 +93,12 @@ export const fieldApi = createApi({
 export const {
   useGetLocationAcerageMutation,
   useGetCropTypeQuery,
+  useGetCropTypeByIDQuery,
   useGetCropGeometryQuery,
+  useGetCropGeometryByIDQuery,
   useCreateFieldMutation,
+  useUpdateFieldMutation,
   useGetFarmerGeojsonQuery,
+  useGetFieldByIdQuery,
+  useDeleteFieldMutation,
 } = fieldApi;

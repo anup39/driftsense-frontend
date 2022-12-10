@@ -16,8 +16,20 @@ const initialState = {
 export const areaDetailSlice = createSlice({
   name: "areaDetail",
   initialState,
+  reducers: {
+    changeAreaDetials: (state, action) => ({
+      ...state,
+      ...action.payload,
+    }),
+    changeAreaDetialsExtra: (state, action) => ({
+      ...state,
+      ...action.payload,
+    }),
+  },
+  // Action creators are generated for each case reducer function
 });
 
-// Action creators are generated for each case reducer function
+export const { changeAreaDetials, changeAreaDetialsExtra } =
+  areaDetailSlice.actions;
 
 export default areaDetailSlice.reducer;

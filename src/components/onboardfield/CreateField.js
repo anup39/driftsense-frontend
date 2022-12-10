@@ -13,6 +13,9 @@ import SavedSuccessfully from "./SavedSucessfully";
 
 export default function OnboardingProcess() {
   const areaDetials = useSelector((state) => state.areaDetails);
+  const field_create = useSelector(
+    (state) => state.createFieldMap.field_create
+  );
 
   const openFieldSelection = useSelector(
     (state) => state.createFieldMap.showPopup
@@ -56,7 +59,7 @@ export default function OnboardingProcess() {
         </div>
         {openFieldSelection ? <ModelConfirm /> : null}
         {showDetailsForm ? (
-          <AreaDetail areaDetails={areaDetials} create={true} />
+          <AreaDetail areaDetails={areaDetials} create={field_create} />
         ) : null}
         {showDetailsSucessLoading ? <WaitingForApproval /> : null}
         {completed_create_field ? <SavedSuccessfully /> : null}

@@ -10,6 +10,9 @@ export default function DrawTool(prop) {
   const dispatch = useDispatch();
   const { map } = useMapInstance();
   const draw = useSelector((state) => state.createFieldMap.draw);
+  const enable_select = useSelector(
+    (state) => state.createFieldMap.enable_select
+  );
 
   const { select, modify, overlay, addInteraction, removeInteraction } =
     useDrawUtils({
@@ -37,7 +40,7 @@ export default function DrawTool(prop) {
         type="Polygon"
         {...props}
       ></DrawPlotBoundaries>
-      <Select enable={true} {...props} />
+      <Select enable={enable_select} {...props} />
     </>
   );
 }
