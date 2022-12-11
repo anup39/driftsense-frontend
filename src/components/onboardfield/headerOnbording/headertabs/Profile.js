@@ -4,6 +4,7 @@ import {
   clearToken,
   clearFullName,
   clearFarmerId,
+  clearFieldOnboard,
 } from "../../../../reducers/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -17,9 +18,11 @@ export default function Profile() {
     localStorage.removeItem("token");
     localStorage.removeItem("full_name");
     localStorage.removeItem("farmer_id");
+    localStorage.removeItem("field_onboard_complete");
     dispatch(clearToken());
     dispatch(clearFullName());
     dispatch(clearFarmerId());
+    dispatch(clearFieldOnboard());
     navigate("/");
     window.location.reload(true);
   };

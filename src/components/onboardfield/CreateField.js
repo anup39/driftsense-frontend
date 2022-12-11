@@ -32,6 +32,12 @@ export default function OnboardingProcess() {
     (state) => state.createFieldMap.completed_create_field
   );
 
+  const field_onboard_complete = useSelector(
+    (state) => state.auth.field_onboard_complete
+  );
+
+  console.log(field_onboard_complete);
+
   const handleFieldSelectionPopup = () => {
     console.log("Next Button is clicked");
   };
@@ -66,15 +72,27 @@ export default function OnboardingProcess() {
         <div className="fixed bottom-0 w-full">
           <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
             <button
+              disabled={true}
               // onClick={handleFieldSelectionPopup}
-              className=" flex ring-2 ring-orange-500 space-x-2 bg-white p-2 rounded-md  text-lg "
+              className=" flex ring-2 ring-orange-500 space-x-2 bg-gray p-2 rounded-md  text-lg "
             >
               <img src={LeftBlack} alt="" className="h-3 mt-2"></img>
               <span>Back</span>
             </button>
             <button
+              disabled={
+                field_onboard_complete === "false" ||
+                field_onboard_complete === false
+                  ? true
+                  : false
+              }
               onClick={handleFieldSelectionPopup}
-              className="flex ring-2 ring-orange-500 space-x-2  bg-white p-2 rounded-md text-black text-lg "
+              className={`flex ring-2 ring-orange-500 space-x-2  bg-${
+                field_onboard_complete === "false" ||
+                field_onboard_complete === false
+                  ? "gray"
+                  : "white"
+              } p-2 rounded-md text-black text-lg`}
             >
               <span>Next</span>
               <img src={BlackRight} alt="" className="h-3 mt-2"></img>

@@ -13,7 +13,12 @@ import { useGetProfileViaTokenQuery } from "../../api/userInfoApi";
 import NormalLoginButton from "./LoginRegister/NormalLoginButton";
 import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
-import { addToken, addFullName, addFarmerId } from "../../reducers/authSlice";
+import {
+  addToken,
+  addFullName,
+  addFarmerId,
+  setFieldOnboard,
+} from "../../reducers/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login(props) {
@@ -59,8 +64,13 @@ export default function Login(props) {
       console.log(data_profile, "data profile");
       dispatch(addFullName(data_profile[0].full_name));
       dispatch(addFarmerId(data_profile[0].id));
+      dispatch(setFieldOnboard(data_profile[0].is_field_onboard_completed));
       localStorage.setItem("full_name", data_profile[0].full_name);
       localStorage.setItem("farmer_id", data_profile[0].id);
+      localStorage.setItem(
+        "field_onboard_complete",
+        data_profile[0].is_field_onboard_completed
+      );
       navigate("/registration-complete");
     }
   }, [
