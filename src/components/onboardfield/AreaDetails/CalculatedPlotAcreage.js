@@ -18,7 +18,7 @@ export default function CalculatedPlotAcreage(props) {
               Calculated Plot Acreage
             </p>
           </div>
-          <div className="flex flex-row gap-3 justify-start items-center w-[14.38rem] px-4 py-[1.94rem] rounded-DEFAULT">
+          <div className="flex flex-row gap-3 justify-start items-center w-[14.38rem] px-4   rounded-DEFAULT">
             <FontAwesomeIcon
               icon={faCrop}
               className="text-orange-400 "

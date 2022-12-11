@@ -292,10 +292,10 @@ export default function AreaDetail(props) {
 
   return (
     <>
-      <div className="w-full absolute z-50 h-[90vh]">
+      <div className="w-full absolute z-50 h-full overflow-hidden bg-slate-700/80">
         <form onSubmit={handleAreaDetailSubmit}>
           <div className="flex justify-center items-center h-screen">
-            <div className="ftdc:w-3/4 mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
+            <div className=" mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
               <div className="border-b border-[#71C1C7] p-4">
                 {/* AreaDetailHeader  */}
                 <div className="grid grid-cols-2">
@@ -304,7 +304,7 @@ export default function AreaDetail(props) {
                   </div>
                   <div
                     onClick={handleCancelAreaDetail}
-                    className="block  justify-self-end text-white text-2xl"
+                    className="block  justify-self-end text-white text-2xl  cursor-pointer"
                   >
                     <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                   </div>
@@ -340,7 +340,7 @@ export default function AreaDetail(props) {
                         <label className="block text-xs text-orange-400">
                           Crop Type
                         </label>
-                        <ul className="text-white   z-[9999]  relative space-y-1">
+                        <div className="text-white   z-[9999]  relative space-y-1">
                           {/* Outer div */}
                           <div
                             onClick={handleCropTypeDivClicked}
@@ -413,7 +413,7 @@ export default function AreaDetail(props) {
                               </ul>
                             </div>
                           </div>
-                        </ul>
+                        </div>
                       </div>
                     </div>
                     {/* Crop Geometry here */}
@@ -527,7 +527,7 @@ export default function AreaDetail(props) {
                                 onChange={(event) =>
                                   setSprayDHour(event.target.value)
                                 }
-                                className="outline-none rounded-lg text-lg ftdc:text-4xl tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] appearance-none"
+                                className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] "
                               />
                               <center>
                                 <div>
@@ -558,7 +558,7 @@ export default function AreaDetail(props) {
                                 onChange={(event) =>
                                   setSprayDMin(event.target.value)
                                 }
-                                className="outline-none rounded-lg text-lg ftdc:text-4xl tdc:h-[30px] tdc:w-[30px] h-[50px] w-[50px] ftdc:h-[50px] ftdc:w-[50px] appearance-none"
+                                className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] tdc:w-[30px] h-[50px] w-[50px] ftdc:h-[50px] ftdc:w-[50px] appearance-none"
                               />
                               <center>
                                 <div>
@@ -577,11 +577,7 @@ export default function AreaDetail(props) {
                 </div>
               </div>
               {/* Approve button here */}
-              <div className="pb-5 grid justify-items-center ">
-                <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
-                  Approve
-                  {/* #1BB66E onactive*/}
-                </button>
+              <div className="pb-5 flex justify-between px-4 pt-5">
                 {!create ? (
                   <div
                     onClick={handleDelete}
@@ -591,6 +587,11 @@ export default function AreaDetail(props) {
                     {/* #1BB66E onactive*/}
                   </div>
                 ) : null}
+
+                <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
+                  Approve
+                  {/* #1BB66E onactive*/}
+                </button>
               </div>
             </div>
           </div>

@@ -47,13 +47,13 @@ export default function ModelConfirm() {
   };
   return (
     <>
-      <div className="w-full absolute   h-screen grid place-content-center ">
+      <div className="w-full absolute   h-full grid place-content-center bg-slate-800/80">
         <div className="bg-slate-800 p-4 max-w-[18.69rem] min-h-[144px] rounded-lg space-y-5  mx-auto ">
           <ConfirmModelHeader />
           <div className="flex flex-row gap-4 justify-center items-center">
             <div
               onClick={handleDrawnCancel}
-              className="p-3 cursor-pointer text-white"
+              className="p-3 cursor-pointer bg-red-600 rounded-md text-white"
               href="/"
             >
               Cancel
