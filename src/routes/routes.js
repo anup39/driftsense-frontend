@@ -10,6 +10,7 @@ import CreateField from "../components/onboardfield/CreateField";
 import RegistrationComplete from "../components/auth/RegistrationComplete";
 import VerifyEmail from "../components/auth/VerifyEmail";
 import Dasboard from "../components/dasboard/Dasboard";
+import GetStartedGear from "../components/onboardgear/GearStartedGear";
 
 export default function RoutesDriftSense() {
   // const token = useSelector((state) => state.auth.token);
@@ -42,6 +43,7 @@ export default function RoutesDriftSense() {
         <Route exact path="/get-started-field" element={<GetStarted />} />
 
         <Route exact path="/create-field" element={<CreateField />} />
+        <Route exact path="/get-started-gear" element={<GetStartedGear />} />
 
         <Route exact path="/dashboard" element={<Dasboard />} />
 

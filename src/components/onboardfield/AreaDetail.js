@@ -387,13 +387,13 @@ export default function AreaDetail(props) {
                                   ? data_croptype.map((croptype, index) => {
                                       return (
                                         <li
-                                          key={croptype.id}
                                           onClick={handleCropTypeClicked}
                                           value={croptype.id}
                                           title={[
                                             croptype.name,
                                             croptype.image,
                                           ]}
+                                          key={croptype.id}
                                           className=" text-black   cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 "
                                         >
                                           <div className="flex space-x-2 ">

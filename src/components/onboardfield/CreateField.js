@@ -10,8 +10,10 @@ import MapSection from "./CreateField/MapSection";
 import { useSelector } from "react-redux";
 import WaitingForApproval from "./WaitingForApproval";
 import SavedSuccessfully from "./SavedSucessfully";
+import { useNavigate } from "react-router-dom";
 
 export default function OnboardingProcess() {
+  const navigate = useNavigate();
   const areaDetials = useSelector((state) => state.areaDetails);
   const field_create = useSelector(
     (state) => state.createFieldMap.field_create
@@ -40,6 +42,7 @@ export default function OnboardingProcess() {
 
   const handleFieldSelectionPopup = () => {
     console.log("Next Button is clicked");
+    navigate("/get-started-gear");
   };
 
   return (
