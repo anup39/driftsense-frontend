@@ -1,0 +1,7 @@
+.hidenav{
+    display: none;
+}
+.show{
+    display: block;
+    z-index: 4;
+}

@@ -6,7 +6,7 @@
   border: 1px solid orange;
   display: grid;
   position: absolute;
-  top: 20px;
+  top: 60px;
   left: 5px;
   border-radius: 5px;
 }
@@ -19,7 +19,7 @@
   border: 1px solid orange;
   display: grid;
   position: absolute;
-  top: 85px;
+  top: 115px;
   left: 5px;
   border-radius: 5px;
 }

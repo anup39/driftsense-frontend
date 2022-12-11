@@ -7,7 +7,7 @@ import {
 } from "../../../../reducers/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import "./hideshow.css";
 export default function Profile() {
   const full_name = useSelector((state) => state.auth.full_name);
   const dispatch = useDispatch();
@@ -24,11 +24,16 @@ export default function Profile() {
     window.location.reload(true);
   };
 
+  const navRef = React.useRef(null);
+
+  const onToggleClick = (e) => {
+    navRef.current.classList.toggle("show");
+  };
   return (
     <>
-      <div className=" justify-self-center tdc:justify-self-end flex space-x-5">
+      <div className=" justify-self-center tdc:justify-self-end flex space-x-5 relative">
         <div className="">
-          <div className=" grid mt-5 ml-1">
+          <div className=" grid mt-5 ml-1 ">
             {full_name ? <p>{full_name}</p> : null}
           </div>
         </div>
@@ -36,13 +41,16 @@ export default function Profile() {
           src={ProfileImg}
           alt=""
           className="h-[36px] mt-3 rounded-full border border-[#F2994A]"
+          onClick={onToggleClick}
         ></img>
-        <button
-          onClick={handleLogout}
-          className="h-[36px] mt-3 rounded-full border border-[#F2994A]"
-        >
-          Logout
-        </button>
+        <div className="absolute hidenav mt-10 ml-10" ref={navRef}>
+          <button
+            onClick={handleLogout}
+            className=" h-[36px] mt-3 rounded-full border border-[#F2994A]"
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </>
   );

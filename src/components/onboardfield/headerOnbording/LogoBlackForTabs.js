@@ -5,7 +5,7 @@ import LogoDark from "./images/logo_dark.png";
 export default function HeaderLogoDark() {
   return (
     <>
-      <img src={LogoDark} alt="" className="h-8 sdc:h-10 ftdc:h-full"></img>
+      <img src={LogoDark} alt="" className="h-8 sdc:h-10"></img>
     </>
   );
 }

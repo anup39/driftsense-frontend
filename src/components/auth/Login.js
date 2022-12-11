@@ -126,12 +126,12 @@ export default function Login(props) {
       <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
 
-        <div className=" p-2 space-y-2 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
-          <div className="grid space-y-1  ftdc:space-y-3">
+        <div className=" p-2 space-y-4 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
+          <div className="grid space-y-2  ftdc:space-y-3">
             <HeaderTitle />
           </div>
 
-          <form onSubmit={handleLoginSubmit} className="space-y-2">
+          <form onSubmit={handleLoginSubmit} className="space-y-3">
             <p
               className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
             >
@@ -157,14 +157,17 @@ export default function Login(props) {
                 type="text"
                 placeholder="Enter Email Address"
                 className="
-                      outline-2
-                      outline-[#F2994A]
+                      border-2
+                      border-transparent
+                      focus:border-2 
+                      focus:border-[#F2994A] 
+                      outline-none
                       bg-[#384063] t
                       text-white
                       w-full
                       py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                       rounded-md
-                    "
+                 "
               />
             </div>
             <div className="">
@@ -183,9 +186,12 @@ export default function Login(props) {
                   type={show}
                   placeholder="Enter Password"
                   className="
-                    outline-2
-                    outline-[#F2994A]
-                    bg-[#384063] t
+                      border-2
+                      border-transparent
+                      focus:border-2 
+                      focus:border-[#F2994A]
+                      outline-none
+                    bg-[#384063] 
                     text-white
                     w-full
                     py-1 fdc:p-2  tdc:py-1 fvdc:p-2

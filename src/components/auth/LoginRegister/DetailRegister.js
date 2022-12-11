@@ -11,7 +11,7 @@ export default function DetailRegister() {
           className="
           text-white
           font-bold
-          text-lg fdc:text-3xl sdc:text-4xl tdc:text-2xl ftdc:text-2xl fvdc:text-5xl
+          text-lg fdc:text-3xl sdc:text-4xl tdc:text-2xl ftdc:text-2xl fvdc:text-4xl
            "
         >
           Timing is Everything!

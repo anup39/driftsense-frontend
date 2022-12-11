@@ -8,6 +8,7 @@ import {
 } from "../../../reducers/createFieldMapSlice";
 import { useDispatch, useSelector } from "react-redux";
 import getFeaturesGeojson from "../../OpenLayersComponent/helpers/getFeaturesGeojson";
+import Search from "./Search";
 
 export default function DrawPlotBoundaries({
   handleDrawClick,
@@ -65,19 +66,28 @@ export default function DrawPlotBoundaries({
   };
   return (
     <>
-      <div
-        onClick={handleCancelClick}
-        className={`p-3 rounded-md  cursor-pointer bg-[red] text-white absolute top-15 right-0 ${showCancel} `}
-        href="/"
-      >
-        Cancel
+      <div className="absolute   top-5 tdc:px-2">
+        <div className=" grid tdc:grid-cols-12 gap-4 w-full">
+          <div className="justify-self-start">
+            <Search />
+          </div>
+          <div className="justify-self-end flex space-x-5 col-span-11 pr-5">
+            <div
+              onClick={handleCancelClick}
+              className={`p-3 rounded-md  cursor-pointer bg-[red] text-white   ${showCancel} `}
+              href="/"
+            >
+              Cancel
+            </div>
+            <button
+              onClick={() => handleDrawClick("add-polygon")}
+              className="p-2 bg-[#212B36] tdc:w-[250px] w-[200px] ftdc:w-[330px] rounded-md   text-white"
+            >
+              <h1>Draw Plot Boundaries</h1>
+            </button>
+          </div>
+        </div>
       </div>
-      <button
-        onClick={() => handleDrawClick("add-polygon")}
-        className="p-2 bg-[#212B36] tdc:w-[250px] w-[200px] ftdc:w-[330px] rounded-md grid justify-items-center text-white"
-      >
-        <h1>Draw Plot Boundaries</h1>
-      </button>
     </>
   );
 }

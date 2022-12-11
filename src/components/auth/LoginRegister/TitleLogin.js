@@ -9,8 +9,8 @@ export default function LoginTitle() {
         Login
       </div>
 
-      <div className="justify-self-center  tdc:text-[#E4E6F2] text-xs fdc:text-sm tdc:text-xs">
-        <span>Needs an account?</span>
+      <div className="justify-self-center space-x-2 tdc:text-[#E4E6F2] text-xs fdc:text-sm tdc:text-xs">
+        <span>Needs an account?</span> 
         <button
           onClick={() => {
             return navigate("/register");

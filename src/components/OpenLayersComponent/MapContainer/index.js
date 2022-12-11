@@ -16,10 +16,9 @@ const MapContainer = forwardRef(({ children, mapInstance, ...rest }, ref) => {
       {/* <div ref={ref} id="ol-map" className="ol-map" {...rest}>
         {children}
       </div> */}
-      <div className="w-full h-[80vh]">
-        <div id="ol-map" ref={ref} className="h-[75vh]"></div>
-        {children}
-      </div>
+
+      <div id="ol-map" ref={ref} className="h-[78vh]"></div>
+      {children}
     </MapContext.Provider>
   );
 });

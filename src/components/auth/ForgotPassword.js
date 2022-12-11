@@ -44,7 +44,7 @@ export default function ForgotPassword() {
       <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
 
-        <div className=" p-2 space-y-2 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
+        <div className="grid p-2  space-y-2 fdc:place-self-center  fdc:max-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px]">
           <div className="justify-self-center font-bold tdc:text-[#E4E6F2] text-xl fdc:text-3xl tdc:text-2xl ftdc:text-4xl">
             Forgot Password
           </div>

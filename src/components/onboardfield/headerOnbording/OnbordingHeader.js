@@ -13,7 +13,9 @@ export default function PrayForSprayHeader() {
   return (
     <>
       <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-3 grid tdc:grid-cols-5 tdc:text-xs ftdc:text-sm fvdc:text-lg">
-        <LogoBlackForTabs />
+        <div className="justify-self-start h-full grid content-center">
+          <LogoBlackForTabs />
+        </div>
         <PlotSelectionActive />
         <GearInactive />
         <PaymentInactive />

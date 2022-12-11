@@ -2,9 +2,13 @@
   width: 100%;
   height: 45px !important;
   padding-left: 60px;
-  border: 2px solid #f2994a;
+  border: 2px solid transparent;
   background-color: #384063;
   font-size: 18px;
+}
+.react-tel-input .form-control:focus{
+  border: 2px solid #f2994a;
+
 }
 .react-tel-input input {
   color: white;
@@ -41,12 +45,11 @@
 }
 .react-tel-input .flag-dropdown.open .selected-flag {
   background-color: #384063;
-  border-bottom: 2px solid #f2994a;
-  border-left: 2px solid #f2994a;
-  border-top: 2px solid #f2994a;
+ 
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+ 
 
 .hilight {
   background-color: transparent;

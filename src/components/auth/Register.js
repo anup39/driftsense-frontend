@@ -179,9 +179,11 @@ export default function Register() {
                 type="text"
                 placeholder="Enter Your Name Here"
                 className="
-                  outline-none
                   border-2
-                  border-[#F2994A]
+                      border-transparent
+                      focus:border-2 
+                      focus:border-[#F2994A]
+                      outline-none
                   bg-[#384063] t
                   text-white
                   w-full
@@ -206,9 +208,11 @@ export default function Register() {
                 type="text"
                 placeholder="Enter Email Address"
                 className="
-                  outline-none
                   border-2
-                  border-[#F2994A]
+                      border-transparent
+                      focus:border-2 
+                      focus:border-[#F2994A]
+                      outline-none
                   bg-[#384063] t
                   text-white
                   w-full
@@ -234,9 +238,11 @@ export default function Register() {
                   type={show}
                   placeholder="Enter Password"
                   className="
-                  outline-none
                   border-2
-                  border-[#F2994A]
+                      border-transparent
+                      focus:border-2 
+                      focus:border-[#F2994A]
+                      outline-none
                 bg-[#384063]
                 text-white
                 w-full
@@ -292,7 +298,7 @@ export default function Register() {
                       value={consultant}
                       onChange={(consultant) => setConsultant(consultant)}
                       placeholder="Select Consultant"
-                      className="pointer-events-none bg-[#384063] block  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
+                      className="pointer-events-none bg-[#384063] block  w-full py-1 fdc:p-2    fvdc:p-2 h-[44px] rounded-md "
                     />
                     <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
                       <img
@@ -337,7 +343,7 @@ export default function Register() {
                 </span>
                 <span className="justify-self-end">(Optional)</span>
               </label>
-              <div className="rounded-md">
+              <div className="rounded-md ">
                 <PhoneInput
                   country={"us"}
                   value={phone}
@@ -374,7 +380,7 @@ export default function Register() {
                 disabled={registerDisabled}
                 className={
                   isLoading
-                    ? `border border-[#F2994A] grid w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-[""] text-white rounded-md text-center`
+                    ? `border border-[#F2994A] grid w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-[#929292] text-white rounded-md text-center`
                     : `w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`
                 }
               >

@@ -2,3 +2,6 @@
     @apply text-opacity-100;
 }
 
+.outlineinput{
+    border: 2px solid #F2994A;
+}

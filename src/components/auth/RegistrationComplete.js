@@ -15,10 +15,10 @@ export default function StartOnBording() {
       <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
 
-        <div className=" p-2 space-y-2 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
+        <div className=" p-2 space-y-2  place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
           <div
             className="
-            space-y-2"
+            space-y-5"
           >
             <h1 className="">
               <center className="text-xl fdc:text-3xl tdc:text-2xl ftdc:text-4xl font-semibold tdc:text-[#E4E6F2]">
@@ -28,7 +28,7 @@ export default function StartOnBording() {
 
             {!auth_token ? (
               <p
-                className={`text-xl fdc:text-1xl tdc:text-1xl ftdc:text-1xl  tdc:text-[red]`}
+                className={`max-w-[420px] fdc:max-w-[320px]   tdc:max-w-[300px]   ftdc:max-w-[330px]  fvdc:max-w-[420px] text-xl fdc:text-1xl tdc:text-1xl ftdc:text-1xl   text-[red]`}
               >
                 Please Check your mail and verify your account to start the
                 onboarding Process
@@ -37,12 +37,12 @@ export default function StartOnBording() {
 
             <button
               onClick={handleStartOnboard}
-              className={`bg-[${
-                !auth_token ? "#929292" : "#219653"
-              }] p-2 min-w-[420px] rounded-md`}
+              className={`bg-[${!auth_token ? "#929292" : "#219653"}] 
+              p-2 min-w-[420px] fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] rounded-md   text-white`}
               disabled={!auth_token ? true : false}
             >
-              <center>Start the onboarding</center>
+              {/* Border in Login and before login */}
+              Start the onboarding
             </button>
             {/* <button className="bg-[#219653] p-2 min-w-[420px] rounded-md ">
               <center>

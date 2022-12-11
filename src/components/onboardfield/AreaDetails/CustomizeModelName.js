@@ -22,17 +22,15 @@ export default function CustomizeModelName(props) {
         <div className="space-y-3">
           <p className="block text-xs text-white ">Selected Location</p>
 
-          <p className="flex space-x-2 text-slate-200  font-medium">
-            <img
-              alt=""
-              src={Location}
-              className="text-2xl bock align-baseline"
-            ></img>
+          <p className="grid grid-cols-12 space-x-2 text-slate-200  font-medium">
+            <img alt="" src={Location} className="text-2xl    h-auto"></img>
 
             {create ? (
-              <span>{layers.length !== 0 ? layers[0].location : null}</span>
+              <span className="col-span-11">
+                {layers.length !== 0 ? layers[0].location : null}
+              </span>
             ) : (
-              <span>{location_already}</span>
+              <span className="col-span-11">{location_already}</span>
             )}
           </p>
         </div>
