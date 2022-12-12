@@ -5,9 +5,7 @@ export default function AreaDetailTitle() {
     <>
       <div className=" ">
         <div>
-          <p className="block text-2xl text-orange-300  font-medium">
-            Area Detail
-          </p>
+          <p className="block text-2xl text-orange  font-medium">Area Detail</p>
         </div>
       </div>
     </>

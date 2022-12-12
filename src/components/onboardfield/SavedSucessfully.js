@@ -5,9 +5,9 @@ export default function SavedSuccessfully() {
   return (
     <>
       <div className="absolute px-2 z-50 sdc:px-4 tdc:px-6 fdc:px-10   w-full   h-full pt-3   ">
-        <div className=" h-full bg-slate-800/80  rounded-md  ">
+        <div className=" h-full bg-authslate/80  rounded-md  ">
           <div className="h-full grid content-center">
-            <div className="mx-auto min-w-[263px] min-h-[180px] py-3  bg-slate-800 border-orange-400 border rounded-lg">
+            <div className="mx-auto min-w-[263px] min-h-[180px] py-3  bg-authslate border-orange border rounded-lg">
               <div>
                 <div className="flex justify-center">
                   <p className="block text-center text-xl text-white  font-bold">
