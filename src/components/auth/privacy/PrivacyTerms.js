@@ -1,7 +1,7 @@
 import React from "react";
 export default function PrivacyTerms() {
   return (
-    <div className=" flex absolute  text-xs fdc:text-sm tdc:text-xs fvdc:text-sm px-2 fdc:px-5 tdc:px-2 fdc:p-0 fvdc:px-5  -mt-5   space-x-2 ">
+    <div className=" flex  text-[15px]  absolute -mt-10 p-2 fdc:p-5 tdc:p-2  fvdc:px-[50px]    space-x-2 ">
       <button className="text-[#F2994A]">
         <a href="/">Privacy Policy</a>
       </button>
