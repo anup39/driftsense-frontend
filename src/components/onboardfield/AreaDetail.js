@@ -279,10 +279,10 @@ export default function AreaDetail(props) {
   return (
     <>
       <div className="w-full px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-3 absolute z-50  overflow-hidden">
-        <div className="  bg-slate-700/80  rounded-md">
+        <div className="  bg-authslate/80  rounded-md">
           <form onSubmit={handleAreaDetailSubmit}>
             <div className="flex justify-center items-center  h-[80vh]">
-              <div className=" mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
+              <div className=" mx-auto bg-authslate border-2 border-orange opacity-[0.95] rounded-lg space-y-2">
                 <div className="border-b border-[#71C1C7] p-4">
                   <div className="grid grid-cols-2">
                     <div className="block text-2xl font-semibold text-white">
@@ -307,13 +307,13 @@ export default function AreaDetail(props) {
                     <PlotDetailTitle />
                     {/* Plot Name  */}
                     <div className="">
-                      <label className="block text-xs text-orange-400  font-medium">
+                      <label className="block text-xs text-orange  font-medium">
                         Plot Name
                       </label>
                       <input
                         required
                         type="text"
-                        className="text-neutral-50 bg-transparent border-b border-orange-400 outline-none tdc:w-[200px] ftdc:w-[230px]"
+                        className="text-neutral  bg-transparent border-b border-orange outline-none tdc:w-[200px] ftdc:w-[230px]"
                         value={plotName}
                         onChange={(event) => setPlotName(event.target.value)}
                       />
@@ -323,7 +323,7 @@ export default function AreaDetail(props) {
                       {/* Crop Type here */}
                       <div>
                         <div className="space-y-1">
-                          <label className="block text-xs text-orange-400">
+                          <label className="block text-xs text-orange">
                             Crop Type
                           </label>
                           <div className="text-white   z-[9999]  relative space-y-1">
@@ -407,7 +407,7 @@ export default function AreaDetail(props) {
                       {/* Crop Geometry here */}
                       <div>
                         <div className="space-y-1">
-                          <label className="block text-xs text-orange-400">
+                          <label className="block text-xs text-orange">
                             Crop Geometry
                           </label>
                           <ul className="text-white   z-[9999]  relative space-y-1">
@@ -506,7 +506,7 @@ export default function AreaDetail(props) {
                                   <div>
                                     <FontAwesomeIcon
                                       icon={faChevronUp}
-                                      className="text-sm ftdc:text-2xl text-orange-400 grid justify-items-end"
+                                      className="text-sm ftdc:text-2xl text-orange grid justify-items-end"
                                     />
                                   </div>
                                 </center>
@@ -523,7 +523,7 @@ export default function AreaDetail(props) {
                                   <div>
                                     <FontAwesomeIcon
                                       icon={faChevronDown}
-                                      className="text-sm ftdc:text-2xl text-orange-400"
+                                      className="text-sm ftdc:text-2xl text-orange"
                                     />
                                   </div>
                                 </center>
@@ -537,7 +537,7 @@ export default function AreaDetail(props) {
                                   <div>
                                     <FontAwesomeIcon
                                       icon={faChevronUp}
-                                      className="text-sm ftdc:text-2xl text-orange-400  grid justify-items-end"
+                                      className="text-sm ftdc:text-2xl text-orange  grid justify-items-end"
                                     />
                                   </div>
                                 </center>
@@ -554,7 +554,7 @@ export default function AreaDetail(props) {
                                   <div>
                                     <FontAwesomeIcon
                                       icon={faChevronDown}
-                                      className="text-sm ftdc:text-2xl text-orange-400"
+                                      className="text-sm ftdc:text-2xl text-orange"
                                     />
                                   </div>
                                 </center>

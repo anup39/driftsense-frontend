@@ -5,10 +5,10 @@ export default function PlotDetail() {
     <>
       <div className=" space-y-5">
         <div>
-          <p className="block text-2xl text-orange-300  font-medium">
+          <p className="block text-2xl text-orange   font-medium">
             Plot Details
           </p>
-          <p className="block text-xs text-neutral-50 ">Enter Plots Detaiils</p>
+          <p className="block text-xs text-neutral  ">Enter Plots Detaiils</p>
         </div>
       </div>
     </>

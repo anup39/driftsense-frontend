@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "./LogoLoginRegister";
 import DetailRegister from "./DetailRegister";
-import BackGroundImage from "./LoginRegisterBackground";
 import PrivacyTerms from "../privacy/PrivacyTerms";
+import BackGroundImageRegister from "./RegisterBackground ";
 
 export default function Header() {
   return (
@@ -11,7 +11,7 @@ export default function Header() {
         <Logo />
         <DetailRegister />
       </div>
-      <BackGroundImage />
+      <BackGroundImageRegister />
       <PrivacyTerms />
     </div>
   );
