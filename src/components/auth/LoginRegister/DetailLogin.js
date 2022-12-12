@@ -7,7 +7,7 @@ export default function DetailLogin() {
           className="
           text-white
           font-bold
-          text-lg fdc:text-3xl sdc:text-4xl tdc:text-2xl ftdc:text-2xl fvdc:text-5xl
+          text-[36px]
           leading-1"
         >
           Keep track on your <br /> spraying times
@@ -26,3 +26,4 @@ export default function DetailLogin() {
     </>
   );
 }
+// text-lg fdc:text-3xl sdc:text-4xl tdc:text-2xl ftdc:text-2xl fvdc:text-5xl
