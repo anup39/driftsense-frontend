@@ -47,23 +47,27 @@ export default function ModelConfirm() {
   };
   return (
     <>
-      <div className="w-full absolute   h-full grid place-content-center bg-slate-800/80">
-        <div className="bg-slate-800 p-4 max-w-[18.69rem] min-h-[144px] rounded-lg space-y-5  mx-auto ">
-          <ConfirmModelHeader />
-          <div className="flex flex-row gap-4 justify-center items-center">
-            <div
-              onClick={handleDrawnCancel}
-              className="p-3 cursor-pointer bg-red-600 rounded-md text-white"
-              href="/"
-            >
-              Cancel
-            </div>
-            <div
-              onClick={handleDrawnConfirm}
-              className="p-3 rounded-md  cursor-pointer bg-[#219653] text-white"
-              href="/"
-            >
-              Confirm
+      <div className="absolute px-2 sdc:px-4 tdc:px-6 fdc:px-10   w-full   h-full pt-3   ">
+        <div className=" h-full bg-slate-800/80  rounded-md  ">
+          <div className="h-full grid content-center">
+            <div className="bg-slate-800 p-4 max-w-[18.69rem] min-h-[144px] rounded-lg space-y-5  mx-auto ">
+              <ConfirmModelHeader />
+              <div className="flex flex-row gap-4 justify-center items-center">
+                <div
+                  onClick={handleDrawnCancel}
+                  className="p-3 cursor-pointer bg-red-600 rounded-md text-white"
+                  href="/"
+                >
+                  Cancel
+                </div>
+                <div
+                  onClick={handleDrawnConfirm}
+                  className="p-3 rounded-md  cursor-pointer bg-[#219653] text-white"
+                  href="/"
+                >
+                  Confirm
+                </div>
+              </div>
             </div>
           </div>
         </div>

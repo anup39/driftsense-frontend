@@ -278,282 +278,287 @@ export default function AreaDetail(props) {
 
   return (
     <>
-      <div className="w-full absolute z-50 h-full overflow-hidden bg-slate-700/80">
-        <form onSubmit={handleAreaDetailSubmit}>
-          <div className="flex justify-center items-center h-screen">
-            <div className=" mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
-              <div className="border-b border-[#71C1C7] p-4">
-                {/* AreaDetailHeader  */}
-                <div className="grid grid-cols-2">
-                  <div className="block text-2xl font-bold text-white">
-                    Area Detail
-                  </div>
-                  <div
-                    onClick={handleCancelAreaDetail}
-                    className="block  justify-self-end text-white text-2xl  cursor-pointer"
-                  >
-                    <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
+      <div className="w-full px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-3 absolute z-50  overflow-hidden">
+        <div className="  bg-slate-700/80  rounded-md">
+          <form onSubmit={handleAreaDetailSubmit}>
+            <div className="flex justify-center items-center  h-[80vh]">
+              <div className=" mx-auto bg-slate-800 border-2 border-orange-500 opacity-[0.95] rounded-lg space-y-2">
+                <div className="border-b border-[#71C1C7] p-4">
+                  <div className="grid grid-cols-2">
+                    <div className="block text-2xl font-semibold text-white">
+                      Area Detail
+                    </div>
+                    <div
+                      onClick={handleCancelAreaDetail}
+                      className="block  justify-self-end text-white text-2xl  cursor-pointer"
+                    >
+                      <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="tdc:flex grid p-4 space-y-5 tdc:space-y-0">
-                <div className="basis-4/12">
-                  <CustomizeModelName
-                    selected_location={selected_location}
-                    create={create}
-                  />
-                </div>
-                <div className="basis-8/12 space-y-3">
-                  <PlotDetailTitle />
-                  {/* Plot Name  */}
-                  <div className="">
-                    <label className="block text-xs text-orange-400  font-medium">
-                      Plot Name
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      className="text-neutral-50 bg-transparent border-b border-orange-400 outline-none tdc:w-[200px] ftdc:w-[230px]"
-                      value={plotName}
-                      onChange={(event) => setPlotName(event.target.value)}
+                <div className="tdc:flex grid p-4 space-y-5 tdc:space-y-0">
+                  <div className="basis-4/12">
+                    <CustomizeModelName
+                      selected_location={selected_location}
+                      create={create}
                     />
                   </div>
-                  <AreaDetailTitle />
-                  <div className="grid tdc:grid-cols-2 gap-3">
-                    {/* Crop Type here */}
-                    <div>
-                      <div className="space-y-1">
-                        <label className="block text-xs text-orange-400">
-                          Crop Type
-                        </label>
-                        <div className="text-white   z-[9999]  relative space-y-1">
-                          {/* Outer div */}
-                          <div
-                            onClick={handleCropTypeDivClicked}
-                            className="relative w-full h-[48px]"
-                          >
-                            {/* image here selected */}
-                            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm space-x-3">
-                              <img
-                                alt=""
-                                src={Crop}
-                                className="-mt-2 text-black text-2xl cursor-pointer"
-                              ></img>
-                              <img
-                                alt=""
-                                src={cropTypeImage}
-                                className="-mt-2 h-6 rounded-full text-black text-2xl cursor-pointer"
-                              ></img>
-                            </div>
-                            <input
-                              disabled={disabledCropType}
-                              required
-                              type="select"
-                              value={cropType}
-                              onChange={(cropType) => setCropType(cropType)}
-                              className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-20 p-2 rounded-t-md  border-black border-t border-l border-r"
-                              placeholder="Crop Type"
-                            />
-                            <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
-                              <FontAwesomeIcon
-                                icon={faAngleDown}
-                                className="-mt-2 text-black text-2xl cursor-pointer"
-                              ></FontAwesomeIcon>
-                            </div>
-
-                            <center>
-                              <hr className="mx-3 -mt-[1px]" />
-                            </center>
-                            {/* hidden here */}
+                  <div className="basis-8/12 space-y-3">
+                    <PlotDetailTitle />
+                    {/* Plot Name  */}
+                    <div className="">
+                      <label className="block text-xs text-orange-400  font-medium">
+                        Plot Name
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        className="text-neutral-50 bg-transparent border-b border-orange-400 outline-none tdc:w-[200px] ftdc:w-[230px]"
+                        value={plotName}
+                        onChange={(event) => setPlotName(event.target.value)}
+                      />
+                    </div>
+                    <AreaDetailTitle />
+                    <div className="grid tdc:grid-cols-2 gap-3">
+                      {/* Crop Type here */}
+                      <div>
+                        <div className="space-y-1">
+                          <label className="block text-xs text-orange-400">
+                            Crop Type
+                          </label>
+                          <div className="text-white   z-[9999]  relative space-y-1">
+                            {/* Outer div */}
                             <div
-                              className={hideCropType ? "z-50 hidden" : "z-50"}
+                              onClick={handleCropTypeDivClicked}
+                              className="relative w-full h-[48px]"
                             >
-                              <ul className="px-2 grid  grid-cols-2 gap-2 rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r max-h-[161px] overflow-y-scroll">
-                                {data_croptype
-                                  ? data_croptype.map((croptype, index) => {
-                                      return (
-                                        <li
-                                          onClick={handleCropTypeClicked}
-                                          value={croptype.id}
-                                          title={[
-                                            croptype.name,
-                                            croptype.image,
-                                          ]}
-                                          key={croptype.id}
-                                          className=" text-black   cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 "
-                                        >
-                                          <div className="flex space-x-2 ">
-                                            <img
-                                              src={croptype.image}
-                                              alt=""
-                                              className="h-6 w-auto rounded-full"
-                                            />
-                                            <h1 className="text-gray-400">
-                                              {croptype.name}
-                                            </h1>
-                                          </div>
-                                        </li>
-                                      );
-                                    })
-                                  : null}
-                              </ul>
+                              {/* image here selected */}
+                              <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm space-x-3">
+                                <img
+                                  alt=""
+                                  src={Crop}
+                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                ></img>
+                                <img
+                                  alt=""
+                                  src={cropTypeImage}
+                                  className="-mt-2 h-6 rounded-full text-black text-2xl cursor-pointer"
+                                ></img>
+                              </div>
+                              <input
+                                disabled={disabledCropType}
+                                required
+                                type="select"
+                                value={cropType}
+                                onChange={(cropType) => setCropType(cropType)}
+                                className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-20 p-2 rounded-t-md  border-black border-t border-l border-r"
+                                placeholder="Crop Type"
+                              />
+                              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                                <FontAwesomeIcon
+                                  icon={faAngleDown}
+                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                ></FontAwesomeIcon>
+                              </div>
+
+                              <center>
+                                <hr className="mx-3 -mt-[1px]" />
+                              </center>
+                              {/* hidden here */}
+                              <div
+                                className={
+                                  hideCropType ? "z-50 hidden" : "z-50"
+                                }
+                              >
+                                <ul className="px-2 grid  grid-cols-2 gap-2 rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r max-h-[161px] overflow-y-scroll">
+                                  {data_croptype
+                                    ? data_croptype.map((croptype, index) => {
+                                        return (
+                                          <li
+                                            onClick={handleCropTypeClicked}
+                                            value={croptype.id}
+                                            title={[
+                                              croptype.name,
+                                              croptype.image,
+                                            ]}
+                                            key={croptype.id}
+                                            className=" text-black   cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2 "
+                                          >
+                                            <div className="flex space-x-2 ">
+                                              <img
+                                                src={croptype.image}
+                                                alt=""
+                                                className="h-6 w-auto rounded-full"
+                                              />
+                                              <h1 className="text-gray-400">
+                                                {croptype.name}
+                                              </h1>
+                                            </div>
+                                          </li>
+                                        );
+                                      })
+                                    : null}
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    {/* Crop Geometry here */}
-                    <div>
-                      <div className="space-y-1">
-                        <label className="block text-xs text-orange-400">
-                          Crop Geometry
-                        </label>
-                        <ul className="text-white   z-[9999]  relative space-y-1">
-                          {/* Outer div */}
-                          <div
-                            onClick={handleCropGeometryDivClicked}
-                            className="relative  w-full h-[48px] -z-10"
-                          >
-                            {/* image here selected */}
-                            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm">
-                              <img
-                                alt=""
-                                src={Geometry}
-                                className="-mt-2 text-black text-2xl cursor-pointer"
-                              ></img>
-                            </div>
-                            <input
-                              disabled={disabledCropGeometry}
-                              required
-                              type="select"
-                              value={cropGeometry}
-                              onChange={(cropGeometry) =>
-                                setCropGeometry(cropGeometry)
-                              }
-                              className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r"
-                              placeholder="Crop Geometry"
-                            />
-                            <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
-                              <FontAwesomeIcon
-                                icon={faAngleDown}
-                                className="-mt-2 text-black text-2xl cursor-pointer"
-                              ></FontAwesomeIcon>
-                            </div>
-
-                            <center>
-                              <hr className="mx-3 -mt-[1px]" />
-                            </center>
-                            {/* hidden here  */}
+                      {/* Crop Geometry here */}
+                      <div>
+                        <div className="space-y-1">
+                          <label className="block text-xs text-orange-400">
+                            Crop Geometry
+                          </label>
+                          <ul className="text-white   z-[9999]  relative space-y-1">
+                            {/* Outer div */}
                             <div
-                              className={
-                                hideCropGeometry ? "z-50 hidden" : "z-50"
-                              }
+                              onClick={handleCropGeometryDivClicked}
+                              className="relative  w-full h-[48px] -z-10"
                             >
-                              <ul className="rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r h-[161px] overflow-y-auto">
-                                {data_cropgeometry
-                                  ? data_cropgeometry.map((cropgeometry) => {
-                                      return (
-                                        <li
-                                          key={cropgeometry.id}
-                                          onClick={handleCropGeomClicked}
-                                          value={cropgeometry.id}
-                                          title={cropgeometry.name}
-                                          className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1 cursor-pointer fvdc:p-2 flex"
-                                        >
-                                          <img
-                                            src={cropgeometry.image}
-                                            alt=""
-                                            className="pl-1 text-2xl h-6"
-                                          />
-                                          <h1 className="text-gray-400">
-                                            {cropgeometry.name}
-                                          </h1>
-                                        </li>
-                                      );
-                                    })
-                                  : null}
-                              </ul>
+                              {/* image here selected */}
+                              <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm">
+                                <img
+                                  alt=""
+                                  src={Geometry}
+                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                ></img>
+                              </div>
+                              <input
+                                disabled={disabledCropGeometry}
+                                required
+                                type="select"
+                                value={cropGeometry}
+                                onChange={(cropGeometry) =>
+                                  setCropGeometry(cropGeometry)
+                                }
+                                className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r"
+                                placeholder="Crop Geometry"
+                              />
+                              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                                <FontAwesomeIcon
+                                  icon={faAngleDown}
+                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                ></FontAwesomeIcon>
+                              </div>
+
+                              <center>
+                                <hr className="mx-3 -mt-[1px]" />
+                              </center>
+                              {/* hidden here  */}
+                              <div
+                                className={
+                                  hideCropGeometry ? "z-50 hidden" : "z-50"
+                                }
+                              >
+                                <ul className="rounded-b-md bg-white absolute text-center  w-full  border-black border-b border-l border-r h-[161px] overflow-y-auto">
+                                  {data_cropgeometry
+                                    ? data_cropgeometry.map((cropgeometry) => {
+                                        return (
+                                          <li
+                                            key={cropgeometry.id}
+                                            onClick={handleCropGeomClicked}
+                                            value={cropgeometry.id}
+                                            title={cropgeometry.name}
+                                            className=" text-black space-x-5 py-1 fdc:p-2 tdc:py-1 cursor-pointer fvdc:p-2 flex"
+                                          >
+                                            <img
+                                              src={cropgeometry.image}
+                                              alt=""
+                                              className="pl-1 text-2xl h-6"
+                                            />
+                                            <h1 className="text-gray-400">
+                                              {cropgeometry.name}
+                                            </h1>
+                                          </li>
+                                        );
+                                      })
+                                    : null}
+                                </ul>
+                              </div>
                             </div>
-                          </div>
-                        </ul>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="grid tdc:grid-cols-2">
-                    <div>
-                      <CalculatedPlotAcreage
-                        acerage={acerage}
-                        create={create}
-                      />
-                    </div>
-                    <div>
-                      {/* TimerCounter */}
-                      <div className="flex flex-col justify-start items-start">
-                        <div className="flex flex-col gap-2 justify-start items-start w-full h-[6.81rem]">
-                          <div className="flex flex-row gap-1 justify-start items-start w-full h-[0.94rem]">
-                            <p className="block text-white ">Spray Duration</p>
-                          </div>
-                          <div className="flex p-2  gap-2 ftdc:gap-3 justify-start items-center   ">
-                            <div className="text-white  -mt-2 ftdc:mt-0">
-                              Hours
+                    <div className="grid tdc:grid-cols-2">
+                      <div>
+                        <CalculatedPlotAcreage
+                          acerage={acerage}
+                          create={create}
+                        />
+                      </div>
+                      <div>
+                        {/* TimerCounter */}
+                        <div className="flex flex-col justify-start items-start">
+                          <div className="flex flex-col gap-2 justify-start items-start w-full h-[6.81rem]">
+                            <div className="flex flex-row gap-1 justify-start items-start w-full h-[0.94rem]">
+                              <p className="block text-white ">
+                                Spray Duration
+                              </p>
                             </div>
-                            <div className="   ">
-                              <center>
-                                <div>
-                                  <FontAwesomeIcon
-                                    icon={faChevronUp}
-                                    className="text-sm ftdc:text-2xl text-orange-400 grid justify-items-end"
-                                  />
-                                </div>
-                              </center>
-                              <input
-                                required
-                                type="number"
-                                value={sprayDHour}
-                                onChange={(event) =>
-                                  setSprayDHour(event.target.value)
-                                }
-                                className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] "
-                              />
-                              <center>
-                                <div>
-                                  <FontAwesomeIcon
-                                    icon={faChevronDown}
-                                    className="text-sm ftdc:text-2xl text-orange-400"
-                                  />
-                                </div>
-                              </center>
-                            </div>
-                            <div className="text-white -mt-2 ftdc:mt-0">
-                              {" "}
-                              Minutes
-                            </div>
-                            <div>
-                              <center>
-                                <div>
-                                  <FontAwesomeIcon
-                                    icon={faChevronUp}
-                                    className="text-sm ftdc:text-2xl text-orange-400  grid justify-items-end"
-                                  />
-                                </div>
-                              </center>
-                              <input
-                                required
-                                type="number"
-                                value={sprayDMin}
-                                onChange={(event) =>
-                                  setSprayDMin(event.target.value)
-                                }
-                                className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] tdc:w-[30px] h-[50px] w-[50px] ftdc:h-[50px] ftdc:w-[50px] appearance-none"
-                              />
-                              <center>
-                                <div>
-                                  <FontAwesomeIcon
-                                    icon={faChevronDown}
-                                    className="text-sm ftdc:text-2xl text-orange-400"
-                                  />
-                                </div>
-                              </center>
+                            <div className="flex p-2  gap-2 ftdc:gap-3 justify-start items-center   ">
+                              <div className="text-white  -mt-2 ftdc:mt-0">
+                                Hours
+                              </div>
+                              <div className="   ">
+                                <center>
+                                  <div>
+                                    <FontAwesomeIcon
+                                      icon={faChevronUp}
+                                      className="text-sm ftdc:text-2xl text-orange-400 grid justify-items-end"
+                                    />
+                                  </div>
+                                </center>
+                                <input
+                                  required
+                                  type="number"
+                                  value={sprayDHour}
+                                  onChange={(event) =>
+                                    setSprayDHour(event.target.value)
+                                  }
+                                  className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] "
+                                />
+                                <center>
+                                  <div>
+                                    <FontAwesomeIcon
+                                      icon={faChevronDown}
+                                      className="text-sm ftdc:text-2xl text-orange-400"
+                                    />
+                                  </div>
+                                </center>
+                              </div>
+                              <div className="text-white -mt-2 ftdc:mt-0">
+                                {" "}
+                                Minutes
+                              </div>
+                              <div>
+                                <center>
+                                  <div>
+                                    <FontAwesomeIcon
+                                      icon={faChevronUp}
+                                      className="text-sm ftdc:text-2xl text-orange-400  grid justify-items-end"
+                                    />
+                                  </div>
+                                </center>
+                                <input
+                                  required
+                                  type="number"
+                                  value={sprayDMin}
+                                  onChange={(event) =>
+                                    setSprayDMin(event.target.value)
+                                  }
+                                  className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] tdc:w-[30px] h-[50px] w-[50px] ftdc:h-[50px] ftdc:w-[50px] appearance-none"
+                                />
+                                <center>
+                                  <div>
+                                    <FontAwesomeIcon
+                                      icon={faChevronDown}
+                                      className="text-sm ftdc:text-2xl text-orange-400"
+                                    />
+                                  </div>
+                                </center>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -561,27 +566,27 @@ export default function AreaDetail(props) {
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* Approve button here */}
-              <div className="pb-5 flex justify-between px-4 pt-5">
-                {!create ? (
-                  <div
-                    onClick={handleDelete}
-                    className=" bg-[red] flex  cursor-pointer text-sm text-white  flex-row gap-1 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]"
-                  >
-                    Delete
-                    {/* #1BB66E onactive*/}
-                  </div>
-                ) : null}
+                {/* Approve button here */}
+                <div className="pb-5 flex justify-between px-4 pt-5">
+                  {!create ? (
+                    <div
+                      onClick={handleDelete}
+                      className=" bg-[red] flex  cursor-pointer text-sm text-white  flex-row gap-1 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]"
+                    >
+                      Delete
+                      {/* #1BB66E onactive*/}
+                    </div>
+                  ) : null}
 
-                <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
-                  Approve
-                  {/* #1BB66E onactive*/}
-                </button>
+                  <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
+                    Approve
+                    {/* #1BB66E onactive*/}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );
