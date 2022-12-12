@@ -115,144 +115,150 @@ export default function RegisterWithGoogle() {
 
   return (
     <>
-      <div className="tdc:bg-[#161C24] bg-transparent grid tdc:grid-cols-2 space-y-2  fdc:space-y-5 tdc:space-y-2">
-        <HeaderRegister />
-        <div className="p-2 space-y-2 fdc:place-self-center fdc:min-w-[320px] tdc:min-w-[300px] ftdc:min-w-[330px] fvdc:min-w-[420px]">
-          <div className="grid space-y-1  ftdc:space-y-3">
-            <FirstHeading />
-            <RegisterWithGoogleHead />
-          </div>
-          <form onSubmit={handleRegisterSubmit} className=" space-y-4 ">
-            <p
-              className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
-            >
-              Farmer with that Email Already Exists.
-            </p>
-            <p
-              className={`mt-2 ${successText} peer-invalid:visible text-green-600 text-sm`}
-            >
-              Sucessfully Created Account.
-            </p>
-            <div className="">
-              <label
-                className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
-              "
-              >
-                Consultant <span className="text-[#D44453]">*</span>
-              </label>
-              {/* <br /> */}
-              <div className="  outline-2 text-white w-full     ">
-                <div className="relative ">
-                  <div
-                    className="relative"
-                    onClick={handleConsultantDivClicked}
+      <div className="h-screen">
+        <div className="tdc:bg-[#161C24] bg-transparent grid tdc:grid-cols-2 space-y-2  fdc:space-y-5 tdc:space-y-2  h-full">
+          <HeaderRegister />
+          <div className="tdc:bg-[#161C24]   w-full grid justify-items-center fvdc:py-[34px]">
+            <div className="  p-2 space-y-2 fdc:place-self-center ">
+              <div className="fdc:max-w-[320px] tdc:max-w-[300px] ftdc:max-w-[330px] fvdc:max-w-[420px] space-y-2">
+                <div className="grid space-y-1  ftdc:space-y-3">
+                  <FirstHeading />
+                  <RegisterWithGoogleHead />
+                </div>
+                <form onSubmit={handleRegisterSubmit} className=" space-y-4 ">
+                  <p
+                    className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
                   >
-                    <input
-                      disabled={disabled}
-                      required
-                      type="select"
-                      value={consultant}
-                      onChange={(consultant) => setConsultant(consultant)}
-                      placeholder="Select Consultant"
-                      className="pointer-events-none bg-[#384063] block  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none border-2  border-[#F2994A]"
-                    />
-                    <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
-                      <img
-                        alt=""
-                        src={Down}
-                        className="h-4 text-gray-700 cursor-pointer hover:"
-                      ></img>
+                    Farmer with that Email Already Exists.
+                  </p>
+                  <p
+                    className={`mt-2 ${successText} peer-invalid:visible text-green-600 text-sm`}
+                  >
+                    Sucessfully Created Account.
+                  </p>
+                  <div className="">
+                    <label
+                      className="
+              text-[16px] tdc:text-[#E4E6F2]
+              "
+                    >
+                      Consultant <span className="text-[#D44453]">*</span>
+                    </label>
+                    {/* <br /> */}
+                    <div className="  outline-2 text-white w-full     ">
+                      <div className="relative ">
+                        <div
+                          className="relative"
+                          onClick={handleConsultantDivClicked}
+                        >
+                          <input
+                            disabled={disabled}
+                            required
+                            type="select"
+                            value={consultant}
+                            onChange={(consultant) => setConsultant(consultant)}
+                            placeholder="Select Consultant"
+                            className="pointer-events-none bg-[#384063] block h-[50px]  w-full py-1 fdc:p-2   fvdc:p-2 rounded-md outline-none "
+                          />
+                          <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                            <img
+                              alt=""
+                              src={Down}
+                              className="h-4 text-gray-700 cursor-pointer hover:"
+                            ></img>
+                          </div>
+                        </div>
+                        <ul
+                          ref={dropDownRef}
+                          className={
+                            hideConsultant
+                              ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange rounded-md"
+                              : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange rounded-md"
+                          }
+                        >
+                          {data
+                            ? data.map((consultant_) => {
+                                return (
+                                  <li
+                                    key={consultant_.id}
+                                    onClick={handleConsultantClicked}
+                                    value={consultant_.id}
+                                    title={consultant_.full_name}
+                                    className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2"
+                                  >
+                                    {consultant_.full_name}
+                                  </li>
+                                );
+                              })
+                            : null}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <ul
-                    ref={dropDownRef}
-                    className={
-                      hideConsultant
-                        ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange-400 rounded-md"
-                        : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange-400 rounded-md"
-                    }
-                  >
-                    {data
-                      ? data.map((consultant_) => {
-                          return (
-                            <li
-                              key={consultant_.id}
-                              onClick={handleConsultantClicked}
-                              value={consultant_.id}
-                              title={consultant_.full_name}
-                              className="bg-[#1F2937] hover:bg-[#161C24] cursor-pointer  py-1 fdc:p-2 tdc:py-1  fvdc:p-2"
-                            >
-                              {consultant_.full_name}
-                            </li>
-                          );
-                        })
-                      : null}
-                  </ul>
-                </div>
+                  <div className=" ">
+                    <label className="text[16px] tdc:text-[#E4E6F2] grid grid-cols-2">
+                      <span>
+                        {" "}
+                        Phone <span className="text-[#D44453]"></span>{" "}
+                      </span>
+                      <span className="justify-self-end">(Optional)</span>
+                    </label>
+                    <div className="rounded-md">
+                      <PhoneInput
+                        country={"us"}
+                        value={phone}
+                        onChange={(phone) => setPhone(phone)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex  space-x-2 font-semibold">
+                    <div className="">
+                      <label
+                        htmlFor="check-box-1"
+                        className="relative cursor-pointer"
+                      >
+                        <input
+                          checked={termsCondition}
+                          onChange={handleTermsAndConditionTicked}
+                          type="checkbox"
+                          id="check-box-1"
+                          className=" appearance-none	h-6 w-6 border border-[#F2994A] rounded-lg"
+                        />
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          className="h-6 w-6 absolute  text-xl check-1 transition text-[#F2994A] -ml-6 text-opacity-0"
+                        />
+                      </label>
+                    </div>
+                    <span className="text-[#B4B5BF]">I accept</span>
+                    <a href="/" className="text-[#F2994A] font-bold">
+                      terms of service
+                    </a>
+                  </div>
+                  <div className="space-y-2 ">
+                    <button
+                      disabled={registerDisabled}
+                      className={
+                        isLoading
+                          ? `border border-[#F2994A] grid w-full h-[50px] bg-[""] text-white rounded-md text-center`
+                          : `w-full p-1  h-[50px] bg-change bg-[${registerColor}] text-white rounded-md text-center`
+                      }
+                    >
+                      {isLoading ? (
+                        <img
+                          src={LoaderPng}
+                          className="h-fit place-self-center animate-spin"
+                          alt=""
+                        ></img>
+                      ) : (
+                        "Register"
+                      )}
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-            <div className=" ">
-              <label className="text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2] grid grid-cols-2">
-                <span>
-                  {" "}
-                  Phone <span className="text-[#D44453]"></span>{" "}
-                </span>
-                <span className="justify-self-end">(Optional)</span>
-              </label>
-              <div className="rounded-md">
-                <PhoneInput
-                  country={"us"}
-                  value={phone}
-                  onChange={(phone) => setPhone(phone)}
-                />
-              </div>
-            </div>
-            <div className="flex  space-x-2 font-semibold">
-              <div className="">
-                <label
-                  htmlFor="check-box-1"
-                  className="relative cursor-pointer"
-                >
-                  <input
-                    checked={termsCondition}
-                    onChange={handleTermsAndConditionTicked}
-                    type="checkbox"
-                    id="check-box-1"
-                    className=" appearance-none	h-6 w-6 border border-[#F2994A] rounded-lg"
-                  />
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    className="h-6 w-6 absolute  text-xl check-1 transition text-[#F2994A] -ml-6 text-opacity-0"
-                  />
-                </label>
-              </div>
-              <span className="text-[#B4B5BF]">I accept</span>
-              <a href="/" className="text-[#F2994A] font-bold">
-                terms of service
-              </a>
-            </div>
-            <div className="space-y-2 ">
-              <button
-                disabled={registerDisabled}
-                className={
-                  isLoading
-                    ? `border border-[#F2994A] grid w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-[""] text-white rounded-md text-center`
-                    : `w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-change bg-[${registerColor}] text-white rounded-md text-center`
-                }
-              >
-                {isLoading ? (
-                  <img
-                    src={LoaderPng}
-                    className="h-fit place-self-center animate-spin"
-                    alt=""
-                  ></img>
-                ) : (
-                  "Register"
-                )}
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
