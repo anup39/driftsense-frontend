@@ -14,7 +14,7 @@ export default function RegisterTitle() {
       <div
         className="
             justify-self-center  tdc:text-[#E4E6F2]
-            text-xs fdc:text-sm tdc:text-xs
+            text-[18px]
             "
       >
         <span>Already have an Account ?</span>
