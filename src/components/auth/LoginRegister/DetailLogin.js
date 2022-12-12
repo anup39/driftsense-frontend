@@ -8,7 +8,7 @@ export default function DetailLogin() {
           text-white
           font-bold
           text-[36px]
-          leading-1"
+          leading-10"
         >
           Keep track on your <br /> spraying times
         </h1>

@@ -123,10 +123,10 @@ export default function Login(props) {
 
   return (
     <>
-      <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
+      <div className="tdc:bg-authslate bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
 
-        <div className=" p-2 space-y-4 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
+        <div className=" p-2 space-y-3 fdc:place-self-center  fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
           <div className="grid space-y-2  ftdc:space-y-3">
             <HeaderTitle />
           </div>
@@ -145,10 +145,10 @@ export default function Login(props) {
             <div className="">
               <label
                 className="
-                  text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+                  text-[16px] tdc:text-[#E4E6F2]
                   "
               >
-                Email <span className="text-[#D44453]">*</span>
+                Email <span className="text-pinkred">*</span>
               </label>
               <br />
               <input
@@ -160,20 +160,21 @@ export default function Login(props) {
                       border-2
                       border-transparent
                       focus:border-2 
-                      focus:border-[#F2994A] 
+                      focus:border-orange
                       outline-none
-                      bg-[#384063] t
+                      bg-formblue 
                       text-white
                       w-full
                       py-1 fdc:p-2 tdc:py-1  fvdc:p-2
                       rounded-md
+                      min-h-[50px]
                  "
               />
             </div>
             <div className="">
               <label
                 className="
-                  text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+                text-[16px] tdc:text-[#E4E6F2]
                   "
               >
                 Password <span className="text-[#D44453]">*</span>
@@ -186,17 +187,17 @@ export default function Login(props) {
                   type={show}
                   placeholder="Enter Password"
                   className="
-                      border-2
-                      border-transparent
-                      focus:border-2 
-                      focus:border-[#F2994A]
-                      outline-none
-                    bg-[#384063] 
-                    text-white
-                    w-full
-                    py-1 fdc:p-2  tdc:py-1 fvdc:p-2
-                    rounded-md
-                    block"
+                  border-2
+                  border-transparent
+                  focus:border-2 
+                  focus:border-orange
+                  outline-none
+                  bg-formblue 
+                  text-white
+                  w-full
+                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+                  rounded-md
+                  min-h-[50px]"
                 ></input>
 
                 <div

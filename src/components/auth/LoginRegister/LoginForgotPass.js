@@ -5,7 +5,7 @@ export default function LoginForgotPass() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="grid justify-items-end text-[#F2994A] font-semibold text-sm">
+      <div className="grid justify-items-end text-orange font-bold text-[18px]">
         <button
           onClick={() => {
             navigate("/forgot-password");

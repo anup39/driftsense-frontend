@@ -13,21 +13,19 @@ const NormalLoginButton = (props) => {
     }
   }, [type]);
   return (
-    <div className="space-y-2">
-      <button
-        className={`border border-[#F2994A] grid w-full p-1  fdc:p-2 tdc:p-1 fvdc:p-2 bg-[${bg}] text-white rounded-md text-center`}
-      >
-        {type ? (
-          <img
-            src={LoaderPng}
-            className="h-fit place-self-center animate-spin"
-            alt=""
-          ></img>
-        ) : (
-          text
-        )}
-      </button>
-    </div>
+    <button
+      className={`border border-orange grid w-full  content-center bg-[${bg}] min-h-[50px] text-[20px] text-white rounded-md text-center`}
+    >
+      {type ? (
+        <img
+          src={LoaderPng}
+          className="h-fit place-self-center animate-spin"
+          alt=""
+        ></img>
+      ) : (
+        text
+      )}
+    </button>
   );
 };
 
