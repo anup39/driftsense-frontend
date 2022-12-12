@@ -148,9 +148,9 @@ export default function Register() {
       <div className="h-screen">
         <div className="tdc:bg-[#161C24] bg-transparent grid tdc:grid-cols-2 space-y-2  fdc:space-y-5 tdc:space-y-2  h-full">
           <HeaderRegister />
-          <div className="tdc:bg-[#161C24]   w-full grid justify-items-center">
+          <div className="tdc:bg-[#161C24]   w-full grid justify-items-center fvdc:py-[34px]">
             <div className="  p-2 space-y-2 fdc:place-self-center ">
-              <div className="fdc:max-w-[320px] tdc:max-w-[300px] ftdc:max-w-[330px] fvdc:max-w-[420px]">
+              <div className="fdc:max-w-[320px] tdc:max-w-[300px] ftdc:max-w-[330px] fvdc:max-w-[420px] space-y-2">
                 <div className="grid space-y-1  ftdc:space-y-3">
                   <FirstHeading />
                   <RegisterTitle />
@@ -168,8 +168,8 @@ export default function Register() {
                   </p>
                   <div className="">
                     <label
-                      className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+                      className=" text-[16px]
+               tdc:text-[#E4E6F2]
               "
                     >
                       Fullname <span className="text-[#D44453]">*</span>
@@ -199,8 +199,8 @@ export default function Register() {
                   </div>
                   <div className="">
                     <label
-                      className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+                      className=" text-[16px]
+               tdc:text-[#E4E6F2]
               "
                     >
                       Email <span className="text-[#D44453]">*</span>
@@ -230,8 +230,8 @@ export default function Register() {
                   </div>
                   <div className="">
                     <label
-                      className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+                      className=" text-[16px]
+               tdc:text-[#E4E6F2]
               "
                     >
                       Password <span className="text-[#D44453]">*</span>
@@ -285,9 +285,9 @@ export default function Register() {
                   </div>
                   <div className="">
                     <label
-                      className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
-              "
+                      className=" text-[16px]
+                   tdc:text-[#E4E6F2]
+                  "
                     >
                       Consultant <span className="text-[#D44453]">*</span>
                     </label>
@@ -343,7 +343,7 @@ export default function Register() {
                     </div>
                   </div>
                   <div className=" ">
-                    <label className="text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2] grid grid-cols-2">
+                    <label className=" tdc:text-[#E4E6F2] grid grid-cols-2">
                       <span>
                         {" "}
                         Phone <span className="text-[#D44453]"></span>{" "}
@@ -387,8 +387,8 @@ export default function Register() {
                       disabled={registerDisabled}
                       className={
                         isLoading
-                          ? `border border-[#F2994A] grid w-full  bg-[#929292] text-white rounded-md text-center`
-                          : `w-full  bg-change bg-[${registerColor}] text-white rounded-md text-center`
+                          ? `border border-[#F2994A] grid w-full min-h-[50px] bg-[#929292] text-white rounded-md text-[20px] text-center`
+                          : `w-full min-h-[50px]  bg-change bg-[${registerColor}] text-white rounded-md text-center text-[20px]`
                       }
                     >
                       {isLoading ? (
@@ -403,7 +403,7 @@ export default function Register() {
                     </button>
                   </div>
                 </form>
-                <div className="space-y-2">
+                <div className="">
                   <GoogleLogin
                     clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     render={(renderProps) => (

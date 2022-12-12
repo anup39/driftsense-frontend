@@ -15,7 +15,8 @@ export default function DetailLogin() {
         <p
           className="
           text-white
-          text-xs fdc:text-sm tdc:text-xs fvdc:text-sm
+          text-[16px]
+          font-medium
           "
         >
           Together we will schedule the times for the most
