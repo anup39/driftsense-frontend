@@ -11,7 +11,7 @@ export default function FileUpload() {
     <>
       <div className="space-y-5">
         <div className="text-4xl font-semibold text-white">Add New Sprayer</div>
-        <div className="h-[500px] bg-[#3C4752] rounded-md relative space-y-3">
+        <div className="h-[600px] bg-[#3C4752] rounded-md relative space-y-3 grid content-center">
           <div className="flex justify-center w-full text-white text-2xl  py-5">
             Upload File
           </div>

@@ -22,7 +22,7 @@ export default function GearList() {
     }
   };
   return (
-    <div className="bg-[#E9E9E9] grid  relative max-h-screen">
+    <div className="bg-[#E9E9E9] grid  relative h-screen">
       <div className="h-[10vh]">
         <GearHeading />
       </div>
@@ -55,12 +55,12 @@ export default function GearList() {
       </div>
       <div className="   w-full h-[10vh] grid content-end">
         <div className="px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-2  bg-[#212B36] flex space-x-4  justify-end">
-          <button className=" flex ring-2 ring-orange-500 space-x-2 bg-white p-2 rounded-md  text-lg ">
+          <button className=" flex focus:ring-2 focus:ring-orange space-x-2 bg-white p-2 rounded-md  text-lg ">
             <img src={LeftBlack} alt="" className="h-3 mt-2"></img>
             <span>Back</span>
           </button>
           {/* Changed Button to a for linking you can replce the tag a to button if needed */}
-          <button className="flex ring-2 ring-orange-500 space-x-2  bg-white p-2 rounded-md text-black text-lg ">
+          <button className="flex focus:ring-2 focus:ring-orange space-x-2  bg-white p-2 rounded-md text-black text-lg ">
             <span>Next</span>
             <img src={BlackRight} alt="" className="h-3 mt-2"></img>
           </button>
