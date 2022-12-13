@@ -1,7 +1,7 @@
 import React from "react";
 import "../MainList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { toggleCreateGear } from "../../../../../reducers/createGearSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -120,10 +120,23 @@ export default function LineList() {
 
                   <div className="  justify-self-end  py-3 px-3">
                     <div className="flex space-x-1">
-                      <input
-                        type="checkbox"
-                        className="h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
-                      ></input>
+                      <div className="cursor-pointer  ">
+                        <label
+                          htmlFor="check-box-1"
+                          className="relative h-[40px] w-[40px]"
+                        >
+                          <input
+                            type="checkbox"
+                            id="check-box-1"
+                            className=" appearance-none	  h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
+                          />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            className="h-8 w-8 absolute left-0 px-1 py-1 text-2xl check-1 transition text-[#F2994A] text-opacity-0"
+                          />
+                        </label>
+                      </div>
+
                       <button
                         onClick={handleEditGear}
                         className="h-[40px] w-[40px] rounded-full  flex items-center justify-center bg-white"
