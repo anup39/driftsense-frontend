@@ -1,0 +1,9 @@
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: ' ';
+  
+    -webkit-user-select: none;
+  
+  }

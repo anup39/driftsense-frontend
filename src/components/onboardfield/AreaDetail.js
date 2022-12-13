@@ -19,6 +19,7 @@ import {
   useGetCropGeometryByIDQuery,
 } from "./../../api/fieldApi";
 import "./Number.css";
+import { useUpdateFarmerMutation } from "../../api/authApi";
 import GeoJSON from "ol/format/GeoJSON";
 import { Vector as VectorSource } from "ol/source";
 import OLVectorLayer from "ol/layer/Vector";
@@ -36,6 +37,7 @@ import {
   changeAreaDetials,
   changeAreaDetialsExtra,
 } from "../../reducers/areaDetailsSlice";
+import { setFieldOnboard } from "../../reducers/authSlice";
 
 export default function AreaDetail(props) {
   const dispatch = useDispatch();
@@ -96,7 +98,18 @@ export default function AreaDetail(props) {
   const { data: data_crop_geometry_id, isSuccess: is_success_geometry } =
     useGetCropGeometryByIDQuery(crop_geometry_id);
 
+  const [updateFarmer, { isSuccess: is_success_update_farmer }] =
+    useUpdateFarmerMutation();
+  console.log(is_success_update_farmer, "farmer update");
+
   console.log(data_crop_type_id, data_crop_geometry_id);
+
+  useEffect(() => {
+    if (is_success_update_farmer) {
+      dispatch(setFieldOnboard(true));
+      localStorage.setItem("field_onboard_complete", true);
+    }
+  }, [is_success_update_farmer, dispatch]);
 
   useEffect(() => {
     if (is_success_type) {
@@ -191,6 +204,7 @@ export default function AreaDetail(props) {
       };
 
       createField(details_data);
+      updateFarmer({ id: farmer, body: { is_field_onboard_completed: true } });
       dispatch(toggleFormCreate(true));
     } else {
       console.log("details data edited");
@@ -576,21 +590,23 @@ export default function AreaDetail(props) {
                 </div>
                 {/* Approve button here */}
                 {/* On Edit Show on add hidden*/}
-                <div className="pb-5 flex px-4 pt-5 hidden ">
-                  {!create ? (
-                    <div
-                      onClick={handleDelete}
-                      className=" bg-[red] flex  cursor-pointer text-sm text-white  flex-row gap-1 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]"
-                    >
-                      Delete
-                      {/* #1BB66E onactive*/}
-                    </div>
-                  ) : null}
+                <div className="hidden">
+                  <div className="pb-5 flex px-4 pt-5">
+                    {!create ? (
+                      <div
+                        onClick={handleDelete}
+                        className=" bg-[red] flex  cursor-pointer text-sm text-white  flex-row gap-1 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]"
+                      >
+                        Delete
+                        {/* #1BB66E onactive*/}
+                      </div>
+                    ) : null}
 
-                  <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
-                    Approve
-                    {/* #1BB66E onactive*/}
-                  </button>
+                    <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
+                      Approve
+                      {/* #1BB66E onactive*/}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
