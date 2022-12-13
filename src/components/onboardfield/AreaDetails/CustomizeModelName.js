@@ -12,21 +12,21 @@ export default function CustomizeModelName(props) {
     <>
       <div className="space-y-5">
         <div>
-          <p className="block text-2xl text-orange  font-medium">
+          <p className="block text-[20px] text-orange  font-medium">
             Customized Location Name
           </p>
-          <p className="block text-xs text-neutral ">
+          <p className="block text-[12px] text-neutral ">
             Add Custom Name for Your Location
           </p>
         </div>
         <div className="space-y-3">
-          <p className="block text-xs text-white ">Selected Location</p>
+          <p className="block text-[12px] text-white ">Selected Location</p>
 
           <p className="grid grid-cols-12 space-x-2 text-neutraladdress font-medium">
-            <img alt="" src={Location} className="text-2xl    h-auto"></img>
+            <img alt="" src={Location} className="h-auto"></img>
 
             {create ? (
-              <span className="col-span-11">
+              <span className="col-span-11 text-[16px]">
                 {layers.length !== 0 ? layers[0].location : null}
               </span>
             ) : (

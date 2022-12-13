@@ -23,6 +23,7 @@ module.exports = {
       white: "#ffffff",
       black: "#000000",
       orange: "#F2994A",
+      orangearea: "#FEBB6D",
       gray: "#929292",
       authslate: "#161C24",
       authgray: "#D8DAE5",

@@ -18,6 +18,7 @@ import {
   useGetCropTypeByIDQuery,
   useGetCropGeometryByIDQuery,
 } from "./../../api/fieldApi";
+import "./Number.css";
 import GeoJSON from "ol/format/GeoJSON";
 import { Vector as VectorSource } from "ol/source";
 import OLVectorLayer from "ol/layer/Vector";
@@ -278,14 +279,14 @@ export default function AreaDetail(props) {
 
   return (
     <>
-      <div className="w-full px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-3 absolute z-50  overflow-hidden">
+      <div className="w-full px-2 sdc:px-4 tdc:px-6 fdc:px-10 py-3 absolute z-50  ">
         <div className="  bg-authslate/80  rounded-md">
           <form onSubmit={handleAreaDetailSubmit}>
             <div className="flex justify-center items-center  h-[80vh]">
               <div className=" mx-auto bg-authslate border-2 border-orange opacity-[0.95] rounded-lg space-y-2">
-                <div className="border-b border-[#71C1C7] p-4">
+                <div className="border-b border-[#71C1C7] px-8 py-4">
                   <div className="grid grid-cols-2">
-                    <div className="block text-2xl font-semibold text-white">
+                    <div className="block text-[24px] font-semibold text-white">
                       Area Detail
                     </div>
                     <div
@@ -296,7 +297,7 @@ export default function AreaDetail(props) {
                     </div>
                   </div>
                 </div>
-                <div className="tdc:flex grid p-4 space-y-5 tdc:space-y-0">
+                <div className="tdc:flex space-x-[115px] grid pl-8 mr-16 py-4 space-y-5 tdc:space-y-0">
                   <div className="basis-4/12">
                     <CustomizeModelName
                       selected_location={selected_location}
@@ -307,7 +308,7 @@ export default function AreaDetail(props) {
                     <PlotDetailTitle />
                     {/* Plot Name  */}
                     <div className="">
-                      <label className="block text-xs text-orange  font-medium">
+                      <label className="block text-[12px] text-orange  font-medium">
                         Plot Name
                       </label>
                       <input
@@ -333,16 +334,16 @@ export default function AreaDetail(props) {
                               className="relative w-full h-[48px]"
                             >
                               {/* image here selected */}
-                              <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm space-x-3">
+                              <div className=" absolute inset-y-0 left-0 pl-3 grid grid-cols-2 h-[48px] space-x-1 content-center">
                                 <img
                                   alt=""
                                   src={Crop}
-                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                  className=" text-black text-2xl cursor-pointer"
                                 ></img>
                                 <img
                                   alt=""
                                   src={cropTypeImage}
-                                  className="-mt-2 h-6 rounded-full text-black text-2xl cursor-pointer"
+                                  className=" h-6 rounded-full text-black text-2xl cursor-pointer"
                                 ></img>
                               </div>
                               <input
@@ -351,10 +352,10 @@ export default function AreaDetail(props) {
                                 type="select"
                                 value={cropType}
                                 onChange={(cropType) => setCropType(cropType)}
-                                className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-20 p-2 rounded-t-md  border-black border-t border-l border-r"
+                                className="pointer-events-none w-full h-[48px] outline-none bg-white text-[#7C7C7C] block  pl-20 p-2 rounded-t-md  border-black border-t border-l border-r"
                                 placeholder="Crop Type"
                               />
-                              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                              <div className=" absolute inset-y-1 right-0 pr-3 h-[48px] grid content-center">
                                 <FontAwesomeIcon
                                   icon={faAngleDown}
                                   className="-mt-2 text-black text-2xl cursor-pointer"
@@ -417,11 +418,11 @@ export default function AreaDetail(props) {
                               className="relative  w-full h-[48px] -z-10"
                             >
                               {/* image here selected */}
-                              <div className=" absolute inset-y-0 left-0 pl-3 flex items-center text-sm">
+                              <div className=" absolute inset-y-0 left-0 pl-3 h-[48px] grid content-center">
                                 <img
                                   alt=""
                                   src={Geometry}
-                                  className="-mt-2 text-black text-2xl cursor-pointer"
+                                  className="  text-black text-2xl cursor-pointer"
                                 ></img>
                               </div>
                               <input
@@ -432,10 +433,10 @@ export default function AreaDetail(props) {
                                 onChange={(cropGeometry) =>
                                   setCropGeometry(cropGeometry)
                                 }
-                                className="pointer-events-none w-full outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r"
+                                className="pointer-events-none w-full h-[48px] outline-none bg-white text-[#7C7C7C] block  pl-12 p-2 rounded-t-md  border-black border-t border-l border-r"
                                 placeholder="Crop Geometry"
                               />
-                              <div className=" absolute inset-y-0 right-0 pr-3 flex items-center text-sm">
+                              <div className=" absolute inset-y-1 right-0 pr-3 h-[48px] grid content-center">
                                 <FontAwesomeIcon
                                   icon={faAngleDown}
                                   className="-mt-2 text-black text-2xl cursor-pointer"
@@ -498,7 +499,7 @@ export default function AreaDetail(props) {
                               </p>
                             </div>
                             <div className="flex p-2  gap-2 ftdc:gap-3 justify-start items-center   ">
-                              <div className="text-white  -mt-2 ftdc:mt-0">
+                              <div className="text-white text-[12px] -mt-2 ftdc:mt-0">
                                 Hours
                               </div>
                               <div className="   ">
@@ -517,7 +518,7 @@ export default function AreaDetail(props) {
                                   onChange={(event) =>
                                     setSprayDHour(event.target.value)
                                   }
-                                  className="outline-none rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] "
+                                  className="outline-none   remove rounded-lg text-lg ftdc:text-xl pl-4 tdc:h-[30px] h-[50px] w-[50px] tdc:w-[30px] ftdc:h-[50px] ftdc:w-[50px] "
                                 />
                                 <center>
                                   <div>
@@ -528,7 +529,7 @@ export default function AreaDetail(props) {
                                   </div>
                                 </center>
                               </div>
-                              <div className="text-white -mt-2 ftdc:mt-0">
+                              <div className="text-white -mt-2 text-[12px] ftdc:mt-0">
                                 {" "}
                                 Minutes
                               </div>
@@ -566,8 +567,16 @@ export default function AreaDetail(props) {
                     </div>
                   </div>
                 </div>
+                {/* On add Show on edit hidden */}
+                <div className="w-full flex justify-center pb-5 ">
+                  <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
+                    Approve
+                    {/* #1BB66E onactive*/}
+                  </button>
+                </div>
                 {/* Approve button here */}
-                <div className="pb-5 flex justify-between px-4 pt-5">
+                {/* On Edit Show on add hidden*/}
+                <div className="pb-5 flex px-4 pt-5 hidden ">
                   {!create ? (
                     <div
                       onClick={handleDelete}
