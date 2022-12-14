@@ -143,15 +143,16 @@ export default function Login(props) {
 
           <form onSubmit={handleLoginSubmit} className="space-y-3">
             <p
-              className={`mt-2 ${errorText} peer-invalid:visible text-pink-600 text-sm`}
+              className={`mt-2 ${errorText} peer-invalid:visible text-[#f2994a] text-sm`}
             >
               {errorTextMessage}
             </p>
             <p
-              className={`mt-2 ${verifiedText} peer-invalid:visible text-${props.color}-600 text-sm`}
+              className={`mt-2 ${verifiedText} peer-invalid:visible text-[#f2994a] text-sm`}
             >
               {props.textVerify}
             </p>
+
             <div className="">
               <label
                 className="
@@ -169,10 +170,10 @@ export default function Login(props) {
                 className="
                       border-2
                       border-transparent
-                      focus:border-2 
+                      focus:border-2
                       focus:border-orange
                       outline-none
-                      bg-formblue 
+                      bg-formblue
                       text-white
                       w-full
                       py-1 fdc:p-2 tdc:py-1  fvdc:p-2
@@ -199,10 +200,10 @@ export default function Login(props) {
                   className="
                   border-2
                   border-transparent
-                  focus:border-2 
+                  focus:border-2
                   focus:border-orange
                   outline-none
-                  bg-formblue 
+                  bg-formblue
                   text-white
                   w-full
                   py-1 fdc:p-2 tdc:py-1  fvdc:p-2

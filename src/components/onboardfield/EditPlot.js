@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "./edit.svg";
-// import MapIcon from "./map.svg";
+import MapIcon from "./map.svg";
 import {
-  // toggleFieldGeomEdit,
+  toggleFieldGeomEdit,
   toggleshowDetailsForm,
   toggleFormCreate,
 } from "../../reducers/createFieldMapSlice";
@@ -40,10 +40,10 @@ export default function EditPlot(props) {
       })
     );
   };
-  // const handelDetailsEditClicked = () => {
-  //   console.log("Details is clicked");
-  //   dispatch(toggleFieldGeomEdit(true));
-  // };
+  const handelDetailsEditClicked = () => {
+    console.log("Details is clicked");
+    dispatch(toggleFieldGeomEdit(true));
+  };
 
   const handleSaveClicked = () => {
     console.log("Saved is clicked");
@@ -58,12 +58,12 @@ export default function EditPlot(props) {
           <img src={EditIcon} alt="" />
           {/* #1BB66E onactive*/}
         </button>
-        {/* <button
+        <button
           onClick={handelDetailsEditClicked}
           className="flex  cursor-pointer   justify-center items-center overflow-hidden h-[60px] w-[60px] bg-white rounded-full"
         >
           <img src={MapIcon} alt="" />
-        </button> */}
+        </button>
       </div>
       <div
         onClick={handleSaveClicked}

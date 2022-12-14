@@ -581,16 +581,8 @@ export default function AreaDetail(props) {
                     </div>
                   </div>
                 </div>
-                {/* On add Show on edit hidden */}
-                <div className="w-full flex justify-center pb-5 ">
-                  <button className=" bg-[#219653] flex  cursor-pointer text-sm text-white  flex-row gap-2.5 justify-center items-center overflow-hidden px-6 py-3  rounded-[0.31rem]">
-                    Approve
-                    {/* #1BB66E onactive*/}
-                  </button>
-                </div>
-                {/* Approve button here */}
-                {/* On Edit Show on add hidden*/}
-                <div className="hidden">
+
+                <div>
                   <div className="pb-5 flex px-4 pt-5">
                     {!create ? (
                       <div
