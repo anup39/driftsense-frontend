@@ -311,7 +311,7 @@ export default function Register() {
                             <img
                               alt=""
                               src={Down}
-                              className="h-4 text-gray-700 cursor-pointer hover:"
+                              className="h-4  cursor-pointer hover:"
                             ></img>
                           </div>
                         </div>
@@ -319,8 +319,8 @@ export default function Register() {
                           ref={dropDownRef}
                           className={
                             hideConsultant
-                              ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange-400 rounded-md"
-                              : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange-400 rounded-md"
+                              ? "z-50  mt-[0.5px] hidden absolute text-center w-full border-2 border-orange rounded-md"
+                              : "z-50  mt-[0.5px]  absolute text-center w-full   border-2 border-orange rounded-md"
                           }
                         >
                           {data

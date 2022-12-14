@@ -1,7 +1,7 @@
 import React from "react";
 import "../MainList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { toggleCreateGear } from "../../../../../reducers/createGearSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -34,16 +34,16 @@ export default function LineList() {
             ? data_gears.map((gear, index) => (
                 <div
                   key={index}
-                  className=" h-[250px] fvdc:flex fvdc:space-x-16  ftdc:space-x-10 bg-[#26323F] rounded-md"
+                  className=" h-[250px]  flex justify-between gap-4 bg-[#26323F] rounded-md"
                 >
-                  <div className="basis-[318px] ">
+                  <div className="w-[318px] col-span-3">
                     <div className=" bg-[#3C4752] rounded-md h-full overflow-x-hidden border-r-4 border-[#F2994A] rounded-r-[80px]">
                       <div className="grid place-content-center h-[230px]">
                         <img src={gear.image} alt="" className=" "></img>
                       </div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-3 space-x-5 place-content-center">
+                  <div className="grid grid-cols-3 col-span-8 space-x-5 h-full content-center justify-center">
                     <div className="grid  space-y-3">
                       <div>
                         <div className="text-[#F2994A] text-sm">Name</div>
@@ -118,12 +118,25 @@ export default function LineList() {
                     </div>
                   </div>
 
-                  <div className="grid grid-rows-1 py-3 px-3">
-                    <div className="grid grid-cols-2 space-x-1">
-                      <input
-                        type="checkbox"
-                        className="h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
-                      ></input>
+                  <div className="  justify-self-end  py-3 px-3">
+                    <div className="flex space-x-1">
+                      <div className="cursor-pointer  ">
+                        <label
+                          htmlFor="check-box-1"
+                          className="relative h-[40px] w-[40px]"
+                        >
+                          <input
+                            type="checkbox"
+                            id="check-box-1"
+                            className=" appearance-none	  h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
+                          />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            className="h-8 w-8 absolute left-0 px-1 py-1 text-2xl check-1 transition text-[#F2994A] text-opacity-0"
+                          />
+                        </label>
+                      </div>
+
                       <button
                         onClick={handleEditGear}
                         className="h-[40px] w-[40px] rounded-full  flex items-center justify-center bg-white"

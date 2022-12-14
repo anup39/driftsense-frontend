@@ -3,7 +3,7 @@ import "../MainList.css";
 import TopEllipse from "../../../assets/topEllipse.png";
 import Tracktor from "../../../assets/tracktor.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleCreateGear } from "../../../../../reducers/createGearSlice";
@@ -40,17 +40,33 @@ export default function BlockTypes() {
                   >
                     <div className="flex">
                       <div className="basis-5/6 relative h-full w-full">
-                        <div className="absolute flex items-center justify-center  px-5">
-                          <img src={gear.image} alt="" className=""></img>
+                        <div className="absolute grid w-[350px] overflow-hidden h-[150px] justify-center content-center  px-5">
+                          <img
+                            src={gear.image}
+                            alt=""
+                            className="h-[137px]"
+                          ></img>
                         </div>
                         <img src={TopEllipse} alt="" className=""></img>
                       </div>
                       <div className="basis-1/6 p-5">
                         <div className="flex space-x-2">
-                          <input
-                            type="checkbox"
-                            className="h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
-                          ></input>
+                          <div className="cursor-pointer  ">
+                            <label
+                              htmlFor="check-box-1"
+                              className="relative h-[40px] w-[40px]"
+                            >
+                              <input
+                                type="checkbox"
+                                id="check-box-1"
+                                className=" appearance-none	  h-[40px] w-[40px] rounded-full border border-[#F2994A]  bg-[#161C24]"
+                              />
+                              <FontAwesomeIcon
+                                icon={faCheck}
+                                className="h-8 w-8 absolute left-0 px-1 py-1 text-2xl check-1 transition text-[#F2994A] text-opacity-0"
+                              />
+                            </label>
+                          </div>
                           <button
                             onClick={handleEditGear}
                             className="h-[40px] w-[40px] rounded-full  flex items-center justify-center bg-white"

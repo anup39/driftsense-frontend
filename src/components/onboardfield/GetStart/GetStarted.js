@@ -13,7 +13,7 @@ export default function GetStarted() {
     <>
       <button
         onClick={handleGetStarted}
-        className="flex ring ring-orange-500 space-x-2 bg-[#212B36] p-2 rounded-md text-white text-lg "
+        className="flex focus:ring focus:ring-orange space-x-2 bg-[#212B36] p-2 rounded-md text-white text-lg cursor-pointer "
       >
         <span>Get Started</span>
         <img src={RightArrow} alt="" className="h-3 mt-2"></img>

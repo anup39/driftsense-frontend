@@ -6,7 +6,7 @@ export default function RegisterWithGoogleHead() {
         className="
             justify-self-center
             font-bold tdc:text-[#E4E6F2]
-            text-xl fdc:text-3xl tdc:text-2xl ftdc:text-4xl
+            text-[40px]
             "
       >
         Register New Account
@@ -14,8 +14,8 @@ export default function RegisterWithGoogleHead() {
 
       <div
         className="
-            justify-self-center  tdc:text-[#E4E6F2]
-            text-xs fdc:text-sm tdc:text-xs
+        justify-self-center  tdc:text-[#E4E6F2]
+        text-[18px]
             "
       >
         <span>Already have an Account ?</span>

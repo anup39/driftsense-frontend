@@ -28,7 +28,7 @@ export default function CalculatedPlotAcreage(props) {
                 {layers.length !== 0 ? layers[0].acerage : null} Acres
               </p>
             ) : (
-              <p className="block w-full text-orange-400 ">
+              <p className="block w-full text-orange">
                 {acerage_already} Acres
               </p>
             )}

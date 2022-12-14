@@ -16,7 +16,7 @@ export default function StartOnBording() {
     <>
       <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
-        <div className="grid">
+        <div className="grid fvdc:py-[34px]">
           <div className=" p-2 space-y-2   flex w-full justify-center   fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] ">
             <div className="space-y-2">
               <FirstHeading />
@@ -48,7 +48,7 @@ export default function StartOnBording() {
               <button
                 onClick={handleStartOnboard}
                 className={`bg-[${!auth_token ? "#929292" : "#219653"}] 
-              p-2 min-w-[420px] fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] rounded-md   text-white`}
+              p-2 min-w-[420px] fdc:min-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px] rounded-md  h-[50px] text-white`}
                 disabled={!auth_token ? true : false}
               >
                 {/* Border in Login and before login */}

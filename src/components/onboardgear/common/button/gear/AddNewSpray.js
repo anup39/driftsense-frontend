@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import { useNavigate } from "react-router-dom";
 import { toggleCreateGear } from "../../../../../reducers/createGearSlice";
 import { useDispatch } from "react-redux";

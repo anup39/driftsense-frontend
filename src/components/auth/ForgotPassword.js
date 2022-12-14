@@ -43,42 +43,58 @@ export default function ForgotPassword() {
     <>
       <div className="tdc:bg-[#161C24] bg-transparent  grid tdc:grid-cols-2  space-y-2  fdc:space-y-5 tdc:space-y-2">
         <HeaderLogin />
-
-        <div className="grid p-2  space-y-2 fdc:place-self-center  fdc:max-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px]">
-          <div className="justify-self-center font-bold tdc:text-[#E4E6F2] text-xl fdc:text-3xl tdc:text-2xl ftdc:text-4xl">
-            Forgot Password
-          </div>
-          <form onSubmit={handleForgotPassSubmit} className="space-y-2">
-            <div className="">
-              <label
-                className="
-              text-sm fdc:text-md tdc:text-sm tdc:text-[#E4E6F2]
+        <div className="tdc:bg-[#161C24]   w-full grid justify-items-center fvdc:py-[34px]">
+          <div className="  p-2 space-y-2 fdc:place-self-center ">
+            <div className="fdc:max-w-[320px] tdc:max-w-[300px] ftdc:max-w-[330px] fvdc:max-w-[420px] space-y-2">
+              <div className="grid p-2  space-y-2 fdc:place-self-center  fdc:max-w-[320px]   tdc:min-w-[300px]   ftdc:min-w-[330px]  fvdc:min-w-[420px]">
+                <div className="justify-self-center font-bold tdc:text-[#E4E6F2] text-[40px]">
+                  Forgot Password
+                </div>
+                <form onSubmit={handleForgotPassSubmit} className="space-y-2">
+                  <div className="">
+                    <label
+                      className="
+              text-[16px] tdc:text-[#E4E6F2]
               "
-              >
-                Email <span className="text-[#D44453]">*</span>
-              </label>
-              <br />
-              <input
-                id="forgotPassEmailInput"
-                required
-                type="text"
-                placeholder="Enter Email Address"
-                className="
-                  outline-2
-                  outline-[#F2994A]
-                  // bg-[#384063] t
-                  text-white
-                  w-full
-                  py-1 fdc:p-2 tdc:py-1  fvdc:p-2
-                  rounded-md
+                    >
+                      Email <span className="text-[#D44453]">*</span>
+                    </label>
+                    <br />
+                    <input
+                      id="forgotPassEmailInput"
+                      required
+                      type="text"
+                      placeholder="Enter Email Address"
+                      className="
+                border-2
+                border-transparent
+                focus:border-2 
+                focus:border-orange
+                outline-none
+                bg-formblue 
+                text-white
+                w-full
+                py-1 fdc:p-2 tdc:py-1  fvdc:p-2
+                rounded-md
+                min-h-[50px]
                 "
-              />
+                    />
+                  </div>
+                  <NormalLoginButton
+                    type={isLoading}
+                    text="Send Password Link"
+                  />
+                </form>
+                <AlertSuccess
+                  bg_color={alertColor}
+                  text={alertText}
+                  show={show}
+                />
+                <ResendLink show={show} />
+                <ForgotPasswordText />
+              </div>
             </div>
-            <NormalLoginButton type={isLoading} text="Send Password Link" />
-          </form>
-          <AlertSuccess bg_color={alertColor} text={alertText} show={show} />
-          <ResendLink show={show} />
-          <ForgotPasswordText />
+          </div>
         </div>
       </div>
     </>

@@ -68,7 +68,7 @@ export default function OnboardingProcess() {
             <button
               disabled={true}
               // onClick={handleFieldSelectionPopup}
-              className=" flex ring-2 ring-orange-500 space-x-2 bg-gray p-2 rounded-md  text-lg "
+              className=" flex focus:ring-2 focus:ring-orange space-x-2 bg-gray p-2 rounded-md  text-lg "
             >
               <img src={LeftBlack} alt="" className="h-3 mt-2"></img>
               <span>Back</span>
@@ -81,7 +81,7 @@ export default function OnboardingProcess() {
                   : false
               }
               onClick={handleFieldSelectionPopup}
-              className={`flex ring-2 ring-orange-500 space-x-2  bg-${
+              className={`flex focus:ring-2 focus:ring-orange  space-x-2  bg-${
                 field_onboard_complete === "false" ||
                 field_onboard_complete === false
                   ? "gray"

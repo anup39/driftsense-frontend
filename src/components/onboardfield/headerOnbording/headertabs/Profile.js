@@ -34,25 +34,32 @@ export default function Profile() {
   };
   return (
     <>
-      <div className=" justify-self-center tdc:justify-self-end flex space-x-5 relative">
-        <div className="">
-          <div className=" grid mt-5 ml-1 ">
-            {full_name ? <p>{full_name}</p> : null}
-          </div>
+      <div className="flex space-x-1">
+        <div className="h-[8vh] grid content-center">
+          <div className="border-l-2 border-orange h-[8vh] grid content-center"></div>
         </div>
-        <img
-          src={ProfileImg}
-          alt=""
-          className="h-[36px] mt-3 rounded-full border border-[#F2994A]"
-          onClick={onToggleClick}
-        ></img>
-        <div className="absolute hidenav mt-10 ml-10" ref={navRef}>
-          <button
-            onClick={handleLogout}
-            className=" h-[36px] mt-3 rounded-full border border-[#F2994A]"
-          >
-            Logout
-          </button>
+        <div className=" justify-self-center tdc:justify-self-end flex space-x-5 relative">
+          <div className="">
+            <div className=" grid mt-3 ml-1 ">
+              {full_name ? <p>{full_name}</p> : null}
+            </div>
+          </div>
+          <img
+            src={ProfileImg}
+            alt=""
+            className="h-[36px] mt-2 rounded-full border border-[#F2994A]"
+            onClick={onToggleClick}
+          ></img>
+          <div className="absolute  hidenav mt-12 z-50 left-0" ref={navRef}>
+            <div className=" bg-orangearea w-[350px] h-[50px]">
+              <button
+                onClick={handleLogout}
+                className=" h-[36px] mt-3 px-16 rounded-full border border-[#F2994A]"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
